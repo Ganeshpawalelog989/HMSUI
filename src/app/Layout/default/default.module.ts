@@ -7,29 +7,58 @@ import { SharedModule } from 'src/app/shared/shared/shared.module';
 import { MatSidenavModule} from '@angular/material/sidenav' 
 //import { PatientDetailsComponent } from './modules/patient-details/patient-details.component';
 import { PatientDetailsComponent } from 'src/app/modules/patient-details/patient-details.component'
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatDatepickerModule} from '@angular/material/datepicker'
-import {MatInputModule} from '@angular/material/input'
-import { MatFormFieldModule } from '@angular/material/form-field';
-import {MatCardModule} from '@angular/material/card';
-import {MatSelectModule} from '@angular/material/select';
-import { MatRadioModule } from '@angular/material/radio';
 import {EmerencyInfoComponent } from 'src/app/modules/emerency-info/emerency-info.component'
+
+import{ForgotPasswordComponent} from 'src/app/modules/forgot-password/forgot-password.component';
+import { ChangePasswordComponent } from 'src/app/modules/change-password/change-password.component';
+import { PatientMedicationDetailsComponent } from 'src/app/modules/patient-medication-details/patient-medication-details.component';
+
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+
+import {  MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatRadioModule} from '@angular/material/radio';
+import { MatFormFieldModule } from "@angular/material/form-field";
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
+import {MatSelectModule} from '@angular/material/select';
+//import {AutocompleteLibModule} from 'angular-ng-autocomplete';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+
 @NgModule({
   declarations: [
     DefaultComponent,
     DashboardComponent,
     PatientDetailsComponent,
-    EmerencyInfoComponent
+    EmerencyInfoComponent,
+    ForgotPasswordComponent,
+    ChangePasswordComponent,
+    PatientMedicationDetailsComponent
+    
   ],
   imports: [
     CommonModule,
     RouterModule,
     SharedModule,
     MatSidenavModule,
+    MatCardModule,
+    MatButtonModule,
+    MatInputModule,
+    MatIconModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatRadioModule,
+    MatFormFieldModule,
+    MatButtonToggleModule,
+    BrowserAnimationsModule,
+    BrowserModule,
+    MatSelectModule,
+    MatAutocompleteModule,
 //     MatDividerModule,
     // FlexLayoutModule,
     // MatCardModule,

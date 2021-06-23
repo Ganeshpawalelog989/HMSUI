@@ -1,0 +1,91 @@
+<form (ngSubmit)="onSubmit()" name="patientmedForm" [formGroup]="patientmedForm"> 
+ 
+    <!-- <mat-card>
+    <mat-card-content> -->
+    
+    <div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    
+     <div class="example-container">
+        <div class="form-container">
+    
+          <mat-form-field   class="example-full-width" appearance="legacy">
+              <mat-label>Drug Id</mat-label>
+              <input formControlName="DrugId" matInput placeholder="Drug Id">
+              <mat-error *ngIf="!patientmedForm.controls['DrugId'].valid">
+                Kindly provide a response
+              </mat-error> 
+          </mat-form-field>
+    
+          <br />
+      
+    
+        <!-- <mat-form-field  class="example-full-width">
+          
+          <input type="text" formControlName="DrugName" placeholder="Drug Name" matInput  [matAutocomplete]="auto"
+          
+          [formControl]="phoneLabelAutocompleteControl">
+          <mat-error *ngFor="let validation of validation_msgs.phoneLabelAutocompleteControl">
+            <div *ngIf="phoneLabelAutocompleteControl.hasError(validation.type)">
+              {{validation.message}}
+            </div>
+          </mat-error>
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-autocomplete>
+           
+        </mat-form-field> -->
+    
+    
+      <br />
+        <mat-form-field class="example-full-width" appearance="legacy">
+          <mat-label>Drug Generic Name</mat-label>
+          <mat-select formControlName="DrugGenericName">
+            <mat-option value="one">First option</mat-option>
+            <mat-option value="two">Second option</mat-option>
+          </mat-select>
+          <mat-error *ngIf="!patientmedForm.controls['DrugGenericName'].valid">
+            This field cannot be empty
+          </mat-error>
+        </mat-form-field>
+      <br />
+        <mat-form-field class="example-full-width" appearance="legacy">
+          <mat-label>Drug Branded Name</mat-label>
+          <mat-select formControlName="DrugBrandedName">
+            <mat-option value="one">First option</mat-option>
+            <mat-option value="two">Second option</mat-option>
+          </mat-select>
+          <mat-error *ngIf="!patientmedForm.controls['DrugBrandedName'].valid">
+            This field cannot be empty
+          </mat-error>
+        </mat-form-field>
+    
+        <br />
+        <mat-form-field class="example-full-width" appearance="legacy">
+          <mat-label>Drug Form</mat-label>
+          <mat-select formControlName="DrugForm">
+            <mat-option value="one">First option</mat-option>
+            <mat-option value="two">Second option</mat-option>
+          </mat-select>
+          <mat-error *ngIf="!patientmedForm.controls['DrugForm'].valid">
+            This field cannot be empty
+          </mat-error>
+        </mat-form-field>
+    <br />
+    
+        <div class="example-button-row">
+          <button mat-flat-button color="primary">Submit</button>
+        </div>
+    
+    
+      
+    
+          
+        </div>
+     </div>
+    
+    </div>
+    <!-- </mat-card-content>
+    </mat-card> -->
+    </form>

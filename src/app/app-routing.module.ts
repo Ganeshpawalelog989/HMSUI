@@ -5,6 +5,9 @@ import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { EmerencyInfoComponent } from './modules/emerency-info/emerency-info.component';
 import { PatientDetailsComponent } from './modules/patient-details/patient-details.component';
 
+import{ForgotPasswordComponent} from 'src/app/modules/forgot-password/forgot-password.component';
+import {ChangePasswordComponent} from 'src/app/modules/change-password/change-password.component';
+import{PatientMedicationDetailsComponent} from 'src/app/modules/patient-medication-details/patient-medication-details.component';
 const routes: Routes = [
   {path : '' , 
   component : DefaultComponent, 
@@ -13,7 +16,18 @@ const routes: Routes = [
   component : DashboardComponent ,
   },
   {path : 'PatientDetails' , component : PatientDetailsComponent},
-  {path : ' EmerencyInfo' , component : EmerencyInfoComponent}
+  
+  {path : ' EmerencyInfo' , component : EmerencyInfoComponent},
+  
+  {path:'forgot-password',
+   component:ForgotPasswordComponent
+  },
+  {path:'change-password',
+   component:ChangePasswordComponent
+  },
+  {path:'patient-medication-details',
+   component:PatientMedicationDetailsComponent
+  }
   ] 
 }
 ];
