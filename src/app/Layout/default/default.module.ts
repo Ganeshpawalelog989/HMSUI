@@ -29,6 +29,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import {MatSelectModule} from '@angular/material/select';
 //import {AutocompleteLibModule} from 'angular-ng-autocomplete';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { VisitDetailsComponent } from 'src/app/modules/visit-details/visit-details.component';
+import { DiagnosisComponent } from 'src/app/modules/diagnosis/diagnosis.component';
+import { ProcedureComponent } from 'src/app/modules/procedure/procedure.component';
+
 
 @NgModule({
   declarations: [
@@ -38,7 +42,10 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     EmerencyInfoComponent,
     ForgotPasswordComponent,
     ChangePasswordComponent,
-    PatientMedicationDetailsComponent
+    PatientMedicationDetailsComponent,
+    VisitDetailsComponent,
+    DiagnosisComponent,
+    ProcedureComponent
     
   ],
   imports: [

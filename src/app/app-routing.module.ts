@@ -8,6 +8,9 @@ import { PatientDetailsComponent } from './modules/patient-details/patient-detai
 import{ForgotPasswordComponent} from 'src/app/modules/forgot-password/forgot-password.component';
 import {ChangePasswordComponent} from 'src/app/modules/change-password/change-password.component';
 import{PatientMedicationDetailsComponent} from 'src/app/modules/patient-medication-details/patient-medication-details.component';
+import { VisitDetailsComponent } from './modules/visit-details/visit-details.component';
+import { DiagnosisComponent } from './modules/diagnosis/diagnosis.component';
+import { ProcedureComponent } from './modules/procedure/procedure.component';
 const routes: Routes = [
   {path : '' , 
   component : DefaultComponent, 
@@ -27,6 +30,17 @@ const routes: Routes = [
   },
   {path:'patient-medication-details',
    component:PatientMedicationDetailsComponent
+  },
+  {path: 'visit-details',
+  component:VisitDetailsComponent
+  },
+  {
+    path: 'diagnosis',
+    component: DiagnosisComponent
+  },
+  {
+    path: 'procedure',
+    component: ProcedureComponent
   }
   ] 
 }

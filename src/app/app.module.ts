@@ -7,9 +7,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule } from '@angular/material/button';
 import { DefaultModule } from './Layout/default/default.module';
 
+
+
+
 @NgModule({
   declarations: [
     AppComponent
+    
+   
+    
     
     
   ],
