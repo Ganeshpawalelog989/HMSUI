@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="row">
+  
+     <div class="col">
+      <form [formGroup]="Allery">
+        <mat-card-title>  
+          <h1 class="title">Alergy Details Form</h1>
+        </mat-card-title>
+         <mat-radio-group name="id">
+            <mat-label>Patient has any known Allergy</mat-label>
+         <mat-radio-button value="1">
+             Yes 
+         </mat-radio-button>
+         <mat-radio-button value="1">
+            No
+        </mat-radio-button>
+        </mat-radio-group>
+        <mat-form-field class="full-width col-4">
+          <mat-select placeholder="Allery Type">
+            <mat-option *ngFor="let al of alergy" [value]="al">
+              {{ al }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="full-width col-4">
+            <mat-select placeholder="Allery Name">
+              <mat-option *ngFor="let al of alergy" [value]="al">
+                {{ al }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          
+          <mat-radio-group name="id">
+            <mat-label> Is Allergy Faltal</mat-label>
+         <mat-radio-button value="1">
+             Yes 
+         </mat-radio-button>
+         <mat-radio-button value="1">
+            No
+        </mat-radio-button>
+        </mat-radio-group>
+        <div class="example-button-row">
+        <button mat-flat-button color="primary">Submit</button>
+      </div>
+       </form>
+     </div>
+    </div>
+  </div>
+  

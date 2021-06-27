@@ -50,7 +50,7 @@ export class PatientDetailsComponent implements OnInit {
     console.log(value);
   }
   
-  patientDetails: FormGroup = this.formBuilder.group({
+   patientDetails: FormGroup = this.formBuilder.group({
     FirstName :['',Validators.required ],
     LastName :['',Validators.minLength],
     DOB :[''],

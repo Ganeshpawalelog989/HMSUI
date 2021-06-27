@@ -1,27 +1,32 @@
-# HMSUI
+npm install
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.4.
+ng add @angular/material
 
-## Development server
+npm i highcharts-angular --save
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+npm i @angular/flex-Layout @angular/cdk
 
-## Code scaffolding
+npm install bootstrap@latest --save
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+add inside style.css
+ @import'~bootstrap/dist/css/bootstrap.min.css';
 
-## Build
+npm install jquery — save
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+node_modules/font-awesome/css/font-awesome.css
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+add inside angular.json 
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+ "node_modules/font-awesome/css/font-awesome.scss",
+ "node_modules/bootstrap/dist/css/bootstrap.min.css"
 
-## Further help
+toast install 
+    npm install ngx-toastr --save
+    npm install @angular/animations --save
+add inside angular.json
+    "node_modules/ngx-toastr/toastr.css"
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+install for modal :
+ng add @ng-bootstrap/ng-bootstrap

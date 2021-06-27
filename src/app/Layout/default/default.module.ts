@@ -5,19 +5,15 @@ import { DashboardComponent } from 'src/app/modules/dashboard/dashboard.componen
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared/shared.module';
 import { MatSidenavModule} from '@angular/material/sidenav' 
-//import { PatientDetailsComponent } from './modules/patient-details/patient-details.component';
 import { PatientDetailsComponent } from 'src/app/modules/patient-details/patient-details.component'
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatDatepickerModule} from '@angular/material/datepicker'
 import {EmerencyInfoComponent } from 'src/app/modules/emerency-info/emerency-info.component'
-
-import{ForgotPasswordComponent} from 'src/app/modules/forgot-password/forgot-password.component';
+import {ForgotPasswordComponent} from 'src/app/modules/forgot-password/forgot-password.component';
 import { ChangePasswordComponent } from 'src/app/modules/change-password/change-password.component';
 import { PatientMedicationDetailsComponent } from 'src/app/modules/patient-medication-details/patient-medication-details.component';
-
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-
 import {  MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -27,8 +23,25 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import {MatSelectModule} from '@angular/material/select';
-//import {AutocompleteLibModule} from 'angular-ng-autocomplete';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { LoginComponent } from 'src/app/modules/login/login.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { RegistrationComponent } from 'src/app/modules/registration/registration.component';
+import { SchedulingComponent } from 'src/app/modules/scheduling/scheduling.component';
+import { AddAppointmentComponent } from 'src/app/modules/scheduling/add-appointment/add-appointment.component';
+import { DeleteAppointmentComponent } from 'src/app/modules/scheduling/delete-appointment/delete-appointment.component';
+import { EditAppointmentComponent } from 'src/app/modules/scheduling/edit-appointment/edit-appointment.component';
+import { PhysicianViewComponent } from 'src/app/modules/physician-view/physician-view.component';
+import { SendnotesComponent } from 'src/app/modules/sendnotes/sendnotes.component';
+import { RecieveNotesComponent } from 'src/app/modules/recieve-notes/recieve-notes.component';
+import { MatToolbarModule } from '@angular/material/toolbar'
+import { AdminComponent } from 'src/app/modules/admin/admin.component';
+import { PatientUserManagementComponent } from 'src/app/modules/admin/patient-user-management/patient-user-management.component';
+import {MatGridListModule } from '@angular/material/grid-list'
+import {MatTableModule} from '@angular/material/table';
+import { HospitalUserComponent } from 'src/app/modules/admin/hospital-user/hospital-user.component';
+import { AlleryComponent } from 'src/app/modules/allery/allery.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +51,20 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     EmerencyInfoComponent,
     ForgotPasswordComponent,
     ChangePasswordComponent,
-    PatientMedicationDetailsComponent
+    PatientMedicationDetailsComponent,
+    LoginComponent,
+    RegistrationComponent,
+    SchedulingComponent,
+    AddAppointmentComponent,
+    DeleteAppointmentComponent,
+    EditAppointmentComponent,
+    PhysicianViewComponent,
+    SendnotesComponent,
+    RecieveNotesComponent,
+    AdminComponent,
+    PatientUserManagementComponent,
+    HospitalUserComponent,
+    AlleryComponent
     
   ],
   imports: [
@@ -59,11 +85,6 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     BrowserModule,
     MatSelectModule,
     MatAutocompleteModule,
-//     MatDividerModule,
-    // FlexLayoutModule,
-    // MatCardModule,
-    // MatPaginatorModule,
-    // MatTableModule
     MatInputModule,
     MatFormFieldModule,
     FormsModule,
@@ -75,7 +96,13 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     MatIconModule,
     MatCardModule,
     MatSelectModule, 
-    MatRadioModule
+    MatRadioModule,
+    HttpClientModule,
+    MatToolbarModule,
+    MatGridListModule ,
+    MatTableModule ,
+    MatSlideToggleModule
+      
   ]
 })
 export class DefaultModule { }

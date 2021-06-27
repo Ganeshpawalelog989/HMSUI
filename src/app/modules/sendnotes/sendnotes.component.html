@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="col">
+  
+     <div class="col">
+    
+<form [formGroup]="sendnotes">
+    <mat-card-title>  
+      <h1 class="title">Send notes </h1>
+    </mat-card-title>
+
+   
+        <mat-form-field appearance="legacy" class="full-width col-4">
+          <mat-label>DOB</mat-label>
+          <input matInput [matDatepicker]="picker">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="full-width col-4">
+            <mat-select placeholder="Receivername">
+              <mat-option *ngFor="let al of alergy" [value]="al">
+                {{ al }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="full-width col-4">
+            <mat-select placeholder="Receiver Designation">
+              <mat-option *ngFor="let al of alergy" [value]="al">
+                {{ al }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          
+          <mat-form-field appearance="legacy" class="full-width col-4" >
+          <mat-label>Message</mat-label>
+            <textarea matInput></textarea>
+          </mat-form-field>
+          <button mat-flat-button color="primary">send notes</button>            
+   </form>
+    </div>
+</div>
