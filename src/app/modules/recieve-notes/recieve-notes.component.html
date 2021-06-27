@@ -33,29 +33,53 @@
 </div>
 
 <div class="container">
-    <table class="table">
-        <thead>
-            <th scope="col">Appointment ID</th>
-            <th scope="col">Meeting Title</th>
-            <th scope="col">Description</th>
-            <th scope="col">Date</th>
-            <th scope="col">Time</th>
-            <th scope="col">Edit History</th>
-            <th scope="col">Actions</th>
-        </thead>
-        <tbody>
-            <tr *ngFor= 'let view of ViewScheduler'>
-                <td><a href="details" data-toggle="modal">{{view.Appointment_Id}}</a></td>
-                <td>{{view.Meeting_Title}}</td>
-                <td>{{view.Description}}</td>
-                <td>{{view.Date}}</td>
-                <td>{{view.Time}}</td>
-                <td>{{view.Edit_History}}</td>
-                <td>
-                    <button class="btn btn-primary" (click)="editDetails()">Edit</button>&nbsp;&nbsp;
-                    <button class="btn btn-danger" (click)="deleteDetails(view.Appointment_Id)">Decline</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <table mat-table   class="mat-elevation-z8">
+
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+      
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+          <th mat-header-cell *matHeaderCellDef> Sender Name </th>
+          <td mat-cell *matCellDef="let element"> </td>
+          
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Sender Designation </th>
+          <td mat-cell *matCellDef="let element"> </td>
+        </ng-container>
+      
+          <!-- Weight Column -->
+         <ng-container matColumnDef="weight">
+          <th mat-header-cell *matHeaderCellDef> Date Time </th>
+          <td mat-cell *matCellDef="let element">  </td>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </ng-container>
+      
+       
+         <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef> message Recieved </th>
+           <td mat-cell *matCellDef="let element" class="action-link"> 
+            <!-- <a >Edit</a> 
+              -->
+      
+           </td> 
+        </ng-container> 
+        <ng-container matColumnDef="symbol">
+          <th mat-header-cell *matHeaderCellDef> Replay </th>
+           <td mat-cell *matCellDef="let element" class="action-link"> 
+           <mat-slide-toggle>edit status:</mat-slide-toggle>
+           </td> 
+        </ng-container> 
+        
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      
+      </table>
+
 </div>

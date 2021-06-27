@@ -19,7 +19,7 @@ export class RecieveNotesComponent implements OnInit {
   Recievednotes()
   {
    console.log("Open Table : ",this.isFlagDetails); 
-  this.ViewScheduler = [
+   this.ViewScheduler = [
     {Appointment_Id :'1',Meeting_Title : 'Polio',Description: 'Diseses',Date:'29/01/2021',Time: '20:08 hrs',Edit_History:'No History'},
     {Appointment_Id :'2',Meeting_Title : 'Sugar',Description: 'Diseses',Date:'29/01/2021',Time: '20:08 hrs',Edit_History:'No History'},
     {Appointment_Id :'3',Meeting_Title : 'Chicken pox',Description: 'Diseses',Date:'29/01/2021',Time: '20:08 hrs',Edit_History:'No History'},
@@ -44,6 +44,7 @@ export class RecieveNotesComponent implements OnInit {
     this.ViewScheduler = this.ViewScheduler.filter(item=>item.Appointment_Id != id);
     console.log(this.ViewScheduler);
   }
+  displayedColumns: string[] = ['position', 'name', 'weight', 'action','symbol'];
 
 }
 
