@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { first } from 'rxjs/operators';
 import {AuthenticationService } from 'src/app/Service/AuthService'
+import { NotificationService } from 'src/app/Service/notification.service';
 
 
 @Component({
@@ -21,7 +22,7 @@ export class LoginComponent implements OnInit {
   constructor(private fb: FormBuilder,
      private service : AuthenticationService,
      private router : Router,
-     private route : ActivatedRoute) {
+     private route : ActivatedRoute , private toastr : NotificationService) {
   }
 
   ngOnInit() {
@@ -69,16 +70,27 @@ export class LoginComponent implements OnInit {
       this.service.login(this.f.email.value, this.f.password.value)
             .pipe(first())
             .subscribe(data=>{
-                this.router.navigate(['/schedule']);
+              this.showSuccessLogin();
+                this.router.navigate(['/scheduling']);
                 console.log("Welcome to Nurse Page");
+     
               },
               error => {
                  // this.alertService.error(error);
+                 this.showErrorLogin();
                  this.router.navigate(['/login']);
                   this.loading = false;
+                  
               });
   }
-
+  showSuccessLogin()
+  {
+    this.toastr.showSuccess("Successfully!!!","You'r logged in");
+  }
+  showErrorLogin()
+  {
+    this.toastr.showSuccess("Error!!!","Username or paswword is incorrect");
+  }
 
 
 }

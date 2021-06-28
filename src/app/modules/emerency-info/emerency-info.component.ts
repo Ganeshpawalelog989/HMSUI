@@ -35,10 +35,10 @@ export class EmerencyInfoComponent implements OnInit {
   EmerencyInfo: FormGroup = this.formBuilder.group({
     FirstName :['',Validators.required ],
     LastName :['',Validators.minLength],
-    Email :[''],
-    HomeAddress :[''],
-    ContantNo :[''],
-    Relation :['']
+    Email :['',Validators.required],
+    HomeAddress :['',Validators.required],
+    ContantNo :['',Validators.required],
+    Relation :['',Validators.required]
    });
 
 

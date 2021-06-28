@@ -42,6 +42,11 @@ import {MatGridListModule } from '@angular/material/grid-list'
 import {MatTableModule} from '@angular/material/table';
 import { HospitalUserComponent } from 'src/app/modules/admin/hospital-user/hospital-user.component';
 import { AlleryComponent } from 'src/app/modules/allery/allery.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { AddDialogContantComponent } from 'src/app/modules/admin/add-dialog-contant/add-dialog-contant.component';
+import { FilterPipe } from 'src/app/pipe/filter.pipe';
+import { ToastContainerModule, ToastrModule } from 'ngx-toastr';
+import { PatientRegistrationComponent } from 'src/app/modules/patient-registration/patient-registration.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +69,13 @@ import { AlleryComponent } from 'src/app/modules/allery/allery.component';
     AdminComponent,
     PatientUserManagementComponent,
     HospitalUserComponent,
-    AlleryComponent
+    AlleryComponent,
+    AddDialogContantComponent,
+    FilterPipe,
+    PatientRegistrationComponent,
+    
+    
+    
     
   ],
   imports: [
@@ -101,8 +112,10 @@ import { AlleryComponent } from 'src/app/modules/allery/allery.component';
     MatToolbarModule,
     MatGridListModule ,
     MatTableModule ,
-    MatSlideToggleModule
-      
+    MatSlideToggleModule,
+    MatDialogModule   ,
+    ToastrModule.forRoot(),
+    ToastContainerModule,
   ]
 })
 export class DefaultModule { }

@@ -102,7 +102,7 @@ export class AddAppointmentComponent implements OnInit {
   BackToScheduleform()
   {
     console.log("Back to Schedule form");
-    this.router.navigate(['']);
+    this.router.navigate(['scheduling']);
   }
 
   editDetails(id : string)

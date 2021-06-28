@@ -1,0 +1,39 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "email": "santosh@gmail.com",
+      "password": "santosh@123",
+      "id": 2
+    },
+    {
+      "email": "santosh@gmail.com",
+      "password": "santosh@123",
+      "id": 3
+    },
+    {
+      "email": "santosh@gmail.com",
+      "password": "santosh@123",
+      "id": 4
+    },
+    {
+      "email": "santosh@gmail.com",
+      "password": "santosh@123",
+      "id": 5
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

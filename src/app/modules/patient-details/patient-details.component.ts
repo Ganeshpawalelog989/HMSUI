@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { validateBasis } from '@angular/flex-layout';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -51,17 +52,17 @@ export class PatientDetailsComponent implements OnInit {
   }
   
    patientDetails: FormGroup = this.formBuilder.group({
-    FirstName :['',Validators.required ],
-    LastName :['',Validators.minLength],
-    DOB :[''],
-    Age :[''],
-    Gender:[''],
-    Race:[''],
-    Ethnicity:[''],
-    Lanaguageknown :[''],
-    Email :[''],
-    HomeAddress :[''],
-    ContantNo :['']
+    FirstName :['',Validators.required,Validators.minLength(2) ],
+    LastName :['',Validators.minLength , Validators.minLength(2)],
+    DOB :['',Validators.required ],
+    Age :['',Validators.required],
+    Gender:['',Validators.required],
+    Race:['',Validators.required],
+    Ethnicity:['',Validators.required],
+    Lanaguageknown :['',Validators.required],
+    Email :['',Validators.required],
+    HomeAddress :['',Validators.required],
+    ContantNo :['',Validators.required]
    });
 
 

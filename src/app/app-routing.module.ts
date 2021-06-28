@@ -21,27 +21,24 @@ import { AdminComponent } from './modules/admin/admin.component';
 import { PatientUserManagementComponent } from './modules/admin/patient-user-management/patient-user-management.component';
 import { HospitalUserComponent } from './modules/admin/hospital-user/hospital-user.component';
 import { AlleryComponent } from './modules/allery/allery.component';
+import { PatientRegistrationComponent } from './modules/patient-registration/patient-registration.component';
 
 const routes: Routes = [
   {path : '' , 
   component : DefaultComponent, 
   children : [
-  { path : 'dashboard' , 
-  component : DashboardComponent ,
-  },
+  { path : 'dashboard' , component : DashboardComponent ,},
+  
   {path : 'PatientDetails' , component : PatientDetailsComponent},
   
   {path : 'emerencyinfo' , component : EmerencyInfoComponent},
   
-  {path:'forgot-password',
-   component:ForgotPasswordComponent
-  },
-  {path:'change-password',
-   component:ChangePasswordComponent
-  },
-  {path:'patient-medication-details',
-   component:PatientMedicationDetailsComponent
-  },
+  {path:'forgot-password', component:ForgotPasswordComponent},
+  
+  {path:'change-password',  component:ChangePasswordComponent},
+  
+  {path:'patient-medication-details',  component:PatientMedicationDetailsComponent},
+  
   {
     path : 'login' , component : LoginComponent
   },
@@ -52,13 +49,11 @@ const routes: Routes = [
     path : 'scheduling' , component : SchedulingComponent
   },
   {
-    path : 'addAppointment' , component : AddAppointmentComponent
+    path : 'addappointment' , component : AddAppointmentComponent
   },
+  { path: 'edit/:id', component: AddAppointmentComponent },
   {
     path : 'deleteAppointment' , component : DeleteAppointmentComponent
-  },
-  {
-    path : 'editAppointment' , component : EditAppointmentComponent
   },
   {
     path : 'physician' , component : PhysicianViewComponent
@@ -81,8 +76,9 @@ const routes: Routes = [
   {
     path : 'allery' , component : AlleryComponent
   },
-  
-  
+  {
+    path : 'patientregister' , component : PatientRegistrationComponent
+  }
   ] 
 }
 ];

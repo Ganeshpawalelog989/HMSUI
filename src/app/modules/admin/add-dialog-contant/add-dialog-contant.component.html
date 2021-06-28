@@ -1,0 +1,64 @@
+<h2 mat-dialog-title>Add User</h2>
+<!-- <mat-dialog-content class="mat-typography">
+</mat-dialog-content> -->
+<!-- <mat-dialog-actions align="end"> -->
+    
+
+<mat-card>
+    <mat-card-content >
+    
+    
+    <form [formGroup]="adduser">
+    
+    <div class="emailInput">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Employee ID</mat-label>
+         
+          <!-- <input formControlName="email" matInput placeholder="Enter email address" required/>
+           -->
+           <input  matInput formControlName="Employeeid" placeholder="First Name" required>
+          </mat-form-field>
+      </div>
+    
+      <div class="emailInput">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Employee Name</mat-label>
+         
+          <!-- <input formControlName="email" matInput placeholder="Enter email address" required/>
+           -->
+           <input  matInput formControlName="EmployeeName" placeholder="Last Name" required>
+           
+           <mat-error *ngIf="!adduser.controls['EmployeeName'].valid">  Employee name is required </mat-error> 
+          </mat-form-field>
+      </div>
+    
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Date of Joining</mat-label>
+        <input matInput formControlName="dob" [matDatepicker]="picker" required>
+        <mat-error *ngIf="!adduser.controls['dob'].valid">  DOB is required </mat-error> 
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <br>
+      <br>
+      <mat-radio-group>
+        <mat-label>staus</mat-label>&nbsp;&nbsp;&nbsp;
+        <mat-radio-button value="1" color="primary">Active&nbsp;</mat-radio-button>  
+        <mat-radio-button value="1" color="primary">UnActive&nbsp;</mat-radio-button>  
+        <mat-radio-button value="2" color="accent">Block&nbsp;</mat-radio-button>  
+    </mat-radio-group> 
+
+    <br/>
+    <br>
+      <div class="example-button-row">
+        <button mat-flat-button color="primary">Submit</button>
+        <button mat-flat-button color="secondary">Cancal</button>
+      </div>
+     
+    </form>    
+    </mat-card-content>
+    </mat-card>
+
+  <!-- <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button> -->
+<!-- </mat-dialog-actions> -->

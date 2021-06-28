@@ -38,7 +38,7 @@ export class SchedulingComponent implements OnInit {
   {
   //  this.flag;
     console.log("Appointment Page Open");
-    this.router.navigate(['add-appointment'])
+    this.router.navigate(['addappointment'])
 
   }
   openEditAppointment()

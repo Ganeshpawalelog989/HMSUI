@@ -29,4 +29,4 @@ add inside angular.json
     "node_modules/ngx-toastr/toastr.css"
 
 install for modal :
-ng add @ng-bootstrap/ng-bootstrap
+ ng add @ng-bootstrap/ng-bootstrap

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { AddAppointmentComponent } from '../../scheduling/add-appointment/add-appointment.component';
+import { AddDialogContantComponent } from '../add-dialog-contant/add-dialog-contant.component';
 
 export interface PeriodicElement {
   name: string;
@@ -34,6 +37,8 @@ const ELEMENT_DATA: PeriodicElement[] = [
 
 export class HospitalUserComponent implements OnInit {
 
+  public searchText : any = "";
+
   isPrint: boolean = true;
 
   myFlagForSlideToggle: boolean = true;
@@ -42,8 +47,7 @@ export class HospitalUserComponent implements OnInit {
  
   isChecked = true;
 
-
-
+  
   displayedColumns: string[] = ['position', 'name', 'weight', 'action','symbol'];
 
   
@@ -51,7 +55,24 @@ export class HospitalUserComponent implements OnInit {
 
 
   
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
+
+  // openDialog() {
+  //   const dialogRef = this.dialog.open();
+
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log(`Dialog result: ${result}`);
+  //   });
+//  }
+  openDialog() {
+  //const dialogRef = this.dialog.open(AddAppointmentComponent);
+  const dialogRef = this.dialog.open(AddDialogContantComponent);
+  dialogRef.afterClosed().subscribe(result => {
+    console.log(`Dialog result: ${result}`);
+  });
+
+}
+
 
   ngOnInit(): void {
   }

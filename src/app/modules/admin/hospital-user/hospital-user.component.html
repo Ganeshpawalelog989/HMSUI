@@ -1,12 +1,18 @@
-
+<form class="form-inline waves-light" mdbWavesEffect >
+  <div class="md-form mt-0">
+    <input class="form-control mr-sm-2" type="text" placeholder="Search" name="Search"  [(ngModel)]="searchText">
+  </div>
+</form>
+<br>
 
 <div>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    <button type="button" class="btn btn-primary"  
+    (click)="openDialog()">
         Add User
       </button>      
 </div>
-
-<table mat-table   [dataSource]="dataSource" class="mat-elevation-z8">
+<br>
+<table mat-table   [dataSource]="dataSource | filter : searchText" class="mat-elevation-z8"  >
 
 
     <!--- Note that these columns can be defined in any order.

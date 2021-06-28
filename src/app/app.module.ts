@@ -9,7 +9,7 @@ import { DefaultModule } from './Layout/default/default.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
     
     
   ],
