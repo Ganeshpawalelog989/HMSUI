@@ -4,7 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AuthenticationService } from 'src/app/Service/AuthService';
 import { UserService } from 'src/app/Service/user.service';
 import { MustMatch } from '../registration/must-match.validator';
-
+import { RegisterUser} from 'src/app/Model/RegisterUser'
 @Component({
   selector: 'app-patient-registration',
   templateUrl: './patient-registration.component.html',
@@ -27,26 +27,21 @@ export class PatientRegistrationComponent implements OnInit {
     this.regiForm = this.formBuilder.group({
 
       firstName: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(20), Validators.pattern('[a-zA-Z]+')]],
-      
-        lastName: ['', Validators.required],
-        email: ['', [Validators.required, Validators.email]],
-        contact : ['',Validators.required],
-       dob:['',[Validators.required]],
-       // role: ['', Validators.required],
-       //Empid:['', Validators.required],
-      // dob: ['', [Validators.required, Validators.pattern(/^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/)]],
-        password: [
-          '',
+      lastName: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      contact : ['',Validators.required],       
+      dob:['',[Validators.required]],
+       password: [ '',
           [
             Validators.required,
             Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')
            ]
         ],
-
-        confirmPassword: ['', Validators.required]
-    }, {
+       confirmPassword: ['', Validators.required]
+     }, 
+     {
         validator: MustMatch('password', 'confirmPassword')
-    });
+     });
 
   }
   

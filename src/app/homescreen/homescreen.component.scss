@@ -1,0 +1,25 @@
+.imgsize{
+    width: 100%;
+  height: 600px; 
+  }
+
+// .btn-image {
+//     background-image: url('https://morweb.org/get/files/image/galleries/This%20guide%20explores%208%20healthcare%20website%20design%20tips%20for%20any%20medical%20professional..jpg" alt="Snow') !important;
+//     background-size: contain; //or cover
+// }
+
+/* Create two equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    height: 600px; /* Should be removed. Only for demonstration */
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  

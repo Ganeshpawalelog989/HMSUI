@@ -1,4 +1,4 @@
-class patientDetails 
+export class patientDetails 
 {
 Firstname : string ='';
 Lastname : string ='';

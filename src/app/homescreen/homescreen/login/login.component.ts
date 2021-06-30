@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Output , EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 // import {UserService} from '../../services/user.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { first } from 'rxjs/operators';
 import {AuthenticationService } from 'src/app/Service/AuthService'
 import { NotificationService } from 'src/app/Service/notification.service';
-
+//import { EventEmitter } from 'stream';
 
 @Component({
   selector: 'app-login',
@@ -13,6 +13,16 @@ import { NotificationService } from 'src/app/Service/notification.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+
+  @Output() Myoutput : EventEmitter<any> =new EventEmitter();
+  outputmessage: string="I am child component";
+  myOutput: any;
+
+  sendValues(){
+    this.myOutput.emit(this.outputmessage);
+    }
+  
+   
 
   hide: boolean = false;
   loading = false;
@@ -94,3 +104,7 @@ export class LoginComponent implements OnInit {
 
 
 }
+function output() {
+  throw new Error('Function not implemented.');
+}
+

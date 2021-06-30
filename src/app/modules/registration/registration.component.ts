@@ -5,6 +5,7 @@ import {AuthenticationService} from 'src/app/Service/AuthService';
 import {Patient} from 'src/app/Model/Patient';
 import {UserService} from 'src/app/Service/user.service'
 import { Router, ActivatedRoute } from '@angular/router';
+import { RegisterUser  } from 'src/app/Model/RegisterUser'
 
 @Component({
   selector: 'app-registration',
@@ -25,27 +26,14 @@ export class RegistrationComponent implements OnInit {
 
   ngOnInit() {
       this.regiForm = this.formBuilder.group({
-
-        firstName: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(20), Validators.pattern('[a-zA-Z]+')]],
         
-          lastName: ['', Validators.required],
-          email: ['', [Validators.required, Validators.email]],
-          contact : ['',Validators.required],
-          role: ['', Validators.required],
-         Empid:['', Validators.required],
-         dob: ['', [Validators.required, Validators.pattern(/^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/)]],
-          password: [
-            '',
-            [
-              Validators.required,
-              Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')
-             ]
-          ],
-
-          confirmPassword: ['', Validators.required]
-      }, {
-          validator: MustMatch('password', 'confirmPassword')
-      });
+        Fname: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(20), Validators.pattern('[a-zA-Z]+')]],
+        Lname : ['', Validators.required],
+        Email : ['', [Validators.required, Validators.email]],
+        RoleId : ['', Validators.required],
+        Dob : ['', [Validators.required]],
+      })
+  
   }
 
  
@@ -55,7 +43,7 @@ export class RegistrationComponent implements OnInit {
 
   onSubmit() {
       this.submitted = true;
-
+        debugger;
       // stop here if form is invalid
       if (this.regiForm.invalid) {
           return;
@@ -88,10 +76,7 @@ export class RegistrationComponent implements OnInit {
     })
   }
 
-  registeCom()
-  {
-    
-  }
+ 
 }
 
 

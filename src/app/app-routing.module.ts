@@ -7,7 +7,7 @@ import { PatientDetailsComponent } from './modules/patient-details/patient-detai
 import{ForgotPasswordComponent} from 'src/app/modules/forgot-password/forgot-password.component';
 import {ChangePasswordComponent} from 'src/app/modules/change-password/change-password.component';
 import{PatientMedicationDetailsComponent} from 'src/app/modules/patient-medication-details/patient-medication-details.component';
-import { LoginComponent } from './modules/login/login.component';
+import { LoginComponent } from './homescreen/homescreen/login/login.component';
 import { combineAll } from 'rxjs/operators';
 import { RegistrationComponent } from './modules/registration/registration.component';
 import { SchedulingComponent } from './modules/scheduling/scheduling.component';
@@ -22,9 +22,28 @@ import { PatientUserManagementComponent } from './modules/admin/patient-user-man
 import { HospitalUserComponent } from './modules/admin/hospital-user/hospital-user.component';
 import { AlleryComponent } from './modules/allery/allery.component';
 import { PatientRegistrationComponent } from './modules/patient-registration/patient-registration.component';
+import { HomescreenComponent } from './homescreen/homescreen.component';
+import { HostipaluserRegistrationComponent } from './homescreen/hostipaluser-registration/hostipaluser-registration.component';
 
 const routes: Routes = [
-  {path : '' , 
+  {path : '' , component : HomescreenComponent,
+   children :[
+      {
+        path : 'hospitaluser' , component : HospitalUserComponent
+      },
+   ]
+  },
+  {
+    path : 'login' , component : LoginComponent
+  },
+  {
+    path : 'registeration' , component : RegistrationComponent
+   },
+   {
+     path : 'patientregistration' ,  component : PatientRegistrationComponent
+   },
+   
+  {path : 'Ab' , 
   component : DefaultComponent, 
   children : [
   { path : 'dashboard' , component : DashboardComponent ,},
@@ -39,12 +58,12 @@ const routes: Routes = [
   
   {path:'patient-medication-details',  component:PatientMedicationDetailsComponent},
   
-  {
-    path : 'login' , component : LoginComponent
-  },
-  {
-    path : 'registeration' , component : RegistrationComponent
-  },
+  // {
+  //   path : 'login' , component : LoginComponent
+  // },
+  // {
+  //   path : 'registeration' , component : RegistrationComponent
+  // },
   {
     path : 'scheduling' , component : SchedulingComponent
   },
@@ -70,15 +89,12 @@ const routes: Routes = [
   {
     path : 'patientuser' , component : PatientUserManagementComponent
   },
-  {
-    path : 'hospitaluser' , component : HospitalUserComponent
-  },
+  
   {
     path : 'allery' , component : AlleryComponent
   },
-  {
-    path : 'patientregister' , component : PatientRegistrationComponent
-  }
+  
+  
   ] 
 }
 ];

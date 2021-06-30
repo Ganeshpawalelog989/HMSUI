@@ -3,19 +3,20 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { Patient } from 'src/app/Model/Patient';
+
+import { RegisterUser } from 'src/app/Model/RegisterUser';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
-    private currentUserSubject: BehaviorSubject<Patient>;
-    public currentUser: Observable<Patient>;
+    private currentUserSubject: BehaviorSubject<RegisterUser>;
+    public currentUser: Observable<RegisterUser>;
 
     constructor(private http: HttpClient) {
-        this.currentUserSubject = new BehaviorSubject<Patient>(JSON.parse(localStorage.getItem('currentUser') || '{}'));
+        this.currentUserSubject = new BehaviorSubject<RegisterUser>(JSON.parse(localStorage.getItem('currentUser') || '{}'));
         this.currentUser = this.currentUserSubject.asObservable();
     }
 
-    public get currentUserValue(): Patient {
+    public get currentUserValue(): RegisterUser {
         return this.currentUserSubject.value;
     }
 
@@ -29,13 +30,14 @@ export class AuthenticationService {
                 console.log(email,password);
                   localStorage.setItem('currentUser', JSON.stringify(user));
                   this.currentUserSubject.next(user);
-                  console.log("Inside the patient");
+                  console.log("Inside the RegisterUser");
                   return user;
             }));
     }
-
-    register(posts : Patient) : Observable<any>
+  
+    register(posts : RegisterUser) : Observable<any>
     {
+      debugger;
       return this.http.post<any>(`${environment.baseUrl}`,posts);
     }
 

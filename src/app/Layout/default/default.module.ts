@@ -25,7 +25,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { LoginComponent } from 'src/app/modules/login/login.component';
+
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RegistrationComponent } from 'src/app/modules/registration/registration.component';
 import { SchedulingComponent } from 'src/app/modules/scheduling/scheduling.component';
@@ -57,7 +57,6 @@ import { PatientRegistrationComponent } from 'src/app/modules/patient-registrati
     ForgotPasswordComponent,
     ChangePasswordComponent,
     PatientMedicationDetailsComponent,
-    LoginComponent,
     RegistrationComponent,
     SchedulingComponent,
     AddAppointmentComponent,
@@ -73,10 +72,7 @@ import { PatientRegistrationComponent } from 'src/app/modules/patient-registrati
     AddDialogContantComponent,
     FilterPipe,
     PatientRegistrationComponent,
-    
-    
-    
-    
+      
   ],
   imports: [
     CommonModule,

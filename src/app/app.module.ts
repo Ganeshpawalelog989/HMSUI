@@ -6,11 +6,10 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule } from '@angular/material/button';
 import { DefaultModule } from './Layout/default/default.module';
-
+import { HomescreenModule } from './homescreen/homescreen/homescreen/homescreen.module';
 @NgModule({
   declarations: [
     AppComponent,
-    
     
   ],
   imports: [
@@ -18,7 +17,8 @@ import { DefaultModule } from './Layout/default/default.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    DefaultModule
+    DefaultModule,
+    HomescreenModule
   ],
   providers: [],
   bootstrap: [AppComponent]

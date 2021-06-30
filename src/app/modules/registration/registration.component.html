@@ -1,3 +1,22 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="navbar-brand" >
+      <div class="table ">
+        <ul  id="horizontal-list" class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a href="" class="nav-link" >HOME</a>
+          </li>
+          <li class="nav-item active">
+            <a href="" class="nav-link" >ABOUT US</a>
+          </li>
+          <li class="nav-item active">
+            <a href="" class="nav-link">CONTACT</a>
+          </li>
+         </ul>
+      </div>
+    
+    </div>
+    </nav>
+    
 
 
 <mat-card>
@@ -24,9 +43,9 @@
          
           <!-- <input formControlName="email" matInput placeholder="Enter email address" required/>
            -->
-           <input  matInput formControlName="firstName" placeholder="First Name" required>
+           <input  matInput formControlName="Fname" placeholder="First Name" required>
            
-         <mat-error *ngIf="!regiForm.controls['firstName'].valid">  First Name is required </mat-error> 
+         <mat-error *ngIf="!regiForm.controls['Fname'].valid">  First Name is required </mat-error> 
           </mat-form-field>
       </div>
     
@@ -37,9 +56,9 @@
          
           <!-- <input formControlName="email" matInput placeholder="Enter email address" required/>
            -->
-           <input  matInput formControlName="lastName" placeholder="Last Name" required>
+           <input  matInput formControlName="Lname" placeholder="Last Name" required>
            
-           <mat-error *ngIf="!regiForm.controls['lastName'].valid">  Last name is required </mat-error> 
+           <mat-error *ngIf="!regiForm.controls['Lname'].valid">  Last name is required </mat-error> 
           </mat-form-field>
       </div>
     
@@ -49,32 +68,33 @@
          
           <!-- <input formControlName="email" matInput placeholder="Enter email address" required/>
            -->
-           <input  matInput formControlName="email" type="email" placeholder="email" required>
-           <mat-error *ngIf="!regiForm.controls['email'].valid">  Email is required </mat-error> 
+           <input  matInput formControlName="Email" type="email" placeholder="email" required>
+           <mat-error *ngIf="!regiForm.controls['Email'].valid">  Email is required </mat-error> 
            <mat-icon matSuffix>email</mat-icon>
            
           </mat-form-field>
       </div>
     
-    
-    
-      <mat-form-field class="full-width" appearance="outline">
+      
+      <!-- <mat-form-field class="full-width" appearance="outline">
         <mat-label>DOB</mat-label>
-        <input matInput formControlName="dob" [matDatepicker]="picker" required>
-        <mat-error *ngIf="!regiForm.controls['dob'].valid">  DOB is required </mat-error> 
+        <input matInput formControlName="Dob " [matDatepicker]="picker" >
+        
+        <mat-error *ngIf="!regiForm.controls['Dob'].valid">  DOB is required </mat-error> 
+
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
-    
+     -->
     <br />
       <mat-form-field class="full-width" appearance="outline">
         <mat-label>Role</mat-label>
-        <mat-select formControlName="role">
+        <mat-select formControlName="RoleId">
           <mat-option value="one">Physician </mat-option>
           <mat-option value="two">Nurse </mat-option>
           <!-- <mat-option value="two">Admin  </mat-option> -->
         </mat-select>
-        <mat-error *ngIf="!regiForm.controls['role'].valid">  role is required </mat-error> 
+        <mat-error *ngIf="!regiForm.controls['RoleId'].valid">  role is required </mat-error> 
       </mat-form-field>
     
     
