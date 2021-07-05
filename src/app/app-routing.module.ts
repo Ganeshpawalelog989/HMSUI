@@ -11,16 +11,20 @@ import{PatientMedicationDetailsComponent} from 'src/app/modules/patient-medicati
 import { VisitDetailsComponent } from './modules/visit-details/visit-details.component';
 import { DiagnosisComponent } from './modules/diagnosis/diagnosis.component';
 import { ProcedureComponent } from './modules/procedure/procedure.component';
+import { SendnotesComponent } from './modules/sendnotes/sendnotes.component';
 const routes: Routes = [
   {path : '' , 
   component : DefaultComponent, 
   children : [
-  { path : '' , 
+  { path : 'dashboard' , 
   component : DashboardComponent ,
   },
+
+  {path : 'sendnotes' , component : SendnotesComponent},
   {path : 'PatientDetails' , component : PatientDetailsComponent},
   
   {path : ' EmerencyInfo' , component : EmerencyInfoComponent},
+ 
   
   {path:'forgot-password',
    component:ForgotPasswordComponent
