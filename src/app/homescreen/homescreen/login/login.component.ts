@@ -39,8 +39,8 @@ export class LoginComponent implements OnInit {
   }
 
   loginForm: FormGroup = this.fb.group({
-    email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.minLength(6)]]
+    Email: ['', [Validators.required, Validators.email]],
+    Password: ['', [Validators.required, Validators.minLength(6)]]
   })
 
 
@@ -66,6 +66,7 @@ export class LoginComponent implements OnInit {
   get f() { return this.loginForm.controls; }
 
   onSubmit() {
+    debugger;
       this.submitted = true;
    // debugger;
       // reset alerts on submit
@@ -77,12 +78,12 @@ export class LoginComponent implements OnInit {
       }
       console.log(this.loginForm.value);
       this.loading = true;
-      this.service.login(this.f.email.value, this.f.password.value)
+      this.service.login(this.f.Email.value, this.f.Password.value)
             .pipe(first())
             .subscribe(data=>{
               this.showSuccessLogin();
-                this.router.navigate(['/scheduling']);
-                console.log("Welcome to Nurse Page");
+                this.router.navigate(['/Ab/dashboard']);
+               
      
               },
               error => {

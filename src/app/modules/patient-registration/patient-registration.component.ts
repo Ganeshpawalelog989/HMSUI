@@ -14,7 +14,7 @@ export class PatientRegistrationComponent implements OnInit {
   regiForm!: FormGroup;
   submitted = false;
   register: any;
- 
+  rid : string = "2";
   constructor(private formBuilder: FormBuilder, 
     private service: UserService,
     private userServ : AuthenticationService,
@@ -26,12 +26,13 @@ export class PatientRegistrationComponent implements OnInit {
   ngOnInit(): void {
     this.regiForm = this.formBuilder.group({
 
-      firstName: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(20), Validators.pattern('[a-zA-Z]+')]],
-      lastName: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      contact : ['',Validators.required],       
-      dob:['',[Validators.required]],
-       password: [ '',
+      Fname: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(20), Validators.pattern('[a-zA-Z]+')]],
+      Lname: ['', Validators.required],
+      Email: ['', [Validators.required, Validators.email]],
+      RoleId : ["2"],
+      ContactNumber : ['',Validators.required],       
+      Dob:['',[Validators.required]],
+       Password: [ '',
           [
             Validators.required,
             Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')
@@ -40,7 +41,7 @@ export class PatientRegistrationComponent implements OnInit {
        confirmPassword: ['', Validators.required]
      }, 
      {
-        validator: MustMatch('password', 'confirmPassword')
+        validator: MustMatch('Password', 'confirmPassword')
      });
 
   }

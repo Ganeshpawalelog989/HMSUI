@@ -40,8 +40,8 @@
               <div class="emailInput">
                 <mat-form-field class="full-width" appearance="outline">
                   <mat-label>Email</mat-label>
-                  <input formControlName="email" matInput placeholder="Enter email address" required/>
-                  <mat-error *ngIf="!loginForm.controls['email'].valid">  Email is required </mat-error>
+                  <input formControlName="Email" matInput placeholder="Enter email address" required/>
+                  <mat-error *ngIf="!loginForm.controls['Email'].valid">  Email is required </mat-error>
                 </mat-form-field>
               </div>
       
@@ -52,14 +52,14 @@
                 <div class="emailInput">
                 <mat-form-field class="full-width" appearance="outline">
                   <mat-label>Password</mat-label>
-                  <input formControlName="password" matInput [type]=" hide ? 'password' : 'text'" required />
+                  <input formControlName="Password" matInput [type]=" hide ? 'Password' : 'text'" required />
                   <button  mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide Password'"
                   [attr.aria-pressed]="hide">
                   <mat-icon>
                       {{hide ? 'visibility_off' : 'visibility'}}
                   </mat-icon>
               </button>
-              <mat-error *ngIf="!loginForm.controls['password'].valid">
+              <mat-error *ngIf="!loginForm.controls['Password'].valid">
                   Password is required
                 </mat-error>  
               </mat-form-field>

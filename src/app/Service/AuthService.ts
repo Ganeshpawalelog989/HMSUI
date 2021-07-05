@@ -21,11 +21,12 @@ export class AuthenticationService {
     }
 
     login(email: string, password: string) {
+      debugger;
         console.log("Inside the Service");
         //  let apiUrl  = `${environment.baseUrl}?`+"email="+email+"&"+"password="+password;
           // console.log("Api Url is here : ",apiUrl);
           console.log(email,password);
-          return this.http.post<any>(`${environment.baseUrl}?`+"email="+email+"&"+"password="+password,{email,password})
+          return this.http.post<any>(`${environment.baseUrlLogin}?`+"email="+email+"&"+"password="+password,{email,password})
               .pipe(map(user => {
                 console.log(email,password);
                   localStorage.setItem('currentUser', JSON.stringify(user));

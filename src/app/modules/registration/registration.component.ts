@@ -31,7 +31,8 @@ export class RegistrationComponent implements OnInit {
         Lname : ['', Validators.required],
         Email : ['', [Validators.required, Validators.email]],
         RoleId : ['', Validators.required],
-        Dob : ['', [Validators.required]],
+        ContactNumber: ['', Validators.required]
+       // Dob : ['', [Validators.required]],
       })
   
   }
@@ -42,6 +43,7 @@ export class RegistrationComponent implements OnInit {
   get f() { return this.regiForm.controls; }
 
   onSubmit() {
+    debugger;
       this.submitted = true;
         debugger;
       // stop here if form is invalid

@@ -74,7 +74,20 @@
            
           </mat-form-field>
       </div>
-    
+      
+
+      <div class="emailInput">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Contact</mat-label>
+         
+          <!-- <input formControlName="email" matInput placeholder="Enter email address" required/>
+           -->
+           <input  matInput formControlName="ContactNumber" type="contact" placeholder="email" required>
+           <mat-error *ngIf="!regiForm.controls['ContactNumber'].valid">  Contact is required </mat-error> 
+           <mat-icon matSuffix>contacts</mat-icon>
+           
+          </mat-form-field>
+      </div>
       
       <!-- <mat-form-field class="full-width" appearance="outline">
         <mat-label>DOB</mat-label>
@@ -90,8 +103,8 @@
       <mat-form-field class="full-width" appearance="outline">
         <mat-label>Role</mat-label>
         <mat-select formControlName="RoleId">
-          <mat-option value="one">Physician </mat-option>
-          <mat-option value="two">Nurse </mat-option>
+          <mat-option value="3">Physician </mat-option>
+          <mat-option value="4">Nurse </mat-option>
           <!-- <mat-option value="two">Admin  </mat-option> -->
         </mat-select>
         <mat-error *ngIf="!regiForm.controls['RoleId'].valid">  role is required </mat-error> 
