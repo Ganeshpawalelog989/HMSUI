@@ -24,9 +24,22 @@ add inside angular.json
 
 toast install 
     npm install ngx-toastr --save
+    
     npm install @angular/animations --save
 add inside angular.json
     "node_modules/ngx-toastr/toastr.css"
 
 install for modal :
  ng add @ng-bootstrap/ng-bootstrap
+
+ --sheduling 
+ --save
+npm i date-fns 
+--save
+ng add @ng-bootstrap/ng-bootstrap
+
+--save
+npm install angular-calendar --save
+
+npm install jquery@latest --save
+

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MustMatch } from '../../registration/must-match.validator';
-import { AddAppointmentComponent } from '../../scheduling/add-appointment/add-appointment.component';
 
 @Component({
   selector: 'app-add-dialog-contant',

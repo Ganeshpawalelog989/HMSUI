@@ -1,0 +1,119 @@
+<accordion [isAnimated]="true">
+    <accordion-group heading="Physician Information">
+      <div class="form-group col-md-6" >
+          <label>Physician Name</label>&nbsp;
+          <select class="form-control">
+              <option>1</option>
+              <option>1</option>
+              <option>1</option>
+          </select>
+      </div><br>
+      <div class="form-group col-md-6">
+        <label for="id">Physician ID</label>&nbsp;
+       <input type="text" class="form-control" readonly>
+    </div><br>
+    <div>
+        <button class="btn btn-primary" [disabled]="" routerLink="/deleteappoinemnt">Book Appointment</button>&nbsp;
+        <!-- <button class="btn btn-primary" [disabled] ="">Edit Appointment</button>&nbsp;
+        <button class="btn btn-primary" [disabled]="">Delete Appointment</button>&nbsp;
+         -->
+    </div>
+    </accordion-group>
+    <accordion-group heading="Meeting Details">
+        <div class="row">
+        <div class="form-group col-md-4">
+            <label for="id">Meeting Title</label>&nbsp;
+           <input type="text" class="form-control" readonly>
+        </div>
+        <div class="form-group col-md-4">
+            <div>
+                <input
+                    type="text"
+                    placeholder="Select Date"
+                    class="form-control"
+                    bsDatepicker
+                    [bsConfig]="{ isAnimated: true }">
+            </div>
+      </div><br>
+    </div>
+    <div class="row">
+        <div class="form-width col-md-4">
+
+            <label for="id">Search</label>&nbsp;
+           <input type="search" class="form-control" value="search"> 
+        </div>
+        <div class="form-width col-md-4">
+            <label>Patient Details</label>&nbsp;&nbsp;
+            <a href="" >Click Here for More Details</a>
+        </div>
+    </div>
+        <div class="row">
+            <div class="form-group col-md-4">
+                <label>Descriptive information</label>
+                <textarea class="form-control" rows="3" cols="4"></textarea>
+            </div>
+            <!-- <div  class="form-group col-md-4">
+                <label>Physician Name</label>
+                <input type="text" class="form-control" >
+            </div> -->
+        </div><br>
+    
+        <accordion-group heading="Paitent Vital Details" >
+            <form>
+            <div class="row">
+                <div class="form-group col-md-2">
+                    <label for="id">Height</label>&nbsp;
+                   <input type="text"  class="form-control" placeholder="Enter Height" >
+                   <input type="text" name= "feet" class="form-control" >
+                   <input type="text" name="inches" class="form-control" >
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="id">Weight</label>&nbsp;
+                   <input type="text"  class="form-control" placeholder="Enter Weight" >
+                   <input type="text" name= "Kg" class="form-control" >
+                   
+                </div>
+            </div><br>
+            <div class="row">
+                <div class="form-group col-md-2">
+                    <label for="id">Blood Pressure</label>&nbsp;
+                   <input type="text"  class="form-control" >
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="id">Body Temperature</label>&nbsp;
+                   <input type="text"  class="form-control" >
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="id">Respiration Rate</label>&nbsp;
+                   <input type="text" class="form-control" >
+                </div>
+            </div>
+            </form>
+        </accordion-group><br>
+    </accordion-group>
+    <accordion-group heading="Edit History">
+        <div>
+            <label for="id">List of Paitents</label>&nbsp;
+           <table class="table table-striped">
+               <thead  class="table-dark">
+                   <tr>
+                       <th>List of Paitent</th>
+                       <!-- <th></th>
+                       <th></th>
+                       <th></th> -->
+                   </tr>
+               </thead>
+               <tbody>
+                   <tr *ngFor='let name of movies'>
+                       <td>{{name.title}}</td>
+                       <!-- <td></td>
+                       <td></td>
+                       <td></td> -->
+                   </tr>
+               </tbody>
+           </table>
+        </div><br>
+        <div>
+            <button class="btn btn-primary">Create Appointment</button>
+        </div>
+    </accordion-group>

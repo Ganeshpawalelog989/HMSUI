@@ -7,9 +7,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule } from '@angular/material/button';
 import { DefaultModule } from './Layout/default/default.module';
 import { HomescreenModule } from './homescreen/homescreen/homescreen/homescreen.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 @NgModule({
   declarations: [
     AppComponent,
+    
+    
     
   ],
   imports: [
@@ -18,7 +22,8 @@ import { HomescreenModule } from './homescreen/homescreen/homescreen/homescreen.
     BrowserAnimationsModule,
     MatButtonModule,
     DefaultModule,
-    HomescreenModule
+    HomescreenModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

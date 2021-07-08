@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DefaultComponent } from './default.component';
-import { DashboardComponent } from 'src/app/modules/dashboard/dashboard.component';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared/shared.module';
 import { MatSidenavModule} from '@angular/material/sidenav' 
 import { PatientDetailsComponent } from 'src/app/modules/patient-details/patient-details.component'
 import { MatNativeDateModule } from '@angular/material/core';
-import {MatDatepickerModule} from '@angular/material/datepicker'
+//import {MatDatepickerModule} from '@angular/material/datepicker'
+//import {MatFormFieldModule} from '@angular/material/form-field';
+//import { MatNativeDateModule } from '@angular/material/core';
+//import {MatInputModule} from '@angular/material/input';
 import {EmerencyInfoComponent } from 'src/app/modules/emerency-info/emerency-info.component'
 import {ForgotPasswordComponent} from 'src/app/modules/forgot-password/forgot-password.component';
 import { ChangePasswordComponent } from 'src/app/modules/change-password/change-password.component';
@@ -25,13 +27,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RegistrationComponent } from 'src/app/modules/registration/registration.component';
-import { SchedulingComponent } from 'src/app/modules/scheduling/scheduling.component';
-import { AddAppointmentComponent } from 'src/app/modules/scheduling/add-appointment/add-appointment.component';
-import { DeleteAppointmentComponent } from 'src/app/modules/scheduling/delete-appointment/delete-appointment.component';
-import { EditAppointmentComponent } from 'src/app/modules/scheduling/edit-appointment/edit-appointment.component';
 import { PhysicianViewComponent } from 'src/app/modules/physician-view/physician-view.component';
 import { SendnotesComponent } from 'src/app/modules/sendnotes/sendnotes.component';
 import { RecieveNotesComponent } from 'src/app/modules/recieve-notes/recieve-notes.component';
@@ -47,21 +44,32 @@ import { AddDialogContantComponent } from 'src/app/modules/admin/add-dialog-cont
 import { FilterPipe } from 'src/app/pipe/filter.pipe';
 import { ToastContainerModule, ToastrModule } from 'ngx-toastr';
 import { PatientRegistrationComponent } from 'src/app/modules/patient-registration/patient-registration.component';
+import { PatientUserShedulingComponent } from 'src/app/modules/patient-user-sheduling/patient-user-sheduling.component';
+import {MatExpansionModule } from '@angular/material/expansion';
+import { AppointmentComponent } from 'src/app/modules/appointment/appointment.component';
+//new code 
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { AccordionModule } from 'ngx-bootstrap/accordion';
+import { AppointmentDeleteComponent } from 'src/app/modules/appointment-delete/appointment-delete.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { FlatpickrModule } from 'angularx-flatpickr';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns'
+import {​​​ BsDatepickerModule }​​​ from'ngx-bootstrap/datepicker';
+import {TimepickerModule } from 'ngx-bootstrap/timepicker';
+import { ViewSechedulingComponent } from 'src/app/modules/view-secheduling/view-secheduling.component';
 
 @NgModule({
   declarations: [
     DefaultComponent,
-    DashboardComponent,
     PatientDetailsComponent,
     EmerencyInfoComponent,
     ForgotPasswordComponent,
     ChangePasswordComponent,
     PatientMedicationDetailsComponent,
     RegistrationComponent,
-    SchedulingComponent,
-    AddAppointmentComponent,
-    DeleteAppointmentComponent,
-    EditAppointmentComponent,
     PhysicianViewComponent,
     SendnotesComponent,
     RecieveNotesComponent,
@@ -72,7 +80,10 @@ import { PatientRegistrationComponent } from 'src/app/modules/patient-registrati
     AddDialogContantComponent,
     FilterPipe,
     PatientRegistrationComponent,
-      
+    PatientUserShedulingComponent ,
+    AppointmentComponent,
+    AppointmentDeleteComponent,
+    ViewSechedulingComponent,
   ],
   imports: [
     CommonModule,
@@ -112,6 +123,24 @@ import { PatientRegistrationComponent } from 'src/app/modules/patient-registrati
     MatDialogModule   ,
     ToastrModule.forRoot(),
     ToastContainerModule,
+    //new work 
+    
+    MatDialogModule,
+    MatExpansionModule,
+    //  AccordionModule,
+    //  BsDropdownModule,
+    //  BsDatepickerModule,
+    AccordionModule.forRoot(),
+    BsDatepickerModule.forRoot(),
+    BsDropdownModule.forRoot(),
+    TimepickerModule,
+     NgbModule,
+    CalendarModule.forRoot({
+    provide: DateAdapter,
+    useFactory: adapterFactory,
+    }),
+    FlatpickrModule,
+    NgbModalModule
   ]
 })
 export class DefaultModule { }

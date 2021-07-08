@@ -1,11 +1,10 @@
 
-
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable,BehaviorSubject} from 'rxjs';
 import { Patient } from 'src/app/Model/Patient';
 
-import { map } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import {environment} from 'src/environments/environment';
 
 @Injectable({
@@ -20,7 +19,7 @@ export class UserService {
  public currentUser: Observable<Patient>;
   constructor (private http: HttpClient) { 
      this.currentUserSubject = new BehaviorSubject<Patient>(JSON.parse(localStorage.getItem('currentUser') || '{}'));
-this.currentUser = this.currentUserSubject.asObservable();
+      this.currentUser = this.currentUserSubject.asObservable();
   }
 
   public get currentUserValue(): Patient {
@@ -40,7 +39,10 @@ this.currentUser = this.currentUserSubject.asObservable();
       return this.http.post<any>(`${environment.baseUrl}?`+'id='+patient.Empid,patient);
   }
 
-
+  SaveRegister(patient : Patient): Observable<Patient>{
+   return this.http.post<Patient>('',patient)
+   
+ }
 
   deletePatient(id : number) : Observable<any>
   {

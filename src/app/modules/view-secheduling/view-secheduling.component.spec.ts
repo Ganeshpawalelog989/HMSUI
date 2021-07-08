@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DashboardComponent } from './dashboard.component';
+import { ViewSechedulingComponent } from './view-secheduling.component';
 
-describe('DashboardComponent', () => {
-  let component: DashboardComponent;
-  let fixture: ComponentFixture<DashboardComponent>;
+describe('ViewSechedulingComponent', () => {
+  let component: ViewSechedulingComponent;
+  let fixture: ComponentFixture<ViewSechedulingComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DashboardComponent ]
+      declarations: [ ViewSechedulingComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DashboardComponent);
+    fixture = TestBed.createComponent(ViewSechedulingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -82,6 +82,7 @@ import { LoginComponent } from 'src/app/homescreen/homescreen/login/login.compon
     MatDialogModule   ,
     ToastrModule.forRoot(),
     ToastContainerModule,
+    HttpClientModule
 
   ]
 })
