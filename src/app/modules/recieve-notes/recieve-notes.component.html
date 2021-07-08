@@ -1,0 +1,85 @@
+<div class="section-1-container section-container class">
+    <div class="card-body container">
+        <form>
+       <mat-card class="example-card">  
+    <!-- Title of an Card -->  
+       <mat-card-title>  
+        <h2 class="title"> Recieved notes </h2>
+    </mat-card-title>  
+  
+    <!-- Actual content starts from here -->
+    
+    <mat-card-content>  
+                
+            <table> 
+            <div class="form-group text-center">
+                <tr>  
+                <td  class="full-width col-3">  
+                    <button  mat-flat-button color="primary" (click)="Recievednotes()">Recieved notes</button>&nbsp;
+                    &nbsp;&nbsp;
+                </td>
+                <td  class="full-width col-3">  
+                    <button  mat-flat-button color="primary" routerLink="/sendnotes">send notes</button>
+                    
+                </td>
+                </tr>
+            
+            </div>  
+            </table>    
+    </mat-card-content>  
+</mat-card>
+</form>  
+</div>
+</div>
+
+<div class="container">
+    <table mat-table   class="mat-elevation-z8">
+
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+      
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+          <th mat-header-cell *matHeaderCellDef> Sender Name </th>
+          <td mat-cell *matCellDef="let element"> </td>
+          
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Sender Designation </th>
+          <td mat-cell *matCellDef="let element"> </td>
+        </ng-container>
+      
+          <!-- Weight Column -->
+         <ng-container matColumnDef="weight">
+          <th mat-header-cell *matHeaderCellDef> Date Time </th>
+          <td mat-cell *matCellDef="let element">  </td>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </ng-container>
+      
+       
+         <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef> message Recieved </th>
+           <td mat-cell *matCellDef="let element" class="action-link"> 
+            <!-- <a >Edit</a> 
+              -->
+      
+           </td> 
+        </ng-container> 
+        <ng-container matColumnDef="symbol">
+          <th mat-header-cell *matHeaderCellDef> Replay </th>
+           <td mat-cell *matCellDef="let element" class="action-link"> 
+           <mat-slide-toggle>edit status:</mat-slide-toggle>
+           </td> 
+        </ng-container> 
+        
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      
+      </table>
+
+</div>

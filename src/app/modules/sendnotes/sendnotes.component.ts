@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators,FormBuilder } from '@angular/forms';
-import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Route } from '@angular/router';
 
 @Component({
   selector: 'app-sendnotes',
@@ -8,16 +8,27 @@ import { Router } from '@angular/router';
   styleUrls: ['./sendnotes.component.scss']
 })
 export class SendnotesComponent implements OnInit {
-  [x: string]: any;
+
+  constructor(private formBuilder : FormBuilder) { }
+
+  ngOnInit(): void {
+  }
+   sendnotes: FormGroup = this.formBuilder.group({
+    DOB :[''],
+    Receivername :['',Validators.required],
+    ReceiverDesignation:['',Validators.required],
+    message :[''],
+    urgencylevel :['']
+  })
+
+  alergy=[
+    "food",
+    "Fungi",
+    "Drug",
+    "Plant",
+    "Venom or Salivary",
+    "Other",
+  ];
 
 
-  constructor() { }
-
-      ngOnInit(): void {
-      }
-    
-      patientDetails: FormGroup = this.formBuilder.group({
-      
-      });
-   
 }

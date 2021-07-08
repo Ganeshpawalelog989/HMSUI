@@ -1,0 +1,120 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="primery" >
+      <div class="table ">
+        <ul  id="horizontal-list" class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a href="" class="nav-link" >HOME</a>
+          </li>
+          <li class="nav-item active">
+            <a href="" class="nav-link" >ABOUT US</a>
+          </li>
+          <li class="nav-item active">
+            <a href="" class="nav-link">CONTACT</a>
+          </li>
+         </ul>
+      </div>
+    
+    </div>
+    </nav>
+    
+
+<mat-card>
+    <mat-card-content >
+    
+    <span class="login100-form-title p-b-49">
+        Provider Registration
+    </span>  
+    
+    <form (ngSubmit)="onSubmit()" name="" [formGroup]="regiForm">
+    
+    <mat-radio-group>
+        <mat-label>Title</mat-label>&nbsp;&nbsp;&nbsp;
+        <mat-radio-button value="1" color="primary">Mr.&nbsp;</mat-radio-button>  
+        <mat-radio-button value="1" color="primary">Ms.&nbsp;</mat-radio-button>  
+        <mat-radio-button value="2" color="accent">Mrs.&nbsp;</mat-radio-button>  
+        <mat-radio-button value="3" color="warn">Dr.&nbsp;</mat-radio-button>      
+    </mat-radio-group> 
+    
+    
+    <div class="emailInput">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>First Name</mat-label>
+         
+          <!-- <input formControlName="email" matInput placeholder="Enter email address" required/>
+           -->
+           <input  matInput formControlName="Fname" placeholder="First Name" required>
+           
+         <mat-error *ngIf="!regiForm.controls['Fname'].valid">  First Name is required </mat-error> 
+          </mat-form-field>
+      </div>
+    
+    
+      <div class="emailInput">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Last Name</mat-label>
+         
+          <!-- <input formControlName="email" matInput placeholder="Enter email address" required/>
+           -->
+           <input  matInput formControlName="Lname" placeholder="Last Name" required>
+           
+           <mat-error *ngIf="!regiForm.controls['Lname'].valid">  Last name is required </mat-error> 
+          </mat-form-field>
+      </div>
+    
+      <div class="emailInput">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Email</mat-label>
+         
+          <!-- <input formControlName="email" matInput placeholder="Enter email address" required/>
+           -->
+           <input  matInput formControlName="Email" type="email" placeholder="email" required>
+           <mat-error *ngIf="!regiForm.controls['Email'].valid">  Email is required </mat-error> 
+           <mat-icon matSuffix>email</mat-icon>
+           
+          </mat-form-field>
+      </div>
+      
+
+      <div class="emailInput">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Contact</mat-label>
+         
+          <!-- <input formControlName="email" matInput placeholder="Enter email address" required/>
+           -->
+           <input  matInput formControlName="ContactNumber" type="contact" placeholder="email" required>
+           <mat-error *ngIf="!regiForm.controls['ContactNumber'].valid">  Contact is required </mat-error> 
+           <mat-icon matSuffix>contacts</mat-icon>
+           
+          </mat-form-field>
+      </div>
+      
+      <!-- <mat-form-field class="full-width" appearance="outline">
+        <mat-label>DOB</mat-label>
+        <input matInput formControlName="Dob " [matDatepicker]="picker" >
+        
+        <mat-error *ngIf="!regiForm.controls['Dob'].valid">  DOB is required </mat-error> 
+
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+     -->
+    <br />
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>Role</mat-label>
+        <mat-select formControlName="RoleId">
+          <mat-option value="3">Physician </mat-option>
+          <mat-option value="4">Nurse </mat-option>
+          <!-- <mat-option value="two">Admin  </mat-option> -->
+        </mat-select>
+        <mat-error *ngIf="!regiForm.controls['RoleId'].valid">  role is required </mat-error> 
+      </mat-form-field>
+    
+    
+      <div class="example-button-row">
+        <button mat-flat-button color="primary">Submit</button>
+      </div>
+    
+    </form>
+    
+    </mat-card-content>
+    </mat-card>

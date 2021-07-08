@@ -1,51 +1,54 @@
 <div class="container">
-    <div class="row">
-  
-     <div class="col">
-    
-      <form [formGroup]="EmerencyInfo">
+  <div class="row">
+
+   <div class="col">
+    <form [formGroup]="EmerencyInfo">
       <mat-card-title>  
-        <h1 class="title">Patient Details Form</h1>
+        <h1 class="title">Emerency Details Form</h1>
       </mat-card-title>
-      <div class="row">
-        <mat-form-field appearance="legacy" class="full-width col-4" >
-          <mat-label class="label" >FirstName</mat-label>
+      <mat-form-field appearance="legacy" class="full-width col-4" >
+        <mat-label>FirstName</mat-label>
         <input matInput formControlName="FirstName"/>
-        </mat-form-field>
-        <mat-form-field appearance="legacy" class="full-width col-4">
-          <mat-label>LastName</mat-label>
-          <input matInput formControlName="LastName">
-        </mat-form-field>
-        </div>
-       
-        <div class="row">
-            <mat-form-field appearance="legacy" class="full-width col-4" >
-            <mat-label>Email Address:</mat-label>
-            <input matInput placeholder="Your email">
-            <mat-icon matSuffix>mail_outline</mat-icon>
-          </mat-form-field>
-          <mat-form-field appearance="legacy" class="full-width col-4" >
-            <mat-label>Contant No:</mat-label>
-            <input matInput placeholder="Your Phone">
-            <mat-icon matSuffix>phone</mat-icon>
-          </mat-form-field>
-        </div>
-        <div class="row">
-            <mat-form-field appearance="legacy" >
-              <mat-label>Home Address</mat-label>
-              <textarea matInput></textarea>
-            </mat-form-field>
-          
-          <mat-form-field class="full-width col-4">
-            <mat-select placeholder="Relation">
-              <mat-option *ngFor="let Rel of Relation" [value]="Rel">
-                {{ Rel }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-       </div>
-           
-</form>
-</div>
-</div>
+      </mat-form-field>
+      <mat-form-field appearance="legacy" class="full-width col-4" >
+        <mat-label>LastName</mat-label>
+        <input matInput formControlName="LastName">
+      </mat-form-field>
+      <mat-form-field class="full-width col-4">
+        <mat-select placeholder="Relation">
+          <mat-option *ngFor="let Rel of Relation" [value]="Rel">
+            {{ Rel }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="legacy" class="full-width col-4" >
+        <mat-label>Email Address:</mat-label>
+        <input matInput formControlName="Email" >
+        <mat-icon matSuffix>mail_outline</mat-icon>
+      </mat-form-field>
+      <mat-form-field appearance="legacy" class="full-width col-4" >
+        <mat-label>Contant No:</mat-label>
+        <input matInput placeholder="Your Phone" formControlName="ContantNo">
+        <mat-icon matSuffix>phone</mat-icon>
+      </mat-form-field>
+      <mat-form-field appearance="legacy" class="full-width col-4" >
+        <mat-label>Home Address</mat-label>
+        <textarea matInput></textarea>
+        <input matInput formControlName=HomeAddress>
+      </mat-form-field>
+      <mat-radio-group name="id">
+        <mat-label> Do you need Access to Patient Portal</mat-label>
+     <mat-radio-button value="1">
+         Yes 
+     </mat-radio-button>
+     <mat-radio-button value="1">
+        No
+    </mat-radio-button>
+    </mat-radio-group>
+    <br>
+    <br>
+     <button mat-flat-button color="primary" routerLink="/allery" >next page</button>
+    </form>  
+   </div>
+  </div>
 </div>

@@ -1,0 +1,83 @@
+<div class="class">
+    <div class="card-body">
+        <form [formGroup]="EditscheduleForm">
+       <mat-card>  
+        <div>
+            <button class="btn btn-primary mr-1" (click)="BackToScheduleform()">Back</button>
+        </div>
+    <!-- Title of an Card -->  
+       <mat-card-title>  
+        <h2 class="title">Edit Scheduling Form</h2>
+    </mat-card-title>  
+  
+    <!-- Actual content starts from here -->
+    
+    <mat-card-content>  
+                
+            <table > 
+                <tr>
+                <td> 
+                    <div class="form-group">
+                        <label class="label">Physican Name</label>
+                            <input type="text" formControlName="PhysicianName" required minlength="4"  class="form-control" />
+                            <!-- <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                                <div *ngIf="f.firstName.errors.required">First Name is required</div> 
+                                
+                            </div> -->
+                        </div>
+                        
+                </td>  
+            </tr>
+            <tr>
+               
+                    <td>  
+                        <div class="form-group">
+                            <label class="label">Physican Employee ID</label>
+                            <input type="text" formControlName="PhysianEmpId" class="form-control" readonly  />
+                            <!-- [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" -->
+                            <!-- <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                                <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                            </div> -->
+                        </div>
+                    </td>   
+                    <td >  
+                        
+                        <div class="form-row">
+                            <div class="form-group col">
+                                <label class="label">Available Slot for this week</label>
+                                <input type="date" formControlName="availableSlot" class="form-control" readonly />
+                                <!-- <div *ngIf="submitted && f.dob.errors" class="invalid-feedback"> -->
+                                    <!-- <div *ngIf="f.dob.errors.required">Date of Birth is required</div>
+                                    <div *ngIf="f.dob.errors.pattern">Date of Birth must be a valid date in the format YYYY-MM-DD</div>
+                                </div> -->
+                            </div> 
+                        </div>  
+                    </td>  
+                </tr>  
+                <tr>  
+                    <tr>
+               
+                        <td>  
+                            <div class="form-group">
+                                <label class="label">Description</label>
+                                <input type="text" formControlName="description" class="form-control" readonly  />
+                                <!-- [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" -->
+                                <!-- <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                                    <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                                </div> -->
+                            </div>
+                        </td>   
+                       
+                    </tr>  
+                    <tr>  
+                <td colspan="2" class="content-center">  
+                    <button class="btn btn-secondary"  (click)="EditAppointment()">Edit Appointment</button>
+                </tr>
+            </table>      
+        
+    </mat-card-content>  
+</mat-card>
+</form>  
+</div>
+</div>
+

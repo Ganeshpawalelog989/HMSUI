@@ -6,17 +6,28 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule } from '@angular/material/button';
 import { DefaultModule } from './Layout/default/default.module';
-
+import { HomescreenModule } from './homescreen/homescreen/homescreen/homescreen.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PatientlayoutModule } from './Layout/patientlayout/patientlayout.module';
+import { NurselayoutModule } from './Layout/nurselayout/nurselayout.module';
+import { PhysicianlayoutModule } from './Layout/physicianlayout/physicianlayout.module';
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    DefaultModule
+    DefaultModule,
+    PatientlayoutModule,
+    HomescreenModule,
+    NgbModule,
+    NurselayoutModule,
+    PhysicianlayoutModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

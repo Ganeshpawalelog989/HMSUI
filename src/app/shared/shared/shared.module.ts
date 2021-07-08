@@ -18,7 +18,7 @@ import { RouterModule } from '@angular/router'
   declarations: [
     FooterComponent,
     HeaderComponent,
-    SidebarComponent
+    SidebarComponent,
   ],
   imports: [
     CommonModule,
@@ -35,7 +35,7 @@ import { RouterModule } from '@angular/router'
   exports : [
     HeaderComponent,
     SidebarComponent,
-    FooterComponent
+    FooterComponent,
   ]
   
 })

@@ -1,0 +1,182 @@
+<div class="section-1-container section-container class">
+    <div class="card-body container">
+        <form>
+       <mat-card class="example-card">  
+    <!-- Title of an Card -->  
+       <mat-card-title>  
+        <h2 class="title">View Schedule</h2>
+    </mat-card-title>  
+  
+    <!-- Actual content starts from here -->
+    
+    <mat-card-content>  
+                
+            <table> 
+            <div class="form-group text-center">
+                <tr>  
+                <td colspan="2" class="content-center">  
+                    <button class="btn btn-primary" (click)="viewDetailsOfAppointment()">View Details of Appointment</button>&nbsp;&nbsp;
+                    
+                </td>
+                </tr>
+            </div>  
+            </table>    
+    </mat-card-content>  
+</mat-card>
+</form>  
+</div>
+</div>
+
+<div class="container">
+    <table class="table">
+        <thead>
+            <th scope="col">Appointment ID</th>
+            <th scope="col">Meeting Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Date</th>
+            <th scope="col">Time</th>
+            <th scope="col">Edit History</th>
+            <th scope="col">Actions</th>
+        </thead>
+        <tbody>
+            <tr *ngFor= 'let view of ViewScheduler'>
+                <td><a href="details" data-toggle="modal">{{view.Appointment_Id}}</a></td>
+                <td>{{view.Meeting_Title}}</td>
+                <td>{{view.Description}}</td>
+                <td>{{view.Date}}</td>
+                <td>{{view.Time}}</td>
+                <td>{{view.Edit_History}}</td>
+                <td>
+                    <button class="btn btn-primary" (click)="editDetails()">Edit</button>&nbsp;&nbsp;
+                    <button class="btn btn-danger" (click)="deleteDetails(view.Appointment_Id)">Decline</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- <mat-card *ngIf="isFlagDetails">
+    <div class="container">
+    <table class="table">
+        <thead>
+            <th scope="col">Appointment ID</th>
+            <th scope="col">Meeting Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Date</th>
+            <th scope="col">Time</th>
+            <th scope="col">Edit History</th>
+            <th scope="col">Actions</th>
+        </thead>
+        <tbody>
+            <tr *ngFor= 'let view of ViewScheduler'>
+                <td>{{view.Appointment_Id}}</td>
+                <td>{{view.Meeting_Title}}</td>
+                <td>{{view.Description}}</td>
+                <td>{{view.Date}}</td>
+                <td>{{view.Time}}</td>
+                <td>{{view.Edit_History}}</td>
+                <td>
+                    <button class="btn btn-primary" (click)="editDetails()">Edit</button>&nbsp;&nbsp;
+                    <button class="btn btn-danger" (click)="deleteDetails()">Decline</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</mat-card> -->
+
+<!-- Modal -->
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Patient Details</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="container">
+                <table class="table">
+                    <thead>
+                        <th scope="col">Appointment ID</th>
+                        <th scope="col">Meeting Title</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Time</th>
+                        <th scope="col">Edit History</th>
+                        <th scope="col">Actions</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor= 'let view of ViewScheduler'>
+                            <td>{{view.Appointment_Id}}</td>
+                            <td>{{view.Meeting_Title}}</td>
+                            <td>{{view.Description}}</td>
+                            <td>{{view.Date}}</td>
+                            <td>{{view.Time}}</td>
+                            <td>{{view.Edit_History}}</td>
+                            <td>
+                                <button class="btn btn-primary" (click)="editDetails()">Edit</button>&nbsp;&nbsp;
+                                <button class="btn btn-danger" (click)="deleteDetails()">Decline</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- <ng-template #editProfileModal let-modal>
+    <div class="modal-header">
+     <h5 class="modal-title" id="editProfileLabel">Edit Profile</h5>
+     <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+     </button>
+    </div>
+    
+    <div class="modal-body">
+     <form [formGroup]="editProfileForm" (ngSubmit)="onSubmit()">
+      <div class="form-group row">
+       <label for="title" class="col-sm-4 col-form-label">Meeting Title</label>
+       <div class="col-sm-8">
+        <input type="text" class="form-control" formControlName="title" id="title">
+       </div>
+      </div>
+      <div class="form-group row">
+       <label for="description" class="col-sm-4 col-form-label">Description</label>
+       <div class="col-sm-8">
+        <input type="text" class="form-control" formControlName="description" id="description">
+       </div>
+      </div>
+      <div class="form-group row">
+       <label for="date" class="col-sm-4 col-form-label">Date</label>
+       <div class="col-sm-8">
+        <input type="date" class="form-control" formControlName="date" id="date">
+       </div>
+      </div>
+      <div class="form-group row">
+       <label for="time" class="col-sm-4 col-form-label">Time</label>
+       <div class="col-sm-8">
+        <input type="time" class="form-control" formControlName="time" id="time">
+       </div>
+      </div>
+      <div class="form-group row">
+        <label for="history" class="col-sm-4 col-form-label">Edit History</label>
+        <div class="col-sm-8">
+         <input type="text" class="form-control" formControlName="history" id="history">
+        </div>
+       </div>
+      <div class="modal-footer">
+       <button type="button" class="btn btn-secondary" (click)="modal.dismiss()">Close</button>
+       <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+     </form>
+    </div>
+   </ng-template> -->
