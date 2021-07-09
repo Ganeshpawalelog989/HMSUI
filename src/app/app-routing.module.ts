@@ -27,8 +27,21 @@ import { PatientUserShedulingComponent } from './modules/patient-user-sheduling/
 import { AppointmentComponent } from './modules/appointment/appointment.component';
 import { AppointmentDeleteComponent } from './modules/appointment-delete/appointment-delete.component';
 import { ViewSechedulingComponent } from './modules/view-secheduling/view-secheduling.component';
+import { NurselayoutComponent } from './Layout/nurselayout/nurselayout.component';
+import { PatientlayoutComponent } from './Layout/patientlayout/patientlayout.component';
+import { PhysicianlayoutComponent } from './Layout/physicianlayout/physicianlayout.component';
 
 const routes: Routes = [
+  {
+    path : 'Nurse' , component : NurselayoutComponent
+  },
+  {
+   path : 'patient' , component : PatientlayoutComponent
+  },
+  {
+   path :'physician' , component : PhysicianlayoutComponent
+  },
+  
   {
     path : 'appointment' , component : AppointmentComponent
   },
@@ -56,7 +69,6 @@ const routes: Routes = [
    {
      path : 'PatientSheduling' , component : PatientUserShedulingComponent 
    },
-   
    
   {path : 'Ab' , 
   component : DefaultComponent, 

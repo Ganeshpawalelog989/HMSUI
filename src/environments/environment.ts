@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   //baseUrl : "http://localhost:50471/Registration",
    baseUrl : "http://localhost:3000/posts",
-   baseloginUrl :"",
+   
 };
 
 /*

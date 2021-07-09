@@ -35,6 +35,7 @@ install for modal :
  --sheduling 
  --save
 npm i date-fns 
+
 --save
 ng add @ng-bootstrap/ng-bootstrap
 
