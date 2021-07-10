@@ -28,13 +28,17 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ToastContainerModule, ToastrModule } from 'ngx-toastr';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule, MatNavList } from '@angular/material/list';
+//import { AppointmentComponent } from 'src/app/modules/appointment/appointment.component';
+//import { AppointmentDeleteComponent } from 'src/app/modules/appointment-delete/appointment-delete.component';
 
 
 
 @NgModule({
   declarations: [
     PhysicianlayoutComponent,
-    PhisiciansidebarComponent
+    PhisiciansidebarComponent,
+  //  AppointmentComponent,
+    //AppointmentDeleteComponent,
   ],
   imports: [
     CommonModule,

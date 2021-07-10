@@ -39,136 +39,71 @@
         <mat-form-field class="full-width" appearance="outline">
           <mat-label>First Name</mat-label>
          
-          <!-- <input formControlName="email" matInput placeholder="Enter email address" required/>
-           -->
-           <input  matInput formControlName="firstName" placeholder="First Name" required>
+          
+           <input  matInput formControlName="Fname" placeholder="First Name" required>
            
-         <mat-error *ngIf="!regiForm.controls['firstName'].valid">  First Name is required </mat-error> 
+         <mat-error *ngIf="!regiForm.controls['Fname'].valid">  First Name is required </mat-error> 
           </mat-form-field>
       </div>
     
     
-      <div class="emailInput">
+       <div class="emailInput">
         <mat-form-field class="full-width" appearance="outline">
           <mat-label>Last Name</mat-label>
-         
-          <!-- <input formControlName="email" matInput placeholder="Enter email address" required/>
-           -->
-           <input  matInput formControlName="lastName" placeholder="Last Name" required>
-           
-           <mat-error *ngIf="!regiForm.controls['lastName'].valid">  Last name is required </mat-error> 
+           <input  matInput formControlName="Lname" placeholder="Last Name" required>
+            <mat-error *ngIf="!regiForm.controls['Lname'].valid">  Last name is required </mat-error> 
           </mat-form-field>
       </div>
     
 
-      <mat-form-field class="full-width" appearance="outline">
+        <mat-form-field class="full-width" appearance="outline">
         <mat-label>DOB</mat-label>
-        <input matInput formControlName="dob" [matDatepicker]="picker">
-        <mat-error *ngIf="regiForm.controls['dob'].hasError('required')">Date of Birth is required</mat-error>
-        <!-- <mat-error *ngIf="!regiForm.controls['dob'].valid">  DOB is required </mat-error> 
-        <mat-error *ngIf="regiForm.controls['dob'].hasError('required')">Date of Birth is required</mat-error>
-        
-        <mat-error *ngIf="regiForm.controls['dob'].hasError('pattern')">Date of Birth must be a valid date in the format YYYY-MM-DD</mat-error>
-       
-     -->
+        <input matInput formControlName="Dob" [matDatepicker]="picker">
+        <mat-error *ngIf="regiForm.controls['Dob'].hasError('required')">Date of Birth is required</mat-error>
 
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field>
+      </mat-form-field>  
 
-
-     
-
-
-
-
-      <div class="emailInput">
+        <div class="emailInput">
         <mat-form-field class="full-width" appearance="outline">
           <mat-label>Email</mat-label>
-         
-          <!-- <input formControlName="email" matInput placeholder="Enter email address" required/>
-           -->
-           <input  matInput formControlName="email" type="email" placeholder="email" required>
-           <mat-error *ngIf="!regiForm.controls['email'].valid">  Email is required </mat-error> 
+           <input  matInput formControlName="Email" type="email" placeholder="email" required>
+           <mat-error *ngIf="!regiForm.controls['Email'].valid">  Email is required </mat-error> 
            <mat-icon matSuffix>email</mat-icon>
-           
+           </mat-form-field>
+        </div>  
+    
+         <div class="emailInput">
+         <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Contact</mat-label>       
+           <input  matInput formControlName="ContactNumber" type="tel" placeholder="Contact" required>
+           <mat-error *ngIf="!regiForm.controls['ContactNumber'].valid">  Contact is required </mat-error> 
           </mat-form-field>
-      </div>
+       </div>  
     
-      <div class="emailInput">
-        <mat-form-field class="full-width" appearance="outline">
-          <mat-label>Contact</mat-label>
-         
-          <!-- <input formControlName="email" matInput placeholder="Enter email address" required/>
-           -->
-           <input  matInput formControlName="contact" type="tel" placeholder="Contact" required>
-           <mat-error *ngIf="!regiForm.controls['contact'].valid">  Contact is required </mat-error> 
-          
-           
-          </mat-form-field>
-      </div>
-    
-    
-  
-
-    <!-- <div class="emailInput">
+     <div class="emailInput">
+     <mat-form-field class="full-width" appearance="outline">
         <mat-label>Password</mat-label>
-        <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-            <div *ngIf="f.password.errors.required">Strong Password is required</div>
-            <div *ngIf="f.password.errors.minlength">Password must be at least 8 characters</div>  
+         <input  matInput formControlName="Password" type="password" placeholder="password" required>
+         <mat-error *ngIf="!regiForm.controls['Password'].valid">  Password is required </mat-error> 
+     </mat-form-field>
+    </div>
+    <br/> 
  
-        </div>
-    </div> -->
-    <div class="emailInput">
-    <mat-form-field class="full-width" appearance="outline">
-        <mat-label>Password</mat-label>
-       
-        <!-- <input formControlName="email" matInput placeholder="Enter email address" required/>
-         -->
-         <input  matInput formControlName="password" type="password" placeholder="password" required>
-         <mat-error *ngIf="!regiForm.controls['password'].valid">  Password is required </mat-error> 
-         
-         
-   </mat-form-field>
-   </div>
-
-
-
-
-
-    <br />
-
-    <!-- <div class="emailInput">
-        <label class="label">Confirm Password</label>
-        <input type="password" formControlName="confirmPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
-        <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
-            <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
-            <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
-        </div>
-    </div> -->
-
-
-    <div class="emailInput">
+       <div class="emailInput">
         <mat-form-field class="full-width" appearance="outline">
             <mat-label>Confirm Password</mat-label>
-           
-            <!-- <input formControlName="email" matInput placeholder="Enter email address" required/>
-             -->
              <input  matInput formControlName="confirmPassword" type="password" placeholder="password" required>
              <mat-error *ngIf="!regiForm.controls['confirmPassword'].valid">  Confirm Password is required </mat-error> 
-             
-       </mat-form-field>
-       </div>
+        </mat-form-field>
+       </div> 
+
        <div class="example-button-row">
-       
-
-
-        <button mat-flat-button color="primary">Register</button> &nbsp;&nbsp;
+         <button mat-flat-button color="primary">Register</button> &nbsp;&nbsp;
         <button mat-flat-button color="primary" type="reset" (click)="onReset()">Cancel</button>
-
       </div>
-    
+      
     </form>
     
     </mat-card-content>

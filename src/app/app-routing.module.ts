@@ -51,66 +51,63 @@ const routes: Routes = [
   {
    path : 'views' , component : ViewSechedulingComponent
   },
-  {path : '' , component : HomescreenComponent,
-   children :[
-     
-   ]
-  },
-    
+  {path : '' , component : HomescreenComponent},
   {
     path : 'login' , component : LoginComponent
   },
   {
     path : 'registeration' , component : RegistrationComponent
-   },
-   {
-     path : 'patientregistration' ,  component : PatientRegistrationComponent
-   },
-   {
-     path : 'PatientSheduling' , component : PatientUserShedulingComponent 
-   },
+  },
+  {
+    path : 'patientregistration' ,  component : PatientRegistrationComponent
+  },
+  {
+    path : 'PatientSheduling' , component : PatientUserShedulingComponent 
+  },
    
-  {path : 'Ab' , 
+  {path : 'Admin' , 
   component : DefaultComponent, 
   children : [
-  
-  
-  {path : 'PatientDetails' , component : PatientDetailsComponent},
-  
-  {path : 'emerencyinfo' , component : EmerencyInfoComponent},
-  
-  {path:'forgot-password', component:ForgotPasswordComponent},
-  
-  {path:'change-password',  component:ChangePasswordComponent},
-  
-  {path:'patient-medication-details',  component:PatientMedicationDetailsComponent},
-  
-  
-  {
-    path : 'physician' , component : PhysicianViewComponent
-  },
-  {
-    path : 'sendnotes' , component : SendnotesComponent
-  },
-  {
-    path : 'recievenotes' , component : RecieveNotesComponent
-  },
-  {
-    path : 'admin' , component : AdminComponent
-  },
-  {
-    path : 'patientuser' , component : PatientUserManagementComponent
-  },
-  {
-    path : 'hostpitaluser' , component : HospitalUserComponent
-  },
-  
-  {
-    path : 'allery' , component : AlleryComponent
-  },
-  
+      
   ] 
-}
+},
+{path : 'PatientDetails' , component : PatientDetailsComponent},
+  
+{path : 'emerencyinfo' , component : EmerencyInfoComponent},
+
+{path:'forgot-password', component:ForgotPasswordComponent},
+
+{path:'change-password',  component:ChangePasswordComponent},
+
+{path:'patient-medication-details',  component:PatientMedicationDetailsComponent},
+
+
+{
+  path : 'physician' , component : PhysicianViewComponent
+},
+{
+  path : 'sendnotes' , component : SendnotesComponent
+},
+{
+  path : 'recievenotes' , component : RecieveNotesComponent
+},
+{
+  path : 'admin' , component : AdminComponent
+},
+{
+  path : 'patientuser' , component : PatientUserManagementComponent
+},
+{
+  path : 'hostpitaluser' , component : HospitalUserComponent
+},
+
+{
+  path : 'allery' , component : AlleryComponent
+},
+
+
+
+
 
 ];
 

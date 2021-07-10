@@ -29,7 +29,6 @@ import { PhysicianlayoutModule } from './Layout/physicianlayout/physicianlayout.
     NurselayoutModule,
     patientlayout,
     PhysicianlayoutModule
-    
   ],
   providers: [],
   bootstrap: [AppComponent]

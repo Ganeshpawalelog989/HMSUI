@@ -30,12 +30,21 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ToastContainerModule, ToastrModule } from 'ngx-toastr';
-
+//import { PatientUserManagementComponent } from 'src/app/modules/admin/patient-user-management/patient-user-management.component';
+import { AccordionModule } from 'ngx-bootstrap/accordion';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { TimepickerModule } from 'ngx-bootstrap/timepicker';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { FlatpickrModule } from 'angularx-flatpickr';
 
 @NgModule({
   declarations: [
     PatientlayoutComponent,
-    PatientsidebarComponent
+    PatientsidebarComponent,
+    //PatientUserManagementComponent
   ],
   imports: [
     CommonModule,
@@ -79,6 +88,17 @@ import { ToastContainerModule, ToastrModule } from 'ngx-toastr';
     MatDialogModule,
     ToastrModule.forRoot(),
     ToastContainerModule,
+    AccordionModule.forRoot(),
+    BsDatepickerModule.forRoot(),
+    BsDropdownModule.forRoot(),
+    TimepickerModule,
+     NgbModule,
+    CalendarModule.forRoot({
+    provide: DateAdapter,
+    useFactory: adapterFactory,
+    }),
+    FlatpickrModule,
+    NgbModalModule,
     
   ]
 })

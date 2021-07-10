@@ -31,7 +31,8 @@ export class RegistrationComponent implements OnInit {
         Lname : ['', Validators.required],
         Email : ['', [Validators.required, Validators.email]],
         RoleId : ['', Validators.required],
-        Dob : ['', [Validators.required]],
+        //Dob : ['', [Validators.required]],
+        ContantNumber :['',Validators.required]
       })
   
   }

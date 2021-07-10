@@ -39,30 +39,9 @@ export class LoginComponent implements OnInit {
   }
 
   loginForm: FormGroup = this.fb.group({
-    email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.minLength(6)]]
+    Email: ['', [Validators.required, Validators.email]],
+    Password: ['', [Validators.required, Validators.minLength(6)]]
   })
-
-
-  // onLogin() {
-  //   if (!this.loginForm.valid) {
-  //     return;
-  //   }
-  //   console.log(this.loginForm.value);
-
-  //   this.service.login(this.loginForm.controls.email.value,this.loginForm.controls.password.value)
-  //   .subscribe({
-  //     next : () => {
-  //       const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-  //                   this.router.navigateByUrl(returnUrl);
-  //     },
-  //     error: any => {
-  //       this.loading = false;
-  //   }
-  //   })
-
-  // }
-
   get f() { return this.loginForm.controls; }
 
   onSubmit() {
@@ -77,7 +56,7 @@ export class LoginComponent implements OnInit {
       }
       console.log(this.loginForm.value);
       this.loading = true;
-      this.service.login(this.f.email.value, this.f.password.value)
+      this.service.login(this.f.Email.value, this.f.Password.value)
             .pipe(first())
             .subscribe(data=>{
               this.showSuccessLogin();
