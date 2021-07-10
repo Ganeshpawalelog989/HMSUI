@@ -11,10 +11,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PatientlayoutModule } from './Layout/patientlayout/patientlayout.module';
 import { NurselayoutModule } from './Layout/nurselayout/nurselayout.module';
 import { PhysicianlayoutModule } from './Layout/physicianlayout/physicianlayout.module';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+
 @NgModule({
   declarations: [
-    AppComponent
-    
+    AppComponent 
   ],
   imports: [
     BrowserModule,
@@ -26,8 +28,9 @@ import { PhysicianlayoutModule } from './Layout/physicianlayout/physicianlayout.
     HomescreenModule,
     NgbModule,
     NurselayoutModule,
-    PhysicianlayoutModule
-
+    PhysicianlayoutModule,
+    NgbModule,
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -96,7 +96,7 @@ export class LoginComponent implements OnInit {
   }
   showSuccessLogin()
   {
-    this.toastr.showSuccess("Successfully!!!","You'r logged in");
+    this.toastr.showSuccess("Successfully!!!","You'r logged in");  
   }
   showErrorLogin()
   {

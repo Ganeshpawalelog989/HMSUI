@@ -45,7 +45,7 @@ export class RegistrationComponent implements OnInit {
   onSubmit() {
     debugger;
       this.submitted = true;
-        debugger;
+       
       // stop here if form is invalid
       if (this.regiForm.invalid) {
           return;

@@ -31,8 +31,6 @@ import { ToastrModule, ToastContainerModule } from 'ngx-toastr';
 import { SharedModule } from 'src/app/shared/shared/shared.module';
 import { NurselayoutComponent } from './nurselayout.component';
 import { NurseSidebarComponent } from 'src/app/shared/components/nurse-sidebar/nurse-sidebar.component';
-import { DashboardComponent } from 'src/app/modules/dashboard/dashboard.component';
-
 
 
 @NgModule({

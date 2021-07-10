@@ -1,42 +1,55 @@
+<h1   class="page-title">Sent Note</h1>
+<fieldset style="border-radius: 10px; border: 1px solid lightgray; padding: 20px;">
+<div class="container-fluid" >
+<div class="card" style="margin-bottom: 10px;"*ngFor="let notes of sendNote">
+<div class="card-body">
 <div class="container">
-    <div class="col">
-  
-     <div class="col">
-    
-<form [formGroup]="sendnotes">
-    <mat-card-title>  
-      <h1 class="title">Send notes </h1>
-    </mat-card-title>
+<div class="row">
+<div class="col-sm-4">
+<h2 class="card-title">{{notes.firstName}} {{notes.lastName}}</h2>
+<h3 class="card-subtitle mb-2 text-muted">{{notes.role}}</h3>
+</div>
+<div class="col-sm-4"></div>
+<div class="col-sm-4">
+<h5 class="card-subtitle mb-2 text-muted">{{notes.date | date: 'dd/MM/yyyy h:mm a'}}</h5>
+</div>
+</div>
+<div class="row">
+<div class="col-12">
+<p class="card-text">{{notes.message}}</p>
+</div>
+</div>
+</div>
+<p class="card-text font-italic float-end">Response to the note</p>
+</div>
+</div>
+</div>
+<ng-template #elseBlock>
+  No notes available
+</ng-template>
+</fieldset>
 
-   
-        <mat-form-field appearance="legacy" class="full-width col-4">
-          <mat-label>DOB</mat-label>
-          <input matInput [matDatepicker]="picker">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
 
-        <mat-form-field class="full-width col-4">
-            <mat-select placeholder="Receivername">
-              <mat-option *ngFor="let al of alergy" [value]="al">
-                {{ al }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-
-          <mat-form-field class="full-width col-4">
-            <mat-select placeholder="Receiver Designation">
-              <mat-option *ngFor="let al of alergy" [value]="al">
-                {{ al }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-          
-          <mat-form-field appearance="legacy" class="full-width col-4" >
-          <mat-label>Message</mat-label>
-            <textarea matInput></textarea>
-          </mat-form-field>
-          <button mat-flat-button color="primary" routerLink="/recievenotes">send notes</button>            
-   </form>
-    </div>
+<h1  class="page-title">Send Note</h1>
+<fieldset style="border-radius: 10px; border: 1px solid lightgray; padding: 20px;">
+<div class="container-fluid">
+<form (ngSubmit)='sentNotes()' novalidate class="form">
+<div class="row mb-3">
+<div class="col-12">
+<div class="form-group">
+<div class="row">
+<div class="col-md-4 col-sm-12">
+<label for="recieverId">Receiver Name</label>
+</div>
+<div class="col-md-8 col-sm-12">
+<select formControlName="recieverId" class="form-select form-control"(change)="populateDesgination()">
+<!-- <option *ngFor="let user of users"[ngValue]="notes.userId">{{user.firstName}} {{user.lastName}}</option> -->
+</select>
+<div  class="invalid-feedback">
+<div >Please select the reciever name</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>

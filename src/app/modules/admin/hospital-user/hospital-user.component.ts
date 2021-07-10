@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { AddAppointmentComponent } from '../../scheduling/add-appointment/add-appointment.component';
+
 import { AddDialogContantComponent } from '../add-dialog-contant/add-dialog-contant.component';
 
 export interface PeriodicElement {
