@@ -34,7 +34,10 @@ install for modal :
 
  --sheduling 
  --save
-npm i date-fns --save
+npm i date-fns 
+
+--save
+ng add @ng-bootstrap/ng-bootstrap
 
 ng add @ng-bootstrap/ng-bootstrap 
 npm install angular-calendar --save

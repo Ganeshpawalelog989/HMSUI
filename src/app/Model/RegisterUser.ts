@@ -90,7 +90,7 @@ export class RegisterUser{
     this.PhysicianId=PhysicianId;
     this.Password=Password;
     }
-
+   
 
 }
 

@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./physicianlayout.component.scss']
 })
 export class PhysicianlayoutComponent implements OnInit {
-
   sideBarOpen = true;
 
 
@@ -18,5 +17,4 @@ export class PhysicianlayoutComponent implements OnInit {
   sideBarToggler() {
     this.sideBarOpen = !this.sideBarOpen;
   }
-
 }

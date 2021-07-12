@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./patientlayout.component.scss']
 })
 export class PatientlayoutComponent implements OnInit {
-
   sideBarOpen = true;
 
 

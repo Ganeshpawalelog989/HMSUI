@@ -51,11 +51,9 @@ import { ToastContainerModule, ToastrModule } from 'ngx-toastr';
 import { PatientRegistrationComponent } from 'src/app/modules/patient-registration/patient-registration.component';
 import { PatientUserShedulingComponent } from 'src/app/modules/patient-user-sheduling/patient-user-sheduling.component';
 import {MatExpansionModule } from '@angular/material/expansion';
-import { AppointmentComponent } from 'src/app/modules/appointment/appointment.component';
-//new code 
+
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
-import { AppointmentDeleteComponent } from 'src/app/modules/appointment-delete/appointment-delete.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
@@ -93,8 +91,6 @@ import {MatListModule } from '@angular/material/list';
     FilterPipe,
     PatientRegistrationComponent,
     PatientUserShedulingComponent ,
-    AppointmentComponent,
-    AppointmentDeleteComponent,
     ViewSechedulingComponent,
   ],
   imports: [
@@ -142,20 +138,18 @@ import {MatListModule } from '@angular/material/list';
     ToastContainerModule,
     MatDialogModule,
     MatExpansionModule,
-     AccordionModule,
-     BsDropdownModule,
-     BsDatepickerModule,
-    AccordionModule,
-    BsDatepickerModule,
-    BsDropdownModule,
+    AccordionModule.forRoot(),
+    BsDatepickerModule.forRoot(),
+    BsDropdownModule.forRoot(),
     TimepickerModule,
      NgbModule,
-    // CalendarModule.forRoot({
-    // provide: DateAdapter,
-    // useFactory: adapterFactory,
-    // }),
+    CalendarModule.forRoot({
+    provide: DateAdapter,
+    useFactory: adapterFactory,
+    }),
      FlatpickrModule,
      NgbModalModule
-  ]
+  ],
+  
 })
 export class DefaultModule { }

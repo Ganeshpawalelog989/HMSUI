@@ -14,7 +14,8 @@ export class PatientRegistrationComponent implements OnInit {
   regiForm!: FormGroup;
   submitted = false;
   register: any;
-  rid : string = "2";
+  rid : string ="2";
+ 
   constructor(private formBuilder: FormBuilder, 
     private service: UserService,
     private userServ : AuthenticationService,
@@ -29,8 +30,8 @@ export class PatientRegistrationComponent implements OnInit {
       Fname: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(20), Validators.pattern('[a-zA-Z]+')]],
       Lname: ['', Validators.required],
       Email: ['', [Validators.required, Validators.email]],
-      RoleId : ["2"],
-      ContactNumber : ['',Validators.required],       
+      RoleId : ['2'],
+      ContactNumber:['', Validators.required],       
       Dob:['',[Validators.required]],
        Password: [ '',
           [

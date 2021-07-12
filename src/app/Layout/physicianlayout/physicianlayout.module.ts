@@ -84,6 +84,7 @@ import { PhisiciansidebarComponent } from 'src/app/shared/components/phisiciansi
     MatDialogModule,
     ToastrModule.forRoot(),
     ToastContainerModule,
+    
   ]
 })
 
