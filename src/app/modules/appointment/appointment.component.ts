@@ -1,18 +1,49 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Appointment } from 'src/app/Model/Appointment';
+import {AppiontmentservServiceService } from 'src/app/Service/appiontmentserv-service.service'
 @Component({
   selector: 'app-appointment',
   templateUrl: './appointment.component.html',
   styleUrls: ['./appointment.component.scss']
 })
 export class AppointmentComponent implements OnInit {
-
-  constructor() { }
+  constructor(private appointserv : AppiontmentservServiceService ,
+    private fb : FormBuilder) { }
+  appointment : any;
+  // physicianName : string ='';
 
   ngOnInit(): void {
+    this.getPhysiciansName();
+    this.appointment = this.fb.group({
+      physicianName : ['',Validators.required],
+      physicianId : ['']
+    })
   }
-
+ // pname : any[] =[];
+  
+  physicians : Appointment[] = [
+    {
+      "physicianId" : "1",
+      "physicianName" : "Meharsh"
+    },
+    {
+      "physicianId" : "2",
+      "physicianName" : "Santosh"
+    },
+    {
+      "physicianId" : "3",
+      "physicianName" : "Anand"
+    },
+    {
+      "physicianId" : "4",
+      "physicianName" : "Ganesh"
+    },
+    {
+      "physicianId" : "5",
+      "physicianName" : "Sachin"
+    }
+  ]
   movies = [
     { title: 'The Shawshank Redemption (1994)' },
     { title: 'The Godfather (1972)' },
@@ -36,4 +67,15 @@ currentDate = new Date();
     ])
   });
 
+  getPhysiciansName()
+  {
+    this.appointserv.getAllPhsicianName()
+    .subscribe(data => {
+      console.log(data);
+     // this.pname = data;
+    })
+  }
+
 }
+
+

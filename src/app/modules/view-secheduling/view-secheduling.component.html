@@ -107,11 +107,11 @@
     <!-- Everything you see below is just for the demo, you don't need to include it in your app -->
     
           
-      <div class="clearfix">
+      <!-- <div class="clearfix">
         <button class="btn btn-primary float-left" (click)="addEvent()">
           Add New Appointment
         </button>
-      </div>
+      </div> -->
       <div class="table-responsive">
         <table class="table table-bordered">
           <thead>
@@ -143,29 +143,32 @@
                          dateFormat="Y-m-dTH:i"
                          altFormat="F j, Y H:i">
                 </div>
-                  
               </td>
               <td>
                 <div class="col-xs-12 col-12 col-md-4 form-group">
-                   <input type="text"
+                   <!-- <input type="text"
                          placeholder="Datepicker"
                          class="form-control"
-                         
-                         Timepicker
+                         Datepicker 
                          [(ngModel)]="event.end"
                          (ngModelChange)="refresh.next()"
-                         timeFormat=" H:i:s"
                          
-                         
-                         > 
-                       
-                </div>
+                         dateFormat="Y-m-dTH:i"
+                         altFormat="F j, Y H:i"
+                         placeholder="Datepicker"
+                         class="form-control"
+                         >  -->
+                         <input type="text"
+                         placeholder="Datepicker"
+                         class="form-control"
+                         bsDatepicker>
+                    </div>
               </td>
-              <td>
+              <!-- <td>
                 <button class="btn btn-danger" (click)="deleteEvent(event)">
                   Edit
                 </button>
-              </td>
+              </td> -->
               <td>
                 <button class="btn btn-danger" (click)="deleteEvent(event)">
                   Delete
