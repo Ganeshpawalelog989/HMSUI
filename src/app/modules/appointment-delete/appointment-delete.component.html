@@ -93,11 +93,6 @@
           >
           </mwl-calendar-day-view>
         </div>
-        <div>
-            <button class="btn btn-primary">Add Appointment</button>&nbsp;
-            <button class="btn btn-primary">Edit Appointment</button>&nbsp;
-            <button class="btn btn-primary">Delete Appointment</button>&nbsp;
-        </div>
       </div><br>
    
 <!-- Everything you see below is just for the demo, you don't need to include it in your app -->
@@ -114,7 +109,7 @@
         <tr>
           <th>Title</th>
           <th>Start Date</th>
-          <th>End Date</th>
+          <th>Time</th>
           <th>Remove</th>
         </tr>
       </thead>
@@ -149,6 +144,7 @@
                      (ngModelChange)="refresh.next()"
                      dateFormat="Y-m-dTH:i"
                      altFormat="F j, Y H:i">
+                
             </div>
           </td>
 

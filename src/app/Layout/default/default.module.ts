@@ -60,6 +60,8 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns'
 import {​​​ BsDatepickerModule }​​​ from'ngx-bootstrap/datepicker';
 import {TimepickerModule } from 'ngx-bootstrap/timepicker';
 import { ViewSechedulingComponent } from 'src/app/modules/view-secheduling/view-secheduling.component';
+import { DashboardComponent } from 'src/app/modules/admin/dashboard/dashboard.component';
+import { AdminpatientregistrationComponent } from 'src/app/modules/adminpatientregistration/adminpatientregistration.component';
 
 @NgModule({
   declarations: [
@@ -84,6 +86,9 @@ import { ViewSechedulingComponent } from 'src/app/modules/view-secheduling/view-
     PatientRegistrationComponent,
     PatientUserShedulingComponent ,
     ViewSechedulingComponent,
+    DashboardComponent,
+    AdminpatientregistrationComponent,
+    
   ],
   imports: [
     CommonModule,

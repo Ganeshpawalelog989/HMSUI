@@ -41,7 +41,9 @@ export class AppointmentDeleteComponent implements OnInit {
 
 
 
-  constructor(private modal: NgbModal ) { }
+  constructor(private modal: NgbModal ) {
+    
+   }
 
   ngOnInit(): void {
   }
@@ -50,9 +52,15 @@ export class AppointmentDeleteComponent implements OnInit {
 
   view: CalendarView = CalendarView.Month;
 
+  view1 :CalendarView = CalendarView.Day;
+
   CalendarView = CalendarView;
 
   viewDate: Date = new Date();
+
+  clickedDate !: Date;
+
+  clickedColumn ! : number;
 
   modalData: {
     action: string;

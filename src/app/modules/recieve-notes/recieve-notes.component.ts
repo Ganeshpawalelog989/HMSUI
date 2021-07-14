@@ -1,3 +1,5 @@
+
+import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
 //import { ViewSchedule } from '../physician-view/physician-view.component';
 
@@ -8,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecieveNotesComponent implements OnInit {
 
-  constructor() { }
+  constructor(   ) { }
 
   ngOnInit(): void {
   }
@@ -31,6 +33,10 @@ export class RecieveNotesComponent implements OnInit {
 
   }
 
+  sendnotes(){
+//    this.router.navigate(['sendnotes'])
+  }
+
   openDetailsOfPatient()
   {
     this.isFlagDetails=true;
@@ -45,6 +51,8 @@ export class RecieveNotesComponent implements OnInit {
     console.log(this.ViewScheduler);
   }
   displayedColumns: string[] = ['position', 'name', 'weight', 'action','symbol'];
+
+  
 
 }
 

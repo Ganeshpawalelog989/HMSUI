@@ -71,7 +71,7 @@ export class RegistrationComponent implements OnInit {
 }
 
   getAllData()
- {
+  {
   this.service.getAllPost().subscribe(data => {
     console.log("data get successfully");
     this.register=data;

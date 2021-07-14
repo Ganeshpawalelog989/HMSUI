@@ -1,54 +1,84 @@
 <accordion [isAnimated]="true">
     <accordion-group heading="Physician Information">
-      <div class="form-group col-md-6" >
-          <label>Physician Name</label>&nbsp;
-          <select class="form-control">
-              <option>1</option>
-              <option>1</option>
-              <option>1</option>
-          </select>
-      </div><br>
-      <div class="form-group col-md-6">
-        <label for="id">Physician ID</label>&nbsp;
-       <input type="text" class="form-control" readonly>
-    </div><br>
-    <div>
-        <button class="btn btn-primary" [disabled]="" routerLink="/deleteappoinemnt">Book Appointment</button>&nbsp;
-        <!-- <button class="btn btn-primary" [disabled] ="">Edit Appointment</button>&nbsp;
-        <button class="btn btn-primary" [disabled]="">Delete Appointment</button>&nbsp;
-         -->
-    </div>
-    </accordion-group>
-    <accordion-group heading="Meeting Details">
-        <div class="row">
+    <form [formGroup]= "appointment">  
+        <div class="form-group col-md-4" >
+            <label>Physician Name</label>&nbsp;
+            <select class="form-control">
+                <option value="0">Select Physician Name</option>
+                <option  *ngFor="let name of physicians" name="physicianName" 
+                formControlName="physicianName" ngDefaultControl>
+               {{name.physicianId}}  {{name.physicianName}}
+                 </option>
+            </select>
+        </div><br>
         <div class="form-group col-md-4">
+            <label for="id">Physician ID</label>&nbsp;
+             <input type="text" class="form-control" formControlName="physicianId">
+        </div><br>
+        <div>
+            <button class="btn btn-primary" [disabled]="!appointment.valid">Add Appointment</button>&nbsp;
+            <button class="btn btn-primary" [disabled]="!appointment.valid" >Edit Appointment</button>&nbsp;
+            <button class="btn btn-primary" [disabled]="!appointment.valid" >Delete Appointment</button>&nbsp;
+        </div>
+    </form>
+    </accordion-group><br>
+    <accordion-group heading="Meeting Details">
+        <div class="form-group col-md-6">
             <label for="id">Meeting Title</label>&nbsp;
            <input type="text" class="form-control" readonly>
-        </div>
-        <div class="form-group col-md-4">
-            <div>
-                <input
-                    type="text"
-                    placeholder="Select Date"
-                    class="form-control"
-                    bsDatepicker
-                    [bsConfig]="{ isAnimated: true }">
+        </div><br>
+        <div class="form-group col-md-6">
+            <label for="id">Paitent Id</label>&nbsp;
+           <input type="text" class="form-control" placeholder="Enter Paitent Id"> 
+           <button class="btn btn-primary">Search</button>&nbsp;
+        </div><br>
+        <accordion-group heading="Paitent Vital Details" >
+            <form>
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label for="id">Height</label>&nbsp;
+                   <input type="text"  class="form-control" placeholder="Enter Height"
+                   data-toggle="tooltip" data-placement="top"
+                    title="In Centimeters (Cms)" >
+                   <!-- <input type="text" name= "feet" class="form-control" >
+                   <input type="text" name="inches" class="form-control" > -->
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="id">Weight</label>&nbsp;
+                   <input type="text"  class="form-control" placeholder="Enter Weight"
+                   data-toggle="tooltip" data-placement="top"
+                    title="In Kilograms (Kgs)" >
+                   <!-- <input type="text" name= "Kg" class="form-control" > -->
+                   
+                </div>
+            </div><br>
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label for="id">Blood Pressure</label>&nbsp;
+                   <input type="text"  class="form-control" 
+                   placeholder="Enter Blood Pressure"
+                   data-toggle="tooltip" data-placement="top"
+                    title="In millimeters (mm Hg)" >
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="id">Body Temperature</label>&nbsp;
+                   <input type="text"  class="form-control"
+                   placeholder="Enter Body Temperature"
+                   data-toggle="tooltip" data-placement="top"
+                    title="In Fahrenite (*F)" >
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="id">Respiration Rate</label>&nbsp;
+                   <input type="text" class="form-control"
+                   placeholder="Enter Respiration Rate"
+                   data-toggle="tooltip" data-placement="top"
+                    title="Breathing rate per min" >
+                </div>
             </div>
-      </div><br>
-    </div>
-    <div class="row">
-        <div class="form-width col-md-4">
-
-            <label for="id">Search</label>&nbsp;
-           <input type="search" class="form-control" value="search"> 
-        </div>
-        <div class="form-width col-md-4">
-            <label>Patient Details</label>&nbsp;&nbsp;
-            <a href="" >Click Here for More Details</a>
-        </div>
-    </div>
+            </form>
+        </accordion-group><br>
         <div class="row">
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-6">
                 <label>Descriptive information</label>
                 <textarea class="form-control" rows="3" cols="4"></textarea>
             </div>
@@ -57,40 +87,29 @@
                 <input type="text" class="form-control" >
             </div> -->
         </div><br>
-    
-        <accordion-group heading="Paitent Vital Details" >
-            <form>
-            <div class="row">
-                <div class="form-group col-md-2">
-                    <label for="id">Height</label>&nbsp;
-                   <input type="text"  class="form-control" placeholder="Enter Height" >
-                   <input type="text" name= "feet" class="form-control" >
-                   <input type="text" name="inches" class="form-control" >
+        <div class="row">
+            <div class="form-group col-md-4">
+                <div>
+                    <input
+                        type="text"
+                        placeholder="Select Date"
+                        class="form-control"
+                        bsDatepicker
+                        [bsConfig]="{ isAnimated: true }">
                 </div>
-                <div class="form-group col-md-2">
-                    <label for="id">Weight</label>&nbsp;
-                   <input type="text"  class="form-control" placeholder="Enter Weight" >
-                   <input type="text" name= "Kg" class="form-control" >
-                   
-                </div>
-            </div><br>
-            <div class="row">
-                <div class="form-group col-md-2">
-                    <label for="id">Blood Pressure</label>&nbsp;
-                   <input type="text"  class="form-control" >
-                </div>
-                <div class="form-group col-md-2">
-                    <label for="id">Body Temperature</label>&nbsp;
-                   <input type="text"  class="form-control" >
-                </div>
-                <div class="form-group col-md-2">
-                    <label for="id">Respiration Rate</label>&nbsp;
-                   <input type="text" class="form-control" >
-                </div>
-            </div>
-            </form>
-        </accordion-group><br>
-    </accordion-group>
+          </div><br>
+          <div class="form-group col-md-4">
+            <!-- <label>Time</label>&nbsp;&nbsp;
+             -->
+
+           <input type="time" value="time" class="form-control" placeholder="Select Time">
+        </div>
+    </div>
+    <div class="form-group col-md-4">
+        <label>Patient Details</label>&nbsp;&nbsp;
+        <a href="" >Click Here for More Details</a>
+    </div>
+    </accordion-group><br>
     <accordion-group heading="Edit History">
         <div>
             <label for="id">List of Paitents</label>&nbsp;
@@ -117,4 +136,4 @@
             <button class="btn btn-primary">Create Appointment</button>
         </div>
     </accordion-group>
-
+</accordion>

@@ -28,6 +28,16 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ToastContainerModule, ToastrModule } from 'ngx-toastr';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule, MatNavList } from '@angular/material/list';
+import { PhysicianMyprofileComponent } from 'src/app/modules/physician-myprofile/physician-myprofile.component';
+import { PatientVisitComponent } from 'src/app/modules/patient-visit/patient-visit.component';
+import { AccordionModule } from 'ngx-bootstrap/accordion';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { TimepickerModule } from 'ngx-bootstrap/timepicker';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { FlatpickrModule } from 'angularx-flatpickr';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 //import { AppointmentComponent } from 'src/app/modules/appointment/appointment.component';
 //import { AppointmentDeleteComponent } from 'src/app/modules/appointment-delete/appointment-delete.component';
 
@@ -39,6 +49,10 @@ import { MatListModule, MatNavList } from '@angular/material/list';
     PhisiciansidebarComponent,
   //  AppointmentComponent,
     //AppointmentDeleteComponent,
+    PhysicianMyprofileComponent,
+    PatientVisitComponent,
+    
+    
   ],
   imports: [
     CommonModule,
@@ -79,7 +93,17 @@ import { MatListModule, MatNavList } from '@angular/material/list';
     ToastrModule.forRoot(),
     ToastContainerModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+    AccordionModule.forRoot(),
+    BsDatepickerModule.forRoot(),
+    BsDropdownModule.forRoot(),
+    TimepickerModule,
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+      }),
+      FlatpickrModule,
+      NgbModalModule
   ]
 })
 export class PhysicianlayoutModule { }
