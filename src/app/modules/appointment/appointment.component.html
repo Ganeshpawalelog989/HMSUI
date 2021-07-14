@@ -37,42 +37,32 @@
       </div><br>
     </div>
     <div class="row">
-        <div class="form-width col-md-4">
+        <div class="form-control col-md-6" >
+            <div class="form-control col-md-4">
+            <label for="id" >Search Patient</label>&nbsp;
+           <input  type="search" class="form-control" placeholder="enter patientid ">
+            </div> 
+           <div class="form-control col-md-2">
 
-            <label for="id">Search</label>&nbsp;
-           <input type="search" class="form-control" value="search"> 
+           <button class="btn btn-primary col-md-2">Search</button>
+           </div>
+
         </div>
-        <div class="form-width col-md-4">
-            <label>Patient Details</label>&nbsp;&nbsp;
-            <a href="" >Click Here for More Details</a>
-        </div>
+          
     </div>
-        <div class="row">
-            <div class="form-group col-md-4">
-                <label>Descriptive information</label>
-                <textarea class="form-control" rows="3" cols="4"></textarea>
-            </div>
-            <!-- <div  class="form-group col-md-4">
-                <label>Physician Name</label>
-                <input type="text" class="form-control" >
-            </div> -->
-        </div><br>
-    
+        
         <accordion-group heading="Paitent Vital Details" >
             <form>
             <div class="row">
                 <div class="form-group col-md-2">
                     <label for="id">Height</label>&nbsp;
                    <input type="text"  class="form-control" placeholder="Enter Height" >
-                   <input type="text" name= "feet" class="form-control" >
-                   <input type="text" name="inches" class="form-control" >
+                   
                 </div>
                 <div class="form-group col-md-2">
                     <label for="id">Weight</label>&nbsp;
                    <input type="text"  class="form-control" placeholder="Enter Weight" >
-                   <input type="text" name= "Kg" class="form-control" >
-                   
-                </div>
+                 </div>
             </div><br>
             <div class="row">
                 <div class="form-group col-md-2">
@@ -88,7 +78,21 @@
                    <input type="text" class="form-control" >
                 </div>
             </div>
-            </form>
+        </form>
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label>Descriptive information</label>
+                    <textarea class="form-control" rows="3" cols="4"></textarea>
+                </div>
+                <!-- <div  class="form-group col-md-4">
+                    <label>Physician Name</label>
+                    <input type="text" class="form-control" >
+                </div> -->
+            </div><br>
+            <div class="form-width col-md-4">
+                <label>Patient Details</label>&nbsp;&nbsp;
+                <a href="" >Click Here for More Details</a>
+            </div>
         </accordion-group><br>
     </accordion-group>
     <accordion-group heading="Edit History">

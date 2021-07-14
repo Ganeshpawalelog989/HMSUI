@@ -1,0 +1,282 @@
+<accordion [isAnimated]="true">
+    <accordion-group heading="Patient Details">      
+      <div class="container">
+          <div class="row">
+     
+           <div class="col">
+       
+         <form [formGroup]="patientDetails">
+         
+         <mat-radio-group >
+           <mat-radio-button value="1" color="primary">Mr&nbsp;</mat-radio-button>  
+           <mat-radio-button value="1" color="primary">Ms&nbsp;</mat-radio-button>
+           <mat-radio-button value="1" color="primary">Mrs&nbsp;</mat-radio-button>
+           <mat-radio-button value="1" color="primary">Dr&nbsp;</mat-radio-button>
+          </mat-radio-group> 
+    
+    
+         <div class="row">
+         <mat-form-field appearance="legacy" class="full-width col-4" >
+           <mat-label class="label" >FirstName</mat-label>
+         <input matInput  required [readonly]="isReadonly"/>
+         </mat-form-field>
+         <mat-form-field appearance="legacy" class="full-width col-4">
+           <mat-label>LastName</mat-label>
+           <input matInput  required [readonly]="isReadonly"/> 
+         </mat-form-field>
+         </div>
+     
+         <div class="row">
+         <mat-form-field appearance="legacy" class="full-width col-4">
+           <mat-label>DOB</mat-label>
+           <input matInput [matDatepicker]="picker"  required [readonly]="isReadonly">
+           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+           <mat-datepicker #picker></mat-datepicker>
+         </mat-form-field>
+         <mat-form-field appearance="legacy" class="full-width col-4">
+           <mat-label>Age</mat-label>
+           <input matInput  required [readonly]="isReadonly">
+         </mat-form-field>
+       </div>
+         
+       <div class="row">
+         <mat-form-field appearance="legacy" class="full-width col-3" >
+           <mat-label>Race</mat-label>
+           <input matInput required [readonly]="isReadonly">
+         </mat-form-field>
+         <mat-form-field appearance="legacy" class="full-width col-2">
+           <mat-label>Ethnicity</mat-label>
+           <input matInput required [readonly]="isReadonly"> 
+         </mat-form-field>
+         <mat-form-field appearance="legacy" class="full-width col-3">
+           <mat-label>Lanaguageknown</mat-label>
+           <input matInput required [readonly]="isReadonly">
+         </mat-form-field>
+       </div>
+     
+       <div class="row">
+         <mat-form-field appearance="legacy" class="full-width col-4">
+           <mat-label>Email </mat-label>
+           <input matInput placeholder="Your email" required [readonly]="isReadonly">
+           <mat-icon matSuffix>mail_outline</mat-icon>
+         </mat-form-field>
+         <mat-form-field class="full-width col-4">
+           <mat-select placeholder="Gender">
+             <mat-option *ngFor="let gender of genders" [value]="gender">
+               {{ gender }}
+             </mat-option>
+           </mat-select>
+         </mat-form-field>
+       </div>
+     
+       <div class="row">
+          <mat-form-field appearance="legacy" class="full-width col-4">
+            <mat-label>HomeAddress</mat-label>
+            <textarea matInput required [readonly]="isReadonly"></textarea>
+          </mat-form-field>
+           <mat-form-field appearance="legacy" class="full-width col-4">
+            <mat-label>ContantNo:</mat-label>
+    
+            <input matInput placeholder="Your Phone" required [readonly]="isReadonly">
+            <mat-icon matSuffix>phone</mat-icon>
+            </mat-form-field> 
+            <!-- <button mat-flat-button color="primary">Submit</button> -->
+          </div>
+          <div class="example-button-row">
+               <button mat-flat-button color="primary" (click) = "toggleReadonly()">Edit</button>&nbsp;&nbsp;&nbsp;&nbsp;
+               <button mat-flat-button color="primary" (click) = "toggleDiable()">Save</button>
+             </div>
+        </form>
+        </div>
+       </div>
+      </div>
+        </accordion-group>
+         <accordion-group heading="Patient Emerency Details">
+    
+          <div class="container">
+            <div class="row">
+          
+             <div class="col">
+              <form [formGroup]="EmerencyInfo">
+                <mat-radio-group name="id">
+                  <mat-label> Do you need Access to Patient Portal</mat-label>&nbsp;&nbsp;&nbsp;
+               <mat-radio-button value="1">
+                   Yes 
+               </mat-radio-button>&nbsp;&nbsp;
+               <mat-radio-button value="1">
+                  No
+              </mat-radio-button>
+              </mat-radio-group>
+              <br>
+              <br>
+                <div class="row">
+                <mat-form-field appearance="legacy" class="full-width col-4" >
+                  <mat-label>FirstName</mat-label>
+                  <input matInput required [readonly]="isReadonly"/>
+                </mat-form-field>
+                <mat-form-field appearance="legacy" class="full-width col-4">
+                  <mat-label>LastName</mat-label>
+                  <input matInput required [readonly]="isReadonly">
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field class="full-width col-4">
+                  <mat-select placeholder="Relation" required>
+                    <mat-option *ngFor="let Rel of Relation" [value]="Rel">
+                      {{ Rel }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="legacy" class="full-width col-4" >
+                  <mat-label>Email Address:</mat-label>
+                  <input matInput  required [readonly]="isReadonly" >
+                  <mat-icon matSuffix>mail_outline</mat-icon>
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field appearance="legacy" class="full-width col-4">
+                  <mat-label>Contant No:</mat-label>
+                  <input matInput placeholder="Your Phone"  required [readonly]="isReadonly">
+                  <mat-icon matSuffix>phone</mat-icon>
+                </mat-form-field>
+                <mat-form-field appearance="legacy" class="full-width col-4" >
+                  <mat-label>Home Address</mat-label>
+                  <textarea matInput  required [readonly]="isReadonly"></textarea>
+                  <input matInput >
+                </mat-form-field>
+                
+              </div>
+              <div class="example-button-row">
+                <button mat-flat-button color="primary" (click) = "toggleReadonly()">Edit</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                <button mat-flat-button color="primary" (click) = "toggleDiable()">Save</button>
+             
+            </div>
+              </form>  
+             </div>
+            </div>
+          </div>
+    
+        
+          
+         </accordion-group> 
+    
+         <accordion-group heading="Patient Allery Details">
+          <div class="container">
+            <div class="row">
+          
+             <div class="col">
+              <form [formGroup]="Allery">
+                <mat-card-title>  
+                  <h1 class="title">Alergy Details Form</h1>
+                </mat-card-title>
+                <div class="row">
+                 <mat-radio-group name="id">
+                    <mat-label>Patient has any known Allergy</mat-label>&nbsp;&nbsp;&nbsp;
+                 <mat-radio-button value="1">
+                     Yes 
+                 </mat-radio-button>&nbsp;&nbsp;
+                 <mat-radio-button value="1">
+                    No
+                </mat-radio-button>
+                </mat-radio-group>
+              </div>
+              <div class="row">
+                <mat-form-field class="full-width col-4">
+                  <mat-select placeholder="Allery Type" formControlName="allergyType" required>
+                    <mat-option *ngFor="let al of alergy" [value]="al">
+                      {{ al }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="row">
+                <mat-form-field class="full-width col-4">
+                    <mat-select placeholder="Allery Name" formControlName="allergyName" required>
+                      <mat-option *ngFor="let al of alergy" [value]="al">
+                        {{ al }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                  <br>
+                  <mat-radio-group name="id">
+                    <mat-label> Is Allergy Fatal</mat-label>&nbsp;&nbsp;&nbsp;
+                 <mat-radio-button value="1" >
+                     Yes 
+                 </mat-radio-button>&nbsp;&nbsp;
+                 <mat-radio-button value="1">
+                    No
+                </mat-radio-button>
+                </mat-radio-group>
+                <br>
+                <br>
+                <div class="example-button-row">
+                <button mat-flat-button color="primary" (click) = "addAllergy(); toggleAllergy()">Add</button> &nbsp;&nbsp;&nbsp;&nbsp;
+                <button mat-flat-button color="primary">Edit</button>
+                
+              </div>
+               </form>
+             </div>
+            </div>
+          </div>
+          
+          <div class="container" *ngIf="isallergy">
+            <table class="table">
+                <thead>
+                    <th scope="col">Allergy Type</th>
+                    <th scope="col">Allergy Name</th>
+                    <th>Is Allergy Fatal</th>
+                </thead>
+                <tbody>
+                     <tr *ngFor="let item of allergyList">
+                      <td><span>{{item.allergyType}}</span></td>
+                      <td><span>{{item.allergyName}}</span></td>
+                      <td><span>{{item.isallergyfatal}}</span></td>
+                     <button mat-flat-button color="primary" (click) = "removeAllergy(item)">Remove</button>
+    
+                     </tr>
+                     
+                </tbody>
+            </table>
+    
+    
+        </div> 
+         </accordion-group>
+         
+      </accordion>
+
+       <accordion [isAnimated]="true">
+   <accordion-group heading="Paitent Vital Details">
+      <form>         
+                <div class="form-group col-md-2">
+                    <label for="id">Height</label>&nbsp;
+                   <input type="text"  class="form-control" placeholder="Enter Height" required>
+                  
+                </div><br>
+                <div class="form-group col-md-2">
+                    <label for="id">Weight</label>&nbsp;
+                   <input type="text"  class="form-control" placeholder="Enter Weight" required>
+                   
+                </div><br>
+            
+            
+                <div class="form-group col-md-2">
+                    <label for="id">Blood Pressure</label>&nbsp;
+                   <input type="text"  class="form-control" placeholder="Enter Blood Pressure" required>
+                </div><br>
+                <div class="form-group col-md-2">
+                    <label for="id">Body Temperature</label>&nbsp;
+                   <input type="text"  class="form-control" placeholder="Body Temperature" required>
+                </div><br>
+                <div class="form-group col-md-2">
+                    <label for="id">Respiration Rate</label>&nbsp;
+                   <input type="text" class="form-control" placeholder="Respiration Rate" required>
+                </div>          
+            <br>
+          <div class="example-button-row">
+            <button mat-flat-button color="primary">Edit</button>
+          </div> 
+      </form>
+      
+   </accordion-group>
+</accordion> 

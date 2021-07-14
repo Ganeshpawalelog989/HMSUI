@@ -30,6 +30,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ToastContainerModule, ToastrModule } from 'ngx-toastr';
+import { NurseMyprofileComponent } from 'src/app/modules/nurse-myprofile/nurse-myprofile.component';
 
 
 
@@ -37,7 +38,8 @@ import { ToastContainerModule, ToastrModule } from 'ngx-toastr';
   declarations: [
     NursesidebarComponent,
     NurselayoutComponent,
-
+    NurseMyprofileComponent,
+    
   ],
   imports: [
     CommonModule,
