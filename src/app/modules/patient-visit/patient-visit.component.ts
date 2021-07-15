@@ -179,7 +179,9 @@ alergy=[
 onSubmitUserDetails(value: any){
   console.log(value);
 }
+onMedicationSubmit(){
 
+}
 //Patient Details for adding tables
 // public addItem() : void 
 // {

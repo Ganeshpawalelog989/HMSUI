@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import {HospitalUser} from '../hospital-user/hospital-user.component'
+import { HospitalUser } from 'src/app/Model/Admin';
 
 @Component({
   selector: 'app-add-dialog-contant',

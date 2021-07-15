@@ -119,7 +119,8 @@
               <th>Meeting Title</th>
               <th>Date</th>
               <th>Time</th>
-              <th>Edit</th>
+              <!-- <th>Edit</th>
+               -->
               <th>Remove</th>
             </tr>
           </thead>
@@ -170,8 +171,8 @@
                 </button>
               </td> -->
               <td>
-                <button class="btn btn-danger" (click)="deleteEvent(event)">
-                  Delete
+                <button class="btn" style="color: red;" (click)="deleteEvent(event)">
+                  <mat-icon>delete</mat-icon>
                 </button>
               </td>
             </tr>

@@ -62,6 +62,7 @@ import {TimepickerModule } from 'ngx-bootstrap/timepicker';
 import { ViewSechedulingComponent } from 'src/app/modules/view-secheduling/view-secheduling.component';
 import { DashboardComponent } from 'src/app/modules/admin/dashboard/dashboard.component';
 import { AdminpatientregistrationComponent } from 'src/app/modules/adminpatientregistration/adminpatientregistration.component';
+import { RegisterHospitaluserComponent } from 'src/app/modules/register-hospitaluser/register-hospitaluser.component';
 
 @NgModule({
   declarations: [
@@ -88,6 +89,7 @@ import { AdminpatientregistrationComponent } from 'src/app/modules/adminpatientr
     ViewSechedulingComponent,
     DashboardComponent,
     AdminpatientregistrationComponent,
+    RegisterHospitaluserComponent
     
   ],
   imports: [

@@ -1,6 +1,6 @@
 <div class="container">  
     <span class="login100-form-title p-b-49">
-         Registration
+         <h2 style="text-align: center; color:slateblue;">Patient Register</h2>
     </span>  
     
     <form [formGroup]="regiForm" (ngSubmit)="onSubmit()">
@@ -13,7 +13,7 @@
         <mat-radio-button value="3" color="warn">&nbsp;Dr.&nbsp;</mat-radio-button>      
     </mat-radio-group> 
   </div>
-    <div class="row">
+    <br>
     <div class="col-md-3">
         <mat-form-field class="full-width" appearance="outline">
           <mat-label>First Name</mat-label>
@@ -33,8 +33,9 @@
             <mat-error *ngIf="!regiForm.controls['Lname'].valid">  Last name is required </mat-error> 
           </mat-form-field>
       </div>
-    </div>
-    <div class="row">
+    
+    <div>
+      
         <mat-form-field class="full-width" appearance="outline">
         <mat-label>DOB</mat-label>
         <input matInput formControlName="Dob" [matDatepicker]="picker">
@@ -44,7 +45,7 @@
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>  
     </div>
-    <div class="row">
+    
         <div class="col-md-3">
         <mat-form-field class="full-width" appearance="outline">
           <mat-label>Email</mat-label>
@@ -62,8 +63,8 @@
            <mat-error *ngIf="!regiForm.controls['ContactNumber'].valid">  Contact is required </mat-error> 
           </mat-form-field>
        </div>  
-    </div>
-    <div class="row">
+    
+    
      <div class="col-md-3">
      <mat-form-field class="full-width" appearance="outline">
         <mat-label>Password</mat-label>
@@ -72,7 +73,7 @@
      </mat-form-field>
     </div>
     <br/> 
-    </div>
+    
        <div class="example-button-row">
          <button mat-flat-button color="primary">Register</button> &nbsp;&nbsp;
         <button mat-flat-button color="primary" type="reset" (click)="onReset()">Cancel</button>
