@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AdminpatientregistrationComponent } from '../../adminpatientregistration/adminpatientregistration.component';
 import { PatientRegistrationComponent } from '../../patient-registration/patient-registration.component';
+import { RegisterHospitaluserComponent } from '../../register-hospitaluser/register-hospitaluser.component';
 import { RegistrationComponent } from '../../registration/registration.component';
 //import { AddDialogContantComponent } from '../add-dialog-contant/add-dialog-contant.component';
 
@@ -33,12 +34,14 @@ export class DashboardComponent implements OnInit {
   
   ]    
    td : any;
-  openDialog() {
+  openDialog( e: any) {
     //const dialogRef = this.dialog.open(AddAppointmentComponent);
     debugger;
      this.td =this.tiles.find(x=>x.text);
     console.log(this.td);
-    if(this.td.text=="Add Patient User"){
+    console.log(e.target.value);
+    if(e.target.value ==="Add Patient User")
+    {
 
     const dialogRef = this.dialog.open(AdminpatientregistrationComponent);
     dialogRef.afterClosed().subscribe(result => {
@@ -50,8 +53,8 @@ export class DashboardComponent implements OnInit {
       //this.animal = result;
     });
     }
-    if(this.td.text=="Add Hospital User"){
-    const dialogRef1 = this.dialog.open(RegistrationComponent);
+    if(e.target.value ==="Add Hospital User"){
+    const dialogRef1 = this.dialog.open(RegisterHospitaluserComponent);
     dialogRef1.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });

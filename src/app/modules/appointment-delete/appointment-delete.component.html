@@ -98,18 +98,18 @@
 <!-- Everything you see below is just for the demo, you don't need to include it in your app -->
 
       
-  <div class="clearfix">
-    <button class="btn btn-primary float-left" (click)="addEvent()">
-      Add New Event
-    </button>
-  </div>
+<div class="clearfix">
+  <button class="btn float-left" style="color:blue;" (click)="addEvent()">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
   <div class="table-responsive">
     <table class="table table-bordered">
       <thead>
         <tr>
           <th>Title</th>
           <th>Start Date</th>
-          <th>Time</th>
+          <th>End Date</th>
           <th>Remove</th>
         </tr>
       </thead>
@@ -123,7 +123,7 @@
             >
           </td>
           <td>
-            <div class="col-xs-12 col-12 col-md-4 form-group">
+            <div class="col-xs-12 col-12 col-md-6 form-group">
               <input type="text"
                      placeholder="Datepicker"
                      class="form-control"
@@ -135,7 +135,7 @@
             </div>
           </td>
           <td>
-            <div class="col-xs-12 col-12 col-md-4 form-group">
+            <div class="col-xs-12 col-12 col-md-6 form-group">
               <input type="text"
                      placeholder="Datepicker"
                      class="form-control"
@@ -149,8 +149,8 @@
           </td>
 
           <td>
-            <button class="btn btn-danger" (click)="deleteEvent(event)">
-              Delete
+            <button class="btn" style="color: red;" (click)="deleteEvent(event)">
+              <mat-icon>delete</mat-icon>
             </button>
           </td>
         </tr>

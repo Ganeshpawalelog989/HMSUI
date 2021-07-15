@@ -31,35 +31,39 @@ import { DashboardComponent } from './modules/admin/dashboard/dashboard.componen
 import { PhysicianMyprofileComponent } from './modules/physician-myprofile/physician-myprofile.component';
 import { AdminpatientregistrationComponent } from './modules/adminpatientregistration/adminpatientregistration.component';
 import { PatientVisitComponent } from './modules/patient-visit/patient-visit.component';
+import { TodayAppointmentComponent } from './modules/today-appointment/today-appointment.component';
+import { PatientdashboardComponent } from './modules/patientdashboard/patientdashboard.component';
 
 const routes: Routes = [
-  {path : '' , component : HomescreenComponent},
+  {   path : '' , component : HomescreenComponent  },
   
-  {path : 'admin' ,component : DefaultComponent, 
-   children : [
-    {path : '' , component : PatientUserManagementComponent},
-    {path : 'HospitalUser', component : HospitalUserComponent},
-    {path : 'dashboard' , component : DashboardComponent} 
+  {  path : 'admin' ,component : DefaultComponent, 
+     children : [
+    { path : '' , component : PatientUserManagementComponent  },
+    { path : 'HospitalUser', component : HospitalUserComponent },
+    { path : 'dashboard' , component : DashboardComponent } 
   ] 
 },
 
   {
     path : 'Nurse' , component : NurselayoutComponent,
     children : [
+      {    path : '' ,  component : TodayAppointmentComponent},
       {
-        path : 'appointment' , component : AppointmentComponent
+         path : 'appointment' , component : AppointmentComponent
+      },
+      
+      {
+         path : 'bookappoinemnt' , component : AppointmentDeleteComponent
       },
       {
-       path : 'bookappoinemnt' , component : AppointmentDeleteComponent
+         path : 'sendnotes' , component : SendnotesComponent
       },
       {
-        path : 'sendnotes' , component : SendnotesComponent
+         path : 'recievenotes' , component : RecieveNotesComponent
       },
       {
-        path : 'recievenotes' , component : RecieveNotesComponent
-      },
-      {
-        path : 'myprofile' , component : NurseMyprofileComponent
+         path : 'myprofile' , component : NurseMyprofileComponent
       }
     ]
   },
@@ -67,22 +71,31 @@ const routes: Routes = [
     path :'physician' , component : PhysicianlayoutComponent,
     children : [
       {
-        path : 'appointment' , component : AppointmentComponent
+          path : '' ,  component : TodayAppointmentComponent
       },
       {
-       path : 'bookappoinemnt' , component : AppointmentDeleteComponent
+         path : 'appointment' , component : AppointmentComponent
       },
       {
-        path : 'views' , component : ViewSechedulingComponent
+        path : 'bookappoinemnt' , component : AppointmentDeleteComponent
+      },
+      {
+         path : 'views' , component : ViewSechedulingComponent
        },
        {
-         path : 'myprofile' , component : PhysicianMyprofileComponent
+          path : 'myprofile' , component : PhysicianMyprofileComponent
+       },
+       {
+          path : 'patientvisit' , component : PatientVisitComponent
        }
     ]
    },
 {
  path : 'patient' , component : PatientlayoutComponent,
   children : [
+    {
+     path : '' , component : PatientdashboardComponent
+    },
     {
       path : 'PatientSheduling' , component : PatientUserShedulingComponent ,
       

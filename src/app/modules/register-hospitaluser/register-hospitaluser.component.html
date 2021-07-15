@@ -1,32 +1,8 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="navbar-brand" >
-      <div class="table ">
-        <ul  id="horizontal-list" class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a href="" class="nav-link" >HOME</a>
-          </li>
-          <li class="nav-item active">
-            <a href="" class="nav-link" >ABOUT US</a>
-          </li>
-          <li class="nav-item active">
-            <a href="" class="nav-link">CONTACT</a>
-          </li>
-         </ul>
-      </div>
-    
-    </div>
-    </nav>
-    
 
-
-<mat-card>
-  
-    <mat-card-content >
-    
     <span class="login100-form-title p-b-49">
-        Provider Registration
-    </span>  
-    
+        <h2 style="text-align: center; color:lightgreen;">Hospital Register</h2>
+   </span>  
+   
     <form (ngSubmit)="onSubmit()" name="" [formGroup]="regiForm">
     
     <mat-radio-group>
@@ -36,17 +12,18 @@
         <mat-radio-button value="2" color="accent">Mrs.&nbsp;</mat-radio-button>  
         <mat-radio-button value="3" color="warn">Dr.&nbsp;</mat-radio-button>      
     </mat-radio-group> 
-    
-    
+    <br>
+    <br>
+
     <div class="emailInput">
         <mat-form-field class="full-width" appearance="outline">
           <mat-label>First Name</mat-label>
          
           <!-- <input formControlName="email" matInput placeholder="Enter email address" required/>
            -->
-           <input  matInput formControlName="FirstName" placeholder="First Name" required>
+           <input  matInput formControlName="Fname" placeholder="First Name" required>
            
-         <mat-error *ngIf="!regiForm.controls['FirstName'].valid">  First Name is required </mat-error> 
+         <mat-error *ngIf="!regiForm.controls['Fname'].valid">  First Name is required </mat-error> 
           </mat-form-field>
       </div>
     
@@ -57,9 +34,9 @@
          
           <!-- <input formControlName="email" matInput placeholder="Enter email address" required/>
            -->
-           <input  matInput formControlName="LastName" placeholder="Last Name" required>
+           <input  matInput formControlName="Lname" placeholder="Last Name" required>
            
-           <mat-error *ngIf="!regiForm.controls['LastName'].valid">  Last name is required </mat-error> 
+           <mat-error *ngIf="!regiForm.controls['Lname'].valid">  Last name is required </mat-error> 
           </mat-form-field>
       </div>
     
@@ -81,8 +58,8 @@
          
           <!-- <input formControlName="email" matInput placeholder="Enter email address" required/>
            -->
-           <input  matInput formControlName="ContactNumber" type="contact" placeholder="email" required>
-           <mat-error *ngIf="!regiForm.controls['ContactNumber'].valid">  Contact is required </mat-error> 
+           <input  matInput formControlName="ContantNumber" type="contact" placeholder="email" required>
+           <mat-error *ngIf="!regiForm.controls['ContantNumber'].valid">  Contact is required </mat-error> 
            <mat-icon matSuffix>contacts</mat-icon>
            
           </mat-form-field>
@@ -112,10 +89,11 @@
     
     
       <div class="example-button-row">
-        <button mat-flat-button color="primary">Submit</button>
+        <button class="btn" style="color:lightsteelblue;">Submit</button>
+        <button class="btn" style="color: lightslategray;" (click)="closeDib()">Cancel</button>
+        
       </div>
     
     </form>
     
-    </mat-card-content>
-    </mat-card>
+    

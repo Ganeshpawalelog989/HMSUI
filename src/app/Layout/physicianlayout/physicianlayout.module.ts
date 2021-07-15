@@ -38,6 +38,7 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { FlatpickrModule } from 'angularx-flatpickr';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { TodayAppointmentComponent } from 'src/app/modules/today-appointment/today-appointment.component';
 //import { AppointmentComponent } from 'src/app/modules/appointment/appointment.component';
 //import { AppointmentDeleteComponent } from 'src/app/modules/appointment-delete/appointment-delete.component';
 
@@ -51,6 +52,7 @@ import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
     //AppointmentDeleteComponent,
     PhysicianMyprofileComponent,
     PatientVisitComponent,
+    TodayAppointmentComponent,
     
     
   ],

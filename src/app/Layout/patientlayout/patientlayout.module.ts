@@ -39,12 +39,15 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { FlatpickrModule } from 'angularx-flatpickr';
+import { PatientdashboardComponent } from 'src/app/modules/patientdashboard/patientdashboard.component';
 
 @NgModule({
   declarations: [
     PatientlayoutComponent,
     PatientsidebarComponent,
     //PatientUserManagementComponent
+    PatientdashboardComponent,
+    
   ],
   imports: [
     CommonModule,
