@@ -8,13 +8,11 @@ import { DefaultModule } from './Layout/default/default.module';
 import { HomescreenModule } from './homescreen/homescreen/homescreen/homescreen.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NurselayoutModule } from './Layout/nurselayout/nurselayout.module';
-//import { patientlayout } from './Layout/patientlayout/patientlayout.module';
 import { PhysicianlayoutModule } from './Layout/physicianlayout/physicianlayout.module';
 import { PatientlayoutModule } from './Layout/patientlayout/patientlayout.module';
-import { SentComponent } from './modules/sentnotes/sentnotes.component';
 
 @NgModule({
-  declarations: [AppComponent, SentComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -25,7 +23,6 @@ import { SentComponent } from './modules/sentnotes/sentnotes.component';
     HomescreenModule,
     NgbModule,
     NurselayoutModule,
-    // patientlayout,
     PhysicianlayoutModule,
   ],
   providers: [],
