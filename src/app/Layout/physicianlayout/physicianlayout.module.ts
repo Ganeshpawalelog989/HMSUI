@@ -1,4 +1,3 @@
-
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
@@ -27,18 +26,33 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
-import { ToastrModule, ToastContainerModule } from 'ngx-toastr';
 import { SharedModule } from 'src/app/shared/shared/shared.module';
 import { PhysicianlayoutComponent } from './physicianlayout.component';
 import { PhisiciansidebarComponent } from 'src/app/shared/components/phisiciansidebar/phisiciansidebar.component';
 
-
+import { ToastContainerModule, ToastrModule } from 'ngx-toastr';
+import { MatNavList } from '@angular/material/list';
+import { PhysicianMyprofileComponent } from 'src/app/modules/physician-myprofile/physician-myprofile.component';
+import { PatientVisitComponent } from 'src/app/modules/patient-visit/patient-visit.component';
+import { AccordionModule } from 'ngx-bootstrap/accordion';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { TimepickerModule } from 'ngx-bootstrap/timepicker';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { FlatpickrModule } from 'angularx-flatpickr';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+//import { AppointmentComponent } from 'src/app/modules/appointment/appointment.component';
+import { AppointmentDeleteComponent } from 'src/app/modules/appointment-delete/appointment-delete.component';
 
 @NgModule({
   declarations: [
     PhysicianlayoutComponent,
-    PhisiciansidebarComponent
-    
+    PhisiciansidebarComponent,
+    //  AppointmentComponent,
+    AppointmentDeleteComponent,
+    PhysicianMyprofileComponent,
+    PatientVisitComponent,
   ],
   imports: [
     CommonModule,
@@ -74,18 +88,28 @@ import { PhisiciansidebarComponent } from 'src/app/shared/components/phisiciansi
     MatDatepickerModule,
     MatNativeDateModule,
     MatCardModule,
-    MatSelectModule, 
+    MatSelectModule,
     MatRadioModule,
     HttpClientModule,
     MatToolbarModule,
-    MatGridListModule ,
-    MatTableModule ,
+    MatGridListModule,
+    MatTableModule,
     MatSlideToggleModule,
     MatDialogModule,
     ToastrModule.forRoot(),
     ToastContainerModule,
-    
-  ]
+    MatDividerModule,
+    MatListModule,
+    AccordionModule.forRoot(),
+    BsDatepickerModule.forRoot(),
+    BsDropdownModule.forRoot(),
+    TimepickerModule,
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+    }),
+    FlatpickrModule,
+    NgbModalModule,
+  ],
 })
-
-export class PhysicianlayoutModule { }
+export class PhysicianlayoutModule {}

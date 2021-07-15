@@ -1,4 +1,3 @@
-
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
@@ -32,12 +31,13 @@ import { SharedModule } from 'src/app/shared/shared/shared.module';
 import { NurselayoutComponent } from './nurselayout.component';
 import { NurseSidebarComponent } from 'src/app/shared/components/nurse-sidebar/nurse-sidebar.component';
 
+import { NurseMyprofileComponent } from 'src/app/modules/nurse-myprofile/nurse-myprofile.component';
 
 @NgModule({
   declarations: [
     NurselayoutComponent,
     NurseSidebarComponent,
-    
+    NurseMyprofileComponent,
   ],
   imports: [
     CommonModule,
@@ -73,16 +73,16 @@ import { NurseSidebarComponent } from 'src/app/shared/components/nurse-sidebar/n
     MatDatepickerModule,
     MatNativeDateModule,
     MatCardModule,
-    MatSelectModule, 
+    MatSelectModule,
     MatRadioModule,
     HttpClientModule,
     MatToolbarModule,
-    MatGridListModule ,
-    MatTableModule ,
+    MatGridListModule,
+    MatTableModule,
     MatSlideToggleModule,
     MatDialogModule,
     ToastrModule.forRoot(),
     ToastContainerModule,
-  ]
+  ],
 })
-export class NurselayoutModule { }
+export class NurselayoutModule {}

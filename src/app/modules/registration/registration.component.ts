@@ -74,12 +74,15 @@ export class RegistrationComponent implements OnInit {
   onReset() {
     this.submitted = false;
     this.regiForm.reset();
+}
+
+  getAllData()
+  {
+  this.service.getAllPost().subscribe(data => {
+    console.log("data get successfully");
+    this.register=data;
+    })
   }
 
-  getAllData() {
-    this.service.getAllPost().subscribe((data) => {
-      console.log('data get successfully');
-      this.register = data;
-    });
-  }
+
 }

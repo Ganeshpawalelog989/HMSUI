@@ -63,6 +63,8 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 import { ViewSechedulingComponent } from 'src/app/modules/view-secheduling/view-secheduling.component';
+import { DashboardComponent } from 'src/app/modules/admin/dashboard/dashboard.component';
+import { AdminpatientregistrationComponent } from 'src/app/modules/adminpatientregistration/adminpatientregistration.component';
 
 import { MatDividerModule } from '@angular/material/divider';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -85,6 +87,7 @@ import { SentComponent } from 'src/app/modules/sentnotes/sentnotes.component';
     SendnotesComponent,
     RecieveNotesComponent,
     SentComponent,
+    SentComponent,
     AdminComponent,
     PatientUserManagementComponent,
     HospitalUserComponent,
@@ -94,6 +97,8 @@ import { SentComponent } from 'src/app/modules/sentnotes/sentnotes.component';
     PatientRegistrationComponent,
     PatientUserShedulingComponent,
     ViewSechedulingComponent,
+    DashboardComponent,
+    AdminpatientregistrationComponent,
   ],
   imports: [
     MatDividerModule,

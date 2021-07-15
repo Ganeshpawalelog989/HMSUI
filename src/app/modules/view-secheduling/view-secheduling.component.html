@@ -1,0 +1,209 @@
+
+<accordion [isAnimated]="true">
+
+    <accordion [isAnimated]="true">
+        <accordion-group heading="View details of appointment ">
+          <div>
+            <div class="row text-center">
+              <div class="col-md-4">
+                <div class="btn-group">
+                  <div
+                    class="btn btn-primary"
+                    mwlCalendarPreviousView
+                    [view]="view"
+                    [(viewDate)]="viewDate"
+                    (viewDateChange)="closeOpenMonthViewDay()"
+                  >
+                    Previous
+                  </div>
+                  <div
+                    class="btn btn-outline-secondary"
+                    mwlCalendarToday
+                    [(viewDate)]="viewDate"
+                  >
+                    Today
+                  </div>
+                  <div
+                    class="btn btn-primary"
+                    mwlCalendarNextView
+                    [view]="view"
+                    [(viewDate)]="viewDate"
+                    (viewDateChange)="closeOpenMonthViewDay()"
+                  >
+                    Next
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
+              </div>
+              <div class="col-md-4">
+                <div class="btn-group">
+                  <div
+                    class="btn btn-primary"
+                    (click)="setView(CalendarView.Month)"
+                    [class.active]="view === CalendarView.Month"
+                  >
+                    Month
+                  </div>
+                  <div
+                    class="btn btn-primary"
+                    (click)="setView(CalendarView.Week)"
+                    [class.active]="view === CalendarView.Week"
+                  >
+                    Week
+                  </div>
+                  <div
+                    class="btn btn-primary"
+                    (click)="setView(CalendarView.Day)"
+                    [class.active]="view === CalendarView.Day"
+                  >
+                    Day
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br />
+            <div [ngSwitch]="view">
+              <mwl-calendar-month-view
+                *ngSwitchCase="CalendarView.Month"
+                [viewDate]="viewDate"
+                [events]="events"
+                [refresh]="refresh"
+                [activeDayIsOpen]="activeDayIsOpen"
+                (dayClicked)="dayClicked($event.day)"
+                (eventClicked)="handleEvent('Clicked', $event.event)"
+                (eventTimesChanged)="eventTimesChanged($event)"
+              >
+              </mwl-calendar-month-view>
+              <mwl-calendar-week-view
+                *ngSwitchCase="CalendarView.Week"
+                [viewDate]="viewDate"
+                [events]="events"
+                [refresh]="refresh"
+                (eventClicked)="handleEvent('Clicked', $event.event)"
+                (eventTimesChanged)="eventTimesChanged($event)"
+              >
+              </mwl-calendar-week-view>
+              <mwl-calendar-day-view
+                *ngSwitchCase="CalendarView.Day"
+                [viewDate]="viewDate"
+                [events]="events"
+                [refresh]="refresh"
+                (eventClicked)="handleEvent('Clicked', $event.event)"
+                
+                (eventTimesChanged)="eventTimesChanged($event)"
+              >
+              </mwl-calendar-day-view>
+            </div>
+            <!-- <div>
+                <button class="btn btn-primary">Add Appointment</button>&nbsp;
+                <button class="btn btn-primary">Edit Appointment</button>&nbsp;
+                <button class="btn btn-primary">Delete Appointment</button>&nbsp;
+                
+            </div> -->
+          </div><br>
+       
+    <!-- Everything you see below is just for the demo, you don't need to include it in your app -->
+    
+          
+      <!-- <div class="clearfix">
+        <button class="btn btn-primary float-left" (click)="addEvent()">
+          Add New Appointment
+        </button>
+      </div> -->
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Meeting Title</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Edit</th>
+              <th>Remove</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let event of events">
+              <td>
+                <input type="text" 
+                [(ngModel)]="event.title"
+                class="form-control"
+                (keyup)="refresh.next()"
+                >
+              </td>
+              <td>
+                <div class="col-xs-12 col-12 col-md-4 form-group">
+                  <input type="text"
+                         placeholder="Datepicker"
+                         class="form-control"
+                         bsDatepicker
+                         [(ngModel)]="event.start"
+                         (ngModelChange)="refresh.next()"
+                         dateFormat="Y-m-dTH:i"
+                         altFormat="F j, Y H:i">
+                </div>
+              </td>
+              <td>
+                <div class="col-xs-12 col-12 col-md-4 form-group">
+                   <!-- <input type="text"
+                         placeholder="Datepicker"
+                         class="form-control"
+                         Datepicker 
+                         [(ngModel)]="event.end"
+                         (ngModelChange)="refresh.next()"
+                         
+                         dateFormat="Y-m-dTH:i"
+                         altFormat="F j, Y H:i"
+                         placeholder="Datepicker"
+                         class="form-control"
+                         >  -->
+                         <input type="text"
+                         placeholder="Datepicker"
+                         class="form-control"
+                         bsDatepicker>
+                    </div>
+              </td>
+              <!-- <td>
+                <button class="btn btn-danger" (click)="deleteEvent(event)">
+                  Edit
+                </button>
+              </td> -->
+              <td>
+                <button class="btn btn-danger" (click)="deleteEvent(event)">
+                  Delete
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+        </accordion-group>
+    </accordion>   
+    <br>
+    <accordion-group heading="Edit History">
+        <div>
+            <label for="id">List of Paitents</label>&nbsp;
+           <table class="table table-striped">
+               <thead  class="table-dark">
+                   <tr>
+                       <th>List of Paitent</th>
+                       <!-- <th></th>
+                       <th></th>
+                       <th></th> -->
+                   </tr>
+               </thead>
+               <tbody>
+                   <tr *ngFor='let name of movies'>
+                       <td>{{name.title}}</td>
+                       <!-- <td></td>
+                       <td></td>
+                       <td></td> -->
+                   </tr>
+               </tbody>
+           </table>
+        </div><br>
+        <!-- <div>
+            <button class="btn btn-primary">Create Appointment</button>
+        </div> -->
+    </accordion-group>

@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
-import { MustMatch } from '../../registration/must-match.validator';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import {HospitalUser} from '../hospital-user/hospital-user.component'
 
 @Component({
   selector: 'app-add-dialog-contant',
@@ -10,18 +10,33 @@ import { MustMatch } from '../../registration/must-match.validator';
 })
 export class AddDialogContantComponent implements OnInit {
   adduser: any;
+  
+  constructor(public dialog: MatDialog , 
+    private formBuilder : FormBuilder,
+    public dialogRef: MatDialogRef<AddDialogContantComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: HospitalUser) { }
 
-  constructor(public dialog: MatDialog , private formBuilder : FormBuilder) { }
 
  
   ngOnInit(): void {
     this.adduser = this.formBuilder.group({
 
-        Employeeid: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(20), Validators.pattern('[a-zA-Z]+')]],
-        EmployeeName: ['', Validators.required],
-        staus: ['', Validators.required],
-        dob: ['', [Validators.required, Validators.pattern(/^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/)]],
+      EmployeeId: ['', Validators.required],
+      EmployeeName: ['', Validators.required],
+      DateOfJoining: ['', Validators.required ],
+      status: ['', Validators.required],
+        
       });
+  }
+  saveDialogData(){
+    
+    this.data=this.adduser.value
+    console.log(this.data)
+    console.log(this.adduser.value) 
+  }
+  closeDialog()
+  {
+    this.dialogRef.close();
   }
   
 
