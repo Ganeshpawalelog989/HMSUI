@@ -26,10 +26,10 @@ import { ViewSechedulingComponent } from './modules/view-secheduling/view-seched
 import { NurselayoutComponent } from './Layout/nurselayout/nurselayout.component';
 import { PatientlayoutComponent } from './Layout/patientlayout/patientlayout.component';
 import { PhysicianlayoutComponent } from './Layout/physicianlayout/physicianlayout.component';
-import { DashboardComponent } from './modules/admin/dashboard/dashboard.component';
-import { AdminpatientregistrationComponent } from './modules/adminpatientregistration/adminpatientregistration.component';
 import { NurseMyprofileComponent } from './modules/nurse-myprofile/nurse-myprofile.component';
+import { DashboardComponent } from './modules/admin/dashboard/dashboard.component';
 import { PhysicianMyprofileComponent } from './modules/physician-myprofile/physician-myprofile.component';
+import { AdminpatientregistrationComponent } from './modules/adminpatientregistration/adminpatientregistration.component';
 import { PatientVisitComponent } from './modules/patient-visit/patient-visit.component';
 
 const routes: Routes = [
