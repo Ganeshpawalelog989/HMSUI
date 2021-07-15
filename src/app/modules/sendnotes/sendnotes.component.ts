@@ -40,13 +40,15 @@ export class SendnotesComponent implements OnInit {
       urgency: new FormControl('', [Validators.required]),
     });
     this.designation = this.form.value.designation;
-    this.noteService.getUsersByRole('23').subscribe((val: any[]) => {
-      this.users = val.filter((user: any) => {
-        // TODO: sender id is hardcoded for now . would be fetched from session
-        return user.userId !== 23;
+    this.noteService
+      .getUsersByRole(this.note.userId)
+      .subscribe((val: any[]) => {
+        this.users = val.filter((user: any) => {
+          // TODO: sender id is hardcoded for now . would be fetched from session
+          return user.userId !== 23;
+        });
+        console.log(val);
       });
-      console.log(val);
-    });
   }
 
   match() {

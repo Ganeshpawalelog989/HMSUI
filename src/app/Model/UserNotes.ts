@@ -1,9 +1,11 @@
+import { User } from "./user";
+
 export class usernotes {
-  senderId: number;
-  recieverId: number;
-  firstName: string;
-  lastName: string;
-  role: string;
-  date: string;
-  message: string;
+  public senderId: number;
+  public recieverId: number;
+  public firstName: string;
+  public lastName: string;
+  public role: User;
+  public date: string;
+  public message: string;
 }

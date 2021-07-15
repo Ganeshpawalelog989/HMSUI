@@ -1,0 +1,32 @@
+{
+  "posts": [
+    {
+      "id": 10,
+      "recieverId": 23,
+      "firstName": "santosh",
+      "lastName": "Teknur",
+      "role": "Physician",
+      "date": "25/02/2021",
+      "message": "Hello"
+    },
+    {
+      "id": 20,
+      "recieverId": 23,
+      "firstName": "santosh",
+      "lastName": "Teknur",
+      "role": "Physician",
+      "date": "25/02/2021",
+      "message": "Hello"
+    }
+  ],
+  "get": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

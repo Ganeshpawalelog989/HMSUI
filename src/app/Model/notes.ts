@@ -1,6 +1,6 @@
 export class Notes {
-  senderId: number;
-  newNote: Notes;
-  noteId: number;
-  replyNote: string;
+  public senderId: number;
+  public newNote: Notes;
+  public noteId: number;
+  public replyNote: string;
 }

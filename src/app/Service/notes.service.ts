@@ -10,6 +10,7 @@ import { usernotes } from '../Model/UserNotes';
   providedIn: 'root',
 })
 export class NotesService {
+  //private base_Url = 'http://localhost:3000';
   constructor(private http: HttpClient) {}
 
   getUsersByRole(userRole: string): Observable<User[]> {

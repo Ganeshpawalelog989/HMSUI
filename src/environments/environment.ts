@@ -4,8 +4,9 @@
 
 export const environment = {
   production: false,
-  baseUrl : "http://localhost:50471/Registration",
-  baseUrlLogin: 'http://localhost:50471/login'
+  // baseUrl : "http://localhost:50471/Registration",
+  baseUrlLogin: 'http://localhost:50471/login',
+  baseUrl: 'http://localhost:3000/posts',
 };
 
 /*
