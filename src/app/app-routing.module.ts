@@ -4,9 +4,9 @@ import { DefaultComponent } from './Layout/default/default.component';
 
 import { EmerencyInfoComponent } from './modules/emerency-info/emerency-info.component';
 import { PatientDetailsComponent } from './modules/patient-details/patient-details.component';
-import{ForgotPasswordComponent} from 'src/app/modules/forgot-password/forgot-password.component';
-import {ChangePasswordComponent} from 'src/app/modules/change-password/change-password.component';
-import{PatientMedicationDetailsComponent} from 'src/app/modules/patient-medication-details/patient-medication-details.component';
+import { ForgotPasswordComponent } from 'src/app/modules/forgot-password/forgot-password.component';
+import { ChangePasswordComponent } from 'src/app/modules/change-password/change-password.component';
+import { PatientMedicationDetailsComponent } from 'src/app/modules/patient-medication-details/patient-medication-details.component';
 import { LoginComponent } from './homescreen/homescreen/login/login.component';
 import { combineAll } from 'rxjs/operators';
 import { RegistrationComponent } from './modules/registration/registration.component';
@@ -27,86 +27,98 @@ import { PhysicianlayoutComponent } from './Layout/physicianlayout/physicianlayo
 
 import { PatientUserShedulingComponent } from './modules/patient-user-sheduling/patient-user-sheduling.component';
 
-
 import { ViewSechedulingComponent } from './modules/view-secheduling/view-secheduling.component';
+import { SentComponent } from './modules/sentnotes/sentnotes.component';
 
 const routes: Routes = [
   {
-    path : 'Nurse' , component : NurselayoutComponent
+    path: 'Nurse',
+    component: NurselayoutComponent,
   },
   {
-   path : 'patient' , component : PatientlayoutComponent
+    path: 'patient',
+    component: PatientlayoutComponent,
   },
   {
-   path :'physician' , component : PhysicianlayoutComponent
+    path: 'physician',
+    component: PhysicianlayoutComponent,
   },
-  
 
   {
-   path : 'views' , component : ViewSechedulingComponent
+    path: 'views',
+    component: ViewSechedulingComponent,
   },
-  {path : '' , component : HomescreenComponent},
+  { path: '', component: HomescreenComponent },
   {
-    path : 'login' , component : LoginComponent
-  },
-  {
-    path : 'registeration' , component : RegistrationComponent
-  },
-  {
-    path : 'patientregistration' ,  component : PatientRegistrationComponent
+    path: 'login',
+    component: LoginComponent,
   },
   {
-    path : 'PatientSheduling' , component : PatientUserShedulingComponent 
+    path: 'registeration',
+    component: RegistrationComponent,
   },
-   
-  {path : 'Admin' , 
-  component : DefaultComponent, 
-  children : [
-      
-  ] 
-},
-{path : 'PatientDetails' , component : PatientDetailsComponent},
-  
-{path : 'emerencyinfo' , component : EmerencyInfoComponent},
+  {
+    path: 'patientregistration',
+    component: PatientRegistrationComponent,
+  },
+  {
+    path: 'PatientSheduling',
+    component: PatientUserShedulingComponent,
+  },
 
-{path:'forgot-password', component:ForgotPasswordComponent},
+  { path: 'Admin', component: DefaultComponent, children: [] },
+  { path: 'PatientDetails', component: PatientDetailsComponent },
 
-{path:'change-password',  component:ChangePasswordComponent},
+  { path: 'emerencyinfo', component: EmerencyInfoComponent },
 
-{path:'patient-medication-details',  component:PatientMedicationDetailsComponent},
+  { path: 'forgot-password', component: ForgotPasswordComponent },
 
+  { path: 'change-password', component: ChangePasswordComponent },
 
-{
-  path : 'physician' , component : PhysicianViewComponent
-},
-{
-  path : 'sendnotes' , component : SendnotesComponent
-},
-{
-  path : 'recievenotes' , component : RecieveNotesComponent
-},
-{
-  path : 'admin' , component : AdminComponent
-},
-{
-  path : 'patientuser' , component : PatientUserManagementComponent
-},
-{
-  path : 'hostpitaluser' , component : HospitalUserComponent
-},
+  {
+    path: 'patient-medication-details',
+    component: PatientMedicationDetailsComponent,
+  },
 
-{
-  path : 'allery' , component : AlleryComponent
-},
+  {
+    path: 'physician',
+    component: PhysicianViewComponent,
+  },
+  {
+    path: 'sendnotes',
+    component: SendnotesComponent,
+  },
+  {
+    path: 'recievenotes',
+    component: RecieveNotesComponent,
+  },
 
+  {
+    path: 'sentnote',
+    component: SentComponent,
+  },
 
+  {
+    path: 'admin',
+    component: AdminComponent,
+  },
+  {
+    path: 'patientuser',
+    component: PatientUserManagementComponent,
+  },
+  {
+    path: 'hostpitaluser',
+    component: HospitalUserComponent,
+  },
 
-
-
+  {
+    path: 'allery',
+    component: AlleryComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

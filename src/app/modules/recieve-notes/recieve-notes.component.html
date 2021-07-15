@@ -1,85 +1,80 @@
-<div class="section-1-container section-container class">
-    <div class="card-body container">
-        <form>
-       <mat-card class="example-card">  
-    <!-- Title of an Card -->  
-       <mat-card-title>  
-        <h2 class="title"> Recieved notes </h2>
-    </mat-card-title>  
-  
-    <!-- Actual content starts from here -->
-    
-    <mat-card-content>  
-                
-            <table> 
-            <div class="form-group text-center">
-                <tr>  
-                <td  class="full-width col-3">  
-                    <button  mat-flat-button color="primary" (click)="Recievednotes()">Recieved notes</button>&nbsp;
-                    &nbsp;&nbsp;
-                </td>
-                <td  class="full-width col-3">  
-                    <button  mat-flat-button color="primary" routerLink="/sendnotes">send notes</button>
-                    
-                </td>
-                </tr>
-            
-            </div>  
-            </table>    
-    </mat-card-content>  
-</mat-card>
-</form>  
-</div>
-</div>
+<h1 class="page-title">Received Note</h1>
+<fieldset style="border-radius: 10px; border: 1px solid lightgray; padding: 20px;">
+  <div class="container-fluid" *ngIf="receiveNote?.length !==0; else elseBlock">
+    <div class="card" style="margin-bottom: 10px;" *ngFor="let notes of receiveNote">
+      <div class="card-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-4">
+              <h2 class="card-title">{{notes.firstName}} {{notes.lastName}}</h2>
+              <h3 class="card-subtitle mb-2 text-muted">{{notes.role}}</h3>
+            </div>
+            <div class="col-sm-4">
+            </div>
+            <div class="col-sm-4">
+              <h5 class="card-subtitle mb-2 text-muted">{{notes.date | date: 'dd/MM/yyyy h:mm a'}}</h5>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <p class="card-text">{{notes.message}}</p>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary float-end m-2" (click)="delete(notes.noteId)">
+          Delete</button>
+        <button type="button" class="btn btn-primary float-end m-2" (click)="open(content, notes.noteId)">
+          Reply
+        </button>
+      </div>
+    </div>
+  </div>
+  <ng-template #elseBlock>
+    No notes received
+  </ng-template>
+</fieldset>
 
-<div class="container">
-    <table mat-table   class="mat-elevation-z8">
 
-
-        <!--- Note that these columns can be defined in any order.
-              The actual rendered columns are set as a property on the row definition" -->
-      
-        <!-- Position Column -->
-        <ng-container matColumnDef="position">
-          <th mat-header-cell *matHeaderCellDef> Sender Name </th>
-          <td mat-cell *matCellDef="let element"> </td>
-          
-        </ng-container>
-      
-        <!-- Name Column -->
-        <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef>Sender Designation </th>
-          <td mat-cell *matCellDef="let element"> </td>
-        </ng-container>
-      
-          <!-- Weight Column -->
-         <ng-container matColumnDef="weight">
-          <th mat-header-cell *matHeaderCellDef> Date Time </th>
-          <td mat-cell *matCellDef="let element">  </td>
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </ng-container>
-      
-       
-         <ng-container matColumnDef="action">
-          <th mat-header-cell *matHeaderCellDef> message Recieved </th>
-           <td mat-cell *matCellDef="let element" class="action-link"> 
-            <!-- <a >Edit</a> 
-              -->
-      
-           </td> 
-        </ng-container> 
-        <ng-container matColumnDef="symbol">
-          <th mat-header-cell *matHeaderCellDef> Replay </th>
-           <td mat-cell *matCellDef="let element" class="action-link"> 
-           <mat-slide-toggle>edit status:</mat-slide-toggle>
-           </td> 
-        </ng-container> 
-        
-      
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      
-      </table>
-
-</div>
+<ng-template #content let-modal>
+  <fieldset style="border-radius: 10px; border: 1px solid lightgray; padding:
+                                          20px;">
+    <div class="container-fluid">
+      <form (ngSubmit)='sendNotes()' [formGroup]='replyForm' novalidate class="form">
+        <div class="modal-header">
+          <h1 class="page-title" id="modal-basic-title">Reply</h1>
+        </div>
+        <div class="modal-body">
+          <div class="row mb-3">
+            <div class="col-12">
+              <div class="form-group">
+                <label for="sender">Message</label>
+                <div class="form-group">
+                  <textarea id="msg" placeholder="Message" class="form-control" formControlName="reply" [ng
+                    class]="{ 'is-invalid': submitted && f.reply.errors }" rows="6" cols="60"></textarea>
+                  <div *ngIf="submitted &&
+                                                                  f.reply.errors" class="invalid-feedback">
+                    <div *ngIf="f.reply.errors.required">Message is
+                      required</div>
+                    <div *ngIf="f.reply.errors.maxlength">Notes contains
+                      maximum 200 characters</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="form-group">
+            <button type="reset" class="btn
+                                                                            btn-secondary" (click)="modal.close()">
+              Close</button>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn
+                                                                                btn-success">Save</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </fieldset>
+</ng-template>
