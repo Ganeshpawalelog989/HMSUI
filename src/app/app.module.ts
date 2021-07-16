@@ -14,10 +14,7 @@ import { PhysicianlayoutModule } from './Layout/physicianlayout/physicianlayout.
 @NgModule({
   declarations: [
     AppComponent,
-    
-    
-    
-  ],
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,

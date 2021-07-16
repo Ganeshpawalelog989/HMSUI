@@ -65,18 +65,18 @@
        </div>  
     
     
-     <div class="col-md-3">
+     <!-- <div class="col-md-3">
      <mat-form-field class="full-width" appearance="outline">
         <mat-label>Password</mat-label>
          <input  matInput formControlName="Password" type="password" placeholder="password" required>
          <mat-error *ngIf="!regiForm.controls['Password'].valid">  Password is required </mat-error> 
      </mat-form-field>
-    </div>
+    </div> -->
     <br/> 
     
        <div class="example-button-row">
-         <button mat-flat-button color="primary">Register</button> &nbsp;&nbsp;
-        <button mat-flat-button color="primary" type="reset" (click)="onReset()">Cancel</button>
+         <button class="btn btn-outline-primary">Register</button> &nbsp;&nbsp;
+        <button class="btn btn-outline-secondary" type="reset" (click)="onReset()">Cancel</button>
       </div>
       
     </form>

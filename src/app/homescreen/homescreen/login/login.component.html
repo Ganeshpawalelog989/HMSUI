@@ -26,13 +26,13 @@
         <span class="login100-form-title p-b-49">
           Login
         </span>
-        <label>CHOOSE YOUR ROLE</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <!-- <label>CHOOSE YOUR ROLE</label>&nbsp;&nbsp;&nbsp;&nbsp;
             <mat-radio-group style="padding-left: 10px; padding-right: 10px;" variant="contained" color="primary" >
             <mat-radio-button value="0" >Admin &nbsp;</mat-radio-button>
             <mat-radio-button value="1">Physician &nbsp;</mat-radio-button>
             <mat-radio-button value="2">Nurse &nbsp;</mat-radio-button>
           </mat-radio-group>
-        
+         -->
       
       
           
@@ -52,12 +52,13 @@
                 <div class="emailInput">
                 <mat-form-field class="full-width" appearance="outline">
                   <mat-label>Password</mat-label>
-                  <input formControlName="Password" matInput [type]=" hide ? 'Password' : 'text'" required />
+                  <input formControlName="Password"  type="password" matInput [type]=" hide ? 'Password' : 'Password' || hide ? 'Password' : 'text' "   required />
                   <button  mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide Password'"
                   [attr.aria-pressed]="hide">
-                  <mat-icon>
+                  <!-- <mat-icon>
                       {{hide ? 'visibility_off' : 'visibility'}}
                   </mat-icon>
+                   -->
               </button>
               <mat-error *ngIf="!loginForm.controls['Password'].valid">
                   Password is required
@@ -72,7 +73,7 @@
                 <mat-label>Remember me</mat-label>
               </div>
               <div class="example-button-row">
-              <button mat-flat-button color="primary">Login</button>
+              <button class="btn btn-outline-primary" [disabled] = "!loginForm.valid" >Login</button>
             </div>
       
             <div class="flex-col-c p-t-155"style="padding: 20px;">

@@ -24,9 +24,9 @@
     <mat-card-content >
     
     <span class="login100-form-title p-b-49">
-        Provider Registration
+        <h3>Hospital User Registration</h3>
     </span>  
-    
+    <br><br>
     <form (ngSubmit)="onSubmit()" name="" [formGroup]="regiForm">
     
     <mat-radio-group>
@@ -34,7 +34,8 @@
         <mat-radio-button value="1" color="primary">Mr.&nbsp;</mat-radio-button>  
         <mat-radio-button value="1" color="primary">Ms.&nbsp;</mat-radio-button>  
         <mat-radio-button value="2" color="accent">Mrs.&nbsp;</mat-radio-button>  
-        <mat-radio-button value="3" color="warn">Dr.&nbsp;</mat-radio-button>      
+        <!-- <mat-radio-button value="3" color="warn">Dr.&nbsp;</mat-radio-button>   
+            -->
     </mat-radio-group> 
     
     
@@ -112,7 +113,7 @@
     
     
       <div class="example-button-row">
-        <button mat-flat-button color="primary">Submit</button>
+        <button class="btn btn-outline-primary">Submit</button>
       </div>
     
     </form>

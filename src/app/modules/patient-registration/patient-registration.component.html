@@ -29,7 +29,8 @@
         <mat-radio-button value="1" color="primary">&nbsp;Mr.&nbsp;</mat-radio-button>  
         <mat-radio-button value="1" color="primary">&nbsp;Ms.&nbsp;</mat-radio-button>  
         <mat-radio-button value="2" color="accent">&nbsp;Mrs.&nbsp;</mat-radio-button>  
-        <mat-radio-button value="3" color="warn">&nbsp;Dr.&nbsp;</mat-radio-button>      
+        <!-- <mat-radio-button value="3" color="warn">&nbsp;Dr.&nbsp;</mat-radio-button> 
+              -->
     </mat-radio-group> 
   </div>
     <div class="row">
@@ -99,13 +100,13 @@
         <mat-form-field class="full-width" appearance="outline">
             <mat-label>Confirm Password</mat-label>
              <input  matInput formControlName="confirmPassword" type="password" placeholder="password" required>
-             <mat-error *ngIf="!regiForm.controls['confirmPassword'].valid">  Confirm Password is required </mat-error> 
+             <mat-error *ngIf="!regiForm.controls['confirmPassword'].valid">  Confirm Password is Not Match </mat-error> 
         </mat-form-field>
        </div> 
     </div>
        <div class="example-button-row">
-         <button mat-flat-button color="primary">Register</button> &nbsp;&nbsp;
-        <button mat-flat-button color="primary" type="reset" (click)="onReset()">Cancel</button>
+         <button class="btn btn-outline-primary">Register</button> &nbsp;&nbsp;
+        <button class="btn btn-outline-secondary" type="reset" (click)="onReset()">Cancel</button>
       </div>
       
     </form>
