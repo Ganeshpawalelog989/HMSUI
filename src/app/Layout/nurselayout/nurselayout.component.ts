@@ -19,5 +19,4 @@ export class NurselayoutComponent implements OnInit {
     this.sideBarOpen = !this.sideBarOpen;
   }
 
-
 }

@@ -28,7 +28,7 @@ export class RegisterUser{
     public NurseName :string;
     public PhysicianName :string;
     public PhysicianId :string;
-   public Password : string
+    public Password:string;
 
 
     constructor
@@ -58,7 +58,7 @@ export class RegisterUser{
     NurseName :string, 
    PhysicianName :string, 
    PhysicianId :string ,
-   Password : string
+   Password:string
    
  ){
     this.Id=Id;
@@ -88,7 +88,7 @@ export class RegisterUser{
     this.NurseName=NurseName;
     this.PhysicianName=PhysicianName;
     this.PhysicianId=PhysicianId;
-    this.Password=Password
+    this.Password=Password;
     }
    
 

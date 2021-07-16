@@ -2,16 +2,15 @@
 
 //     @import'~bootstrap/dist/css/bootstrap.min.css';
 
-// html, body { height: 100%; }
-// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-// html, body { height: 100%; }
-// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "../node_modules/angular-calendar/css/angular-calendar.css";
 
+// body {
+//     padding: 30px;
+//      position: relative
+// }
 body {
     //padding: 30px;
 
@@ -23,9 +22,14 @@ body .bs-datepicker-container .bs-datepicker-head{
 body .bs-datepicker-container .bs-datepicker-head * {
   color: #000;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
+   // background: -webkit-linear-gradient(left,#5f44c0,#07f0b6);
+  }
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';

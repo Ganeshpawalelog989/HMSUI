@@ -18,5 +18,4 @@ export class PatientlayoutComponent implements OnInit {
     this.sideBarOpen = !this.sideBarOpen;
   }
 
-  
 }

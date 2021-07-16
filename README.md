@@ -39,8 +39,9 @@ npm i date-fns
 --save
 ng add @ng-bootstrap/ng-bootstrap
 
---save
+ng add @ng-bootstrap/ng-bootstrap 
 npm install angular-calendar --save
 
 npm install jquery@latest --save
 
+npm install --save angular-calendar date-fns

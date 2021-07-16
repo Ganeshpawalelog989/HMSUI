@@ -43,7 +43,6 @@ import { TodayAppointmentComponent } from 'src/app/modules/today-appointment/tod
 //import { AppointmentDeleteComponent } from 'src/app/modules/appointment-delete/appointment-delete.component';
 
 
-
 @NgModule({
   declarations: [
     PhysicianlayoutComponent,
@@ -58,6 +57,7 @@ import { TodayAppointmentComponent } from 'src/app/modules/today-appointment/tod
   ],
   imports: [
     CommonModule,
+    
     SharedModule,
     MatGridListModule,
     RouterModule,

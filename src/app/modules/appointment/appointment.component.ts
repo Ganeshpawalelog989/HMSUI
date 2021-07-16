@@ -77,5 +77,3 @@ currentDate = new Date();
   }
 
 }
-
-

@@ -1,80 +1,108 @@
 
 import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
-//import { ViewSchedule } from '../physician-view/physician-view.component';
-
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NotesService } from '../../Service/notes.service';
+import {
+  FormGroup,
+  FormControl,
+  FormArray,
+  Validators,
+  FormBuilder,
+} from '@angular/forms';
+import { Notes } from '../../Model/notes';
+import { ToastService } from '../../Service/toast.service';
 @Component({
   selector: 'app-recieve-notes',
   templateUrl: './recieve-notes.component.html',
-  styleUrls: ['./recieve-notes.component.scss']
+  styleUrls: ['./recieve-notes.component.scss'],
 })
 export class RecieveNotesComponent implements OnInit {
-
-  constructor(   ) { }
+  replyForm: FormGroup;
+  receiveNote: any = [];
+  selectedNoteId: any;
+  submitted = false;
+  f: any;
+  constructor(
+    private noteService: NotesService,
+    private modalService: NgbModal,
+    private formBuilder: FormBuilder,
+    private toastService: ToastService
+  ) {}
 
   ngOnInit(): void {
-  }
-  
-  isFlagDetails : boolean =false;
-  ViewScheduler : ViewSchedule[] =[];
-  
-  Recievednotes()
-  {
-   console.log("Open Table : ",this.isFlagDetails); 
-   this.ViewScheduler = [
-    {Appointment_Id :'1',Meeting_Title : 'Polio',Description: 'Diseses',Date:'29/01/2021',Time: '20:08 hrs',Edit_History:'No History'},
-    {Appointment_Id :'2',Meeting_Title : 'Sugar',Description: 'Diseses',Date:'29/01/2021',Time: '20:08 hrs',Edit_History:'No History'},
-    {Appointment_Id :'3',Meeting_Title : 'Chicken pox',Description: 'Diseses',Date:'29/01/2021',Time: '20:08 hrs',Edit_History:'No History'},
-    {Appointment_Id :'4',Meeting_Title : 'Fever',Description: 'Diseses',Date:'29/01/2021',Time: '20:08 hrs',Edit_History:'No History'},
-    {Appointment_Id :'5',Meeting_Title : 'Polio',Description: 'Diseses',Date:'29/01/2021',Time: '20:08 hrs',Edit_History:'No History'},
-    {Appointment_Id :'6',Meeting_Title : 'Polio',Description: 'Diseses',Date:'29/01/2021',Time: '20:08 hrs',Edit_History:'No History'},
-    {Appointment_Id :'7',Meeting_Title : 'Polio',Description: 'Diseses',Date:'29/01/2021',Time: '20:08 hrs',Edit_History:'No History'}
-  ]
+    this.replyForm = this.formBuilder.group({
+      reply: new FormControl('', [
+        Validators.required,
+        Validators.maxLength(200),
+      ]),
+    });
 
+    this.getReciveNote();
   }
 
-  sendnotes(){
-//    this.router.navigate(['sendnotes'])
+  getReciveNote() {
+    // TODO: Sender id is hardcoded - needs to be updated after login
+    this.noteService.getRecieveNotes(42).subscribe((val: any[]) => {
+      console.log(val);
+      this.receiveNote = val;
+    });
   }
 
-  openDetailsOfPatient()
-  {
-    this.isFlagDetails=true;
-  }
-  editDetails()
-  {
-
-  }
-  deleteDetails(id : string)
-  {
-    this.ViewScheduler = this.ViewScheduler.filter(item=>item.Appointment_Id != id);
-    console.log(this.ViewScheduler);
-  }
-  displayedColumns: string[] = ['position', 'name', 'weight', 'action','symbol'];
-
-  
-
-}
-
-export class ViewSchedule 
-{
-  Appointment_Id : string;
-  Meeting_Title : string
-  Description : string;
-  Date : string;
-  Time : string;
-  Edit_History : string;
-
-  constructor( Appointment_Id : string,Meeting_Title : string,Description : string,Date : string,Time : string,Edit_History : string)
-  {
-    this.Appointment_Id = Appointment_Id;
-    this.Meeting_Title = Meeting_Title;
-    this.Description = Description;
-    this.Date = Date;
-    this.Time =Time;
-    this.Edit_History = Edit_History
+  open(content: any, selectedNoteId: any) {
+    this.selectedNoteId = selectedNoteId;
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
   }
 
+  delete(selectedNoteId: any) {
+    this.noteService.deleteNoteById(selectedNoteId).subscribe(
+      (data: { message: any }) => {
+        console.log(data);
+        this.toastService.show(data.message, {
+          classname: 'bg-success text-light',
+          delay: 5000,
+        });
+        this.getReciveNote();
+      },
+      (error: any) => {
+        this.toastService.show('Server Error please try later', {
+          classname: 'bg-danger text-light',
+          delay: 5000,
+        });
+      }
+    );
+  }
 
+  sendNotes() {
+    this.submitted = true;
+    if (this.replyForm.invalid) return;
 
+    this.noteService.reply(this.f.reply.value, this.selectedNoteId).subscribe(
+      (data: { message: any }) => {
+        console.log(data);
+        this.toastService.show(data.message, {
+          classname: 'bg-success text-light',
+          delay: 5000,
+        });
+        if (this.modalService.hasOpenModals()) {
+          this.modalService.dismissAll();
+          this.replyForm.reset();
+        }
+      },
+      (error: any) => {
+        this.toastService.show('Server Error please try later', {
+          classname: 'bg-danger text-light',
+          delay: 5000,
+        });
+        if (this.modalService.hasOpenModals()) {
+          this.modalService.dismissAll();
+          this.replyForm.reset();
+        }
+      }
+    );
+  }
+
+  getf() {
+    return this.replyForm.controls;
+  }
 }

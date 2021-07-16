@@ -45,6 +45,7 @@ export class LoginComponent implements OnInit {
   get f() { return this.loginForm.controls; }
 
   onSubmit() {
+    debugger;
       this.submitted = true;
    // debugger;
       // reset alerts on submit
@@ -60,8 +61,8 @@ export class LoginComponent implements OnInit {
             .pipe(first())
             .subscribe(data=>{
               this.showSuccessLogin();
-                this.router.navigate(['/scheduling']);
-                console.log("Welcome to Nurse Page");
+                this.router.navigate(['/Ab/dashboard']);
+               
      
               },
               error => {

@@ -1,42 +1,115 @@
-<div class="container">
-    <div class="col">
-  
-     <div class="col">
-    
-<form [formGroup]="sendnotes">
-    <mat-card-title>  
-      <h1 class="title">Send notes </h1>
-    </mat-card-title>
+<h1 class="page-title">Send Note</h1>
+<fieldset style="border-radius: 10px; border: 1px solid lightgray; padding: 20px;">
+    <div class="container-fluid">
+        <form (ngSubmit)='sendNotes()' [formGroup]='form' novalidate class="form">
+            <div class="row mb-3">
+                <div class="col-12">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-12">
+                                <label for="recieverId">Receiver Name</label>
+                            </div>
+                            <div class="col-md-8 col-sm-12">
+                                <select formControlName="recieverId"
+                                    class="{ 'is-invalid': submitted && f.recieverId.errors }"
+                                    class="form-select form-control" (change)="populateDesgination()">
+                                    <option *ngFor="let user of users" Value="user.userId">{{user.firstName}}
+                                        {{user.lastName}}</option>
+                                </select>
+                                <!-- <div *ngIf="submitted && f.recieverId.errors" class="invalid-feedback">
+                                    <div *ngIf="f.recieverId.errors.required">Please select the reciever name</div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-   
-        <mat-form-field appearance="legacy" class="full-width col-4">
-          <mat-label>DOB</mat-label>
-          <input matInput [matDatepicker]="picker">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
+            <div class="row mb-3">
+                <div class="col-12">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-12">
+                                <label for="sender">Designation</label>
+                            </div>
+                            <div class="col-md-8 col-sm-12">
+                                <div class="form-group">
+                                    <input type="text" id="designation" placeholder="Designation" class="form-control"
+                                        formControlName="designation" [disabled]>
 
-        <mat-form-field class="full-width col-4">
-            <mat-select placeholder="Receivername">
-              <mat-option *ngFor="let al of alergy" [value]="al">
-                {{ al }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-12">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-12">
+                                <label for="sender">Message</label>
+                            </div>
+                            <div class="col-md-8 col-sm-12">
+                                <div class="form-group">
+                                    <textarea id="msg" placeholder="Message" class="form-control"
+                                        formControlName="message" rows="6" cols="60"></textarea>
+                                    <!-- [ngClass]="{ 'is-invalid': submitted && f.message.errors }"
+                                        <div *ngIf="submitted && f.message.errors" class="invalid-feedback">
+                                        <div *ngIf="f.message.errors.required">
+                                            Message is required</div>
+                                        <div *ngIf="f.message.errors.maxlength">
+                                            Notes contains maximum 200
+                                            characters</div>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-          <mat-form-field class="full-width col-4">
-            <mat-select placeholder="Receiver Designation">
-              <mat-option *ngFor="let al of alergy" [value]="al">
-                {{ al }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-          
-          <mat-form-field appearance="legacy" class="full-width col-4" >
-          <mat-label>Message</mat-label>
-            <textarea matInput></textarea>
-          </mat-form-field>
-          <button mat-flat-button color="primary" routerLink="/recievenotes">send notes</button>            
-   </form>
+
+
+            <div class="row mb-3">
+                <div class="col-12">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-12">
+                                <label for="sender">Urgency Level</label>
+                            </div>
+                            <div class="col-md-8 col-sm-12">
+                                <div class="form-group">
+                                    <input id="urgent" type="radio" value=true name="urgency" formControlName="urgency">
+                                    <label for="urgent" class="m-2">Urgent</label>
+                                    <input id="nourgent" type="radio" value=false name="urgency"
+                                        formControlName="urgency">
+                                    <label for="nourgent" class="m-2">Not Urgent</label>
+                                    <!-- [ngClass]="{ 'is-invalid': submitted && f.urgency.errors }"
+                                        [ngClass]="{ 'is-invalid': submitted && f.urgency.errors }"
+                                        <div *ngIf="submitted && f.urgency.errors" class="invalid-feedback">
+                                        <div *ngIf="f.urgency.errors.required">Urgency is required</div>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="row mb-5">
+                <div class="col-12">
+                    <div class="form-group">
+                        <button class="btn btn-success float-end" style="width: 100px;">Send</button>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </form>
     </div>
-</div>
+</fieldset>

@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="row">
+     
+    <div class="col">
+    
+    <form [formGroup]="proceduredetails" (ngSubmit)="onSubmit()">
+    
+      <h2 class="section-title">Procedure Details</h2>
+    
+        <div class="row">
+         
+          <mat-form-field class="full-width col-3" >
+            <mat-select placeholder="Procedure Code">
+              <mat-option *ngFor="let al of Code" [value]="al">
+                {{ al }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        
+        <div class="row">
+          <mat-form-field class="full-width col-3">
+            <mat-select placeholder="Procedure Description">
+              <mat-option *ngFor="let al of Description" [value]="al">
+                {{ al }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          Procedure Is Depricated &nbsp;&nbsp;
+          <mat-radio-group name="notificationType" ngModel required #notificationType="ngModel">
+            <mat-radio-button value="1" color="primary" class="person-radio-button">YES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</mat-radio-button>  
+            <mat-radio-button value="2" color="accent" class="person-radio-button">NO</mat-radio-button>  
+          </mat-radio-group>   
+        </div>
+        <br>
+        <div class="example-button-row">
+          <button mat-flat-button color="primary">Submit</button>
+        </div> 
+    
+    </form>
+    </div>
+    </div>
+    </div>
+    
+  
+  
