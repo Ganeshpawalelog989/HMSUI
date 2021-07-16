@@ -6,7 +6,8 @@ export const environment = {
   production: false,
   baseUrl : "http://localhost:50471/Patient/Registration",
   basehospitalUrl : "http://localhost:50471/Hospital/Registration",
-  baseUrlLogin: 'http://localhost:50471/login'
+  baseUrlLogin: 'http://localhost:50471/login',
+  baseUrlPatientList: 'http://localhost:50471/Patient-Listing'
 };
 
 /*

@@ -1,30 +1,35 @@
 //import { Component, OnInit } from '@angular/core';
 import {Component, OnInit} from '@angular/core';
-import { PatientUser } from 'src/app/Model/Admin';
 
+interface PatientUser {
+  PatientId : string
+  PatientName: string;
+  Date: string;
+  status: string;
+}
 
 const user: PatientUser[] = [
   {
     PatientId : "1",
-    PatientName: 'Ganesh',
+    PatientName: 'Russia',
     Date: '02/03/2021',
     status: "Active",
   },
   {
     PatientId : "2",
-    PatientName: 'Santosh',
+    PatientName: 'Canada',
     Date: '02/03/2021',
     status: "InActive",
   },
   {
     PatientId : "3",
-    PatientName: 'Sachin',
+    PatientName: 'United States',
     Date: '02/03/2021',
     status: "Active",
   },
   {
     PatientId : "4",
-    PatientName: 'samir',
+    PatientName: 'China',
     Date: '02/03/2021',
     status: "Blocked",
   }

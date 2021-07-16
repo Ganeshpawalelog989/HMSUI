@@ -37,9 +37,12 @@ export class AllPatientListingService {
   
 // }
 
-// getPatientList():Observable<any[]>
-// {
-//   return this.http.get<any>(`${environment.baseUrl}`);
-// }
+ getPatientList():Observable<any>
+ {
+   return this.http.get<any>(`${environment.baseUrlPatientList}`);
+ }
+
+
+   
 
 }
