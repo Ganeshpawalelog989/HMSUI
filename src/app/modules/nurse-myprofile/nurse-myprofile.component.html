@@ -10,9 +10,9 @@
           <mat-radio-button value="1" color="primary">Mr.&nbsp;</mat-radio-button>  
           <mat-radio-button value="1" color="primary">Ms.&nbsp;</mat-radio-button>  
           <mat-radio-button value="2" color="accent">Mrs.&nbsp;</mat-radio-button>  
-          <mat-radio-button value="3" color="warn">Dr.&nbsp;</mat-radio-button>      
+          
       </mat-radio-group> 
-      
+      <br>
       
       <div class="emailInput">
           <mat-form-field class="full-width" appearance="outline">
@@ -76,19 +76,24 @@
         </mat-form-field>
        -->
       <br />
-        <mat-form-field class="full-width" appearance="outline">
-          <mat-label>Role</mat-label>
+        <!-- <mat-form-field class="full-width" appearance="outline">
+               
           <mat-select formControlName="RoleId">
             <mat-option value="3">Physician </mat-option>
-            <mat-option value="4">Nurse </mat-option>
-            <!-- <mat-option value="two">Admin  </mat-option> -->
+             
+             <mat-option value="Nurse">Nurse </mat-option>
+
+             <mat-option value="two">Admin  </mat-option> 
           </mat-select>
           <mat-error *ngIf="!regiForm.controls['RoleId'].valid">  role is required </mat-error> 
         </mat-form-field>
-      
-      
+       -->
+      <!-- <mat-form-field class="full-width" appearance="outline">
+        <input type="text" value="Nurse" >
+        </mat-form-field>
+         -->
         <div class="example-button-row">
-          <button mat-flat-button color="primary">Save</button>
+          <button class="btn btn-outline-primary">Save</button>
         </div>
       
       </form>

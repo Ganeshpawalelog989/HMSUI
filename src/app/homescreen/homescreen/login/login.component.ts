@@ -78,7 +78,7 @@ export class LoginComponent implements OnInit {
   }
   showErrorLogin()
   {
-    this.toastr.showSuccess("Error!!!","Username or paswword is incorrect");
+    this.toastr.showError("Error!!!","Username or paswword is incorrect");
   }
 
 

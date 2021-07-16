@@ -64,7 +64,10 @@ const routes: Routes = [
       },
       {
          path : 'myprofile' , component : NurseMyprofileComponent
-      }
+      },
+      {
+        path : 'patientvisit' , component : PatientVisitComponent
+     }
     ]
   },
   {
@@ -87,7 +90,13 @@ const routes: Routes = [
        },
        {
           path : 'patientvisit' , component : PatientVisitComponent
-       }
+       },
+       {
+        path : 'sendnotes' , component : SendnotesComponent
+     },
+     {
+        path : 'recievenotes' , component : RecieveNotesComponent
+     },
     ]
    },
 {
@@ -115,7 +124,9 @@ const routes: Routes = [
     path : 'patientregistration' ,  component : PatientRegistrationComponent
   },
  
-  
+  {
+    path : 'bookappoinemnt' , component : AppointmentDeleteComponent
+ },
 
 {path:'change-password',  component:ChangePasswordComponent},
 
