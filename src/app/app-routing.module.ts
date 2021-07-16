@@ -32,6 +32,9 @@ import { PhysicianMyprofileComponent } from './modules/physician-myprofile/physi
 import { PatientVisitComponent } from './modules/patient-visit/patient-visit.component';
 import { SentComponent } from './modules/sentnotes/sentnotes.component';
 
+import { TodayAppointmentComponent } from './modules/today-appointment/today-appointment.component';
+import { PatientdashboardComponent } from './modules/patientdashboard/patientdashboard.component';
+
 const routes: Routes = [
   { path: '', component: HomescreenComponent },
 
@@ -49,6 +52,7 @@ const routes: Routes = [
     path: 'Nurse',
     component: NurselayoutComponent,
     children: [
+      { path: '', component: TodayAppointmentComponent },
       {
         path: 'bookappoinemnt',
         component: AppointmentDeleteComponent,
@@ -62,9 +66,10 @@ const routes: Routes = [
         component: RecieveNotesComponent,
       },
       {
-        path: 'sentnote',
+        path: 'sentnotes',
         component: SentComponent,
       },
+
       {
         path: 'myprofile',
         component: NurseMyprofileComponent,
@@ -77,6 +82,13 @@ const routes: Routes = [
     component: PhysicianlayoutComponent,
     children: [
       {
+        path: '',
+        component: TodayAppointmentComponent,
+      },
+      // {
+      //    path : 'appointment' , component : AppointmentComponent
+      // },
+      {
         path: 'bookappoinemnt',
         component: AppointmentDeleteComponent,
       },
@@ -88,12 +100,20 @@ const routes: Routes = [
         path: 'myprofile',
         component: PhysicianMyprofileComponent,
       },
+      {
+        path: 'patientvisit',
+        component: PatientVisitComponent,
+      },
     ],
   },
   {
     path: 'patient',
     component: PatientlayoutComponent,
     children: [
+      {
+        path: '',
+        component: PatientdashboardComponent,
+      },
       {
         path: 'PatientSheduling',
         component: PatientUserShedulingComponent,
@@ -129,13 +149,7 @@ const routes: Routes = [
     path: 'adminpatientregister',
     component: AdminpatientregistrationComponent,
   },
-  // {
-  //   path : 'admin' , component : AdminComponent,
-  //   children : [
-  //     {path : 'patient' , component : PatientUserManagementComponent},
-  //     {path : 'hospitalUser', component : HospitalUserComponent}
-  //   ]
-  // },
+
   {
     path: 'patientvisit',
     component: PatientVisitComponent,

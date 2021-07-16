@@ -1,30 +1,34 @@
-//import { Component, OnInit } from '@angular/core';
-import {Component, OnInit} from '@angular/core';
-import { PatientUser } from 'src/app/Model/Admin';
+import { Component, OnInit } from '@angular/core';
 
+interface PatientUser {
+  PatientId : string
+  PatientName: string;
+  Date: string;
+  status: string;
+}
 
 const user: PatientUser[] = [
   {
     PatientId : "1",
-    PatientName: 'Ganesh',
+    PatientName: 'Russia',
     Date: '02/03/2021',
     status: "Active",
   },
   {
     PatientId : "2",
-    PatientName: 'Santosh',
+    PatientName: 'Canada',
     Date: '02/03/2021',
     status: "InActive",
   },
   {
     PatientId : "3",
-    PatientName: 'Sachin',
+    PatientName: 'United States',
     Date: '02/03/2021',
     status: "Active",
   },
   {
     PatientId : "4",
-    PatientName: 'samir',
+    PatientName: 'China',
     Date: '02/03/2021',
     status: "Blocked",
   }
@@ -33,11 +37,11 @@ const user: PatientUser[] = [
 
 
 @Component({
-  selector: 'app-patient-user-management',
-  templateUrl: './patient-user-management.component.html',
-  styleUrls: ['./patient-user-management.component.scss']
+  selector: 'app-today-appointment',
+  templateUrl: './today-appointment.component.html',
+  styleUrls: ['./today-appointment.component.scss']
 })
- export class PatientUserManagementComponent implements OnInit {
+export class TodayAppointmentComponent implements OnInit {
 
   ngOnInit(): void {
     
@@ -115,6 +119,5 @@ cancleStatus(){
   this.selectedPatient="";
 
 }
+
 }
-
-

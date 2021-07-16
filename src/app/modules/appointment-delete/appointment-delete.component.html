@@ -20,90 +20,55 @@
         <div class="col-md-4">
           <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
         </div>
-        <div class="col-md-4">
-          <div class="btn-group">
-            <div class="btn btn-primary" (click)="setView(CalendarView.Month)"
-              [class.active]="view === CalendarView.Month">
-              Month
-            </div>
-            <div class="btn btn-primary" (click)="setView(CalendarView.Week)"
-              [class.active]="view === CalendarView.Week">
-              Week
-            </div>
-            <div class="btn btn-primary" (click)="setView(CalendarView.Day)" [class.active]="view === CalendarView.Day">
-              Day
-            </div>
-          </div>
-        </div>
+      </div><br>
+
+      <!-- Everything you see below is just for the demo, you don't need to include it in your app -->
+
+
+      <div class="clearfix">
+        <button class="btn float-left" style="color:blue;" (click)="addEvent()">
+          <mat-icon>add</mat-icon>
+        </button>
       </div>
-      <br />
-      <div [ngSwitch]="view">
-        <mwl-calendar-month-view *ngSwitchCase="CalendarView.Month" [viewDate]="viewDate" [events]="events"
-          [refresh]="refresh" [activeDayIsOpen]="activeDayIsOpen" (dayClicked)="dayClicked($event.day)"
-          (eventClicked)="handleEvent('Clicked', $event.event)" (eventTimesChanged)="eventTimesChanged($event)">
-        </mwl-calendar-month-view>
-        <mwl-calendar-week-view *ngSwitchCase="CalendarView.Week" [viewDate]="viewDate" [events]="events"
-          [refresh]="refresh" (eventClicked)="handleEvent('Clicked', $event.event)"
-          (eventTimesChanged)="eventTimesChanged($event)">
-        </mwl-calendar-week-view>
-        <mwl-calendar-day-view *ngSwitchCase="CalendarView.Day" [viewDate]="viewDate" [events]="events"
-          [refresh]="refresh" (eventClicked)="handleEvent('Clicked', $event.event)"
-          (eventTimesChanged)="eventTimesChanged($event)">
-        </mwl-calendar-day-view>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Start Date</th>
+              <th>End Date</th>
+              <th>Remove</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let event of events">
+              <td>
+                <input type="text" [(ngModel)]="event.title" class="form-control" (keyup)="refresh.next()">
+              </td>
+              <td>
+                <div class="col-xs-12 col-12 col-md-6 form-group">
+                  <input type="text" placeholder="Datepicker" class="form-control" bsDatepicker
+                    [(ngModel)]="event.start" (ngModelChange)="refresh.next()" dateFormat="Y-m-dTH:i"
+                    altFormat="F j, Y H:i">
+                </div>
+              </td>
+              <td>
+                <div class="col-xs-12 col-12 col-md-6 form-group">
+                  <input type="text" placeholder="Datepicker" class="form-control" bsDatepicker [(ngModel)]="event.end"
+                    (ngModelChange)="refresh.next()" dateFormat="Y-m-dTH:i" altFormat="F j, Y H:i">
+
+                </div>
+              </td>
+
+              <td>
+                <button class="btn" style="color: red;" (click)="deleteEvent(event)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-    </div><br>
-
-    <!-- Everything you see below is just for the demo, you don't need to include it in your app -->
-
-
-    <div class="clearfix">
-      <button class="btn btn-primary float-left" (click)="addEvent()">
-        Add New Event
-      </button>
-    </div>
-    <div class="table-responsive">
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Start Date</th>
-            <th>Time</th>
-            <th>Remove</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let event of events">
-            <td>
-              <input type="text" [(ngModel)]="event.title" class="form-control" (keyup)="refresh.next()">
-            </td>
-            <td>
-              <div class="col-xs-12 col-12 col-md-4 form-group">
-                <input type="text" placeholder="Datepicker" class="form-control" bsDatepicker [(ngModel)]="event.start"
-                  (ngModelChange)="refresh.next()" dateFormat="Y-m-d H:i"  altFormat="F j, Y H:i">
-              </div>
-            </td>
-            <!-- <td>
-            <div class="col-xs-12 col-12 col-md-4 form-group">
-              <input type="text"
-                     placeholder="Datepicker"
-                     class="form-control"
-                     bsDatepicker
-                     [(ngModel)]="event.end"
-                     (ngModelChange)="refresh.next()"
-                     dateFormat="Y-m-dTH:i"
-                     altFormat="F j, Y H:i">
-                
-            </div>
-          </td> -->
-
-            <td>
-              <button class="btn btn-danger" (click)="deleteEvent(event)">
-                Delete
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
     </div>
   </accordion-group>
 </accordion>

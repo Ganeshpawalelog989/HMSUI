@@ -1,37 +1,38 @@
 import { Component, OnInit } from '@angular/core';
 import { AddDialogContantComponent } from '../add-dialog-contant/add-dialog-contant.component';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { HospitalUser } from 'src/app/Model/Admin';
 
 
 
-export interface HospitalUser {
-  EmployeeId : string
-  EmployeeName: string;
-  DateOfJoining: string;
-  status: string;
-}
+// export interface HospitalUser {
+//   EmployeeId : string
+//   EmployeeName: string;
+//   DateOfJoining: string;
+//   status: string;
+// }
 const user: HospitalUser[] = [
   {
-    EmployeeId : "1E",
-    EmployeeName: 'Russia',
+    EmployeeId : "1",
+    EmployeeName: 'Sachin',
     DateOfJoining: '02/03/2021',
     status: "Active",
   },
   {
     EmployeeId : "2",
-    EmployeeName : 'Canada',
+    EmployeeName : 'Rahul',
     DateOfJoining: '02/03/2021',
     status: "InActive",
   },
   {
     EmployeeId : "3",
-    EmployeeName: 'United States',
+    EmployeeName: 'Tushar',
     DateOfJoining: '02/03/2021',
     status: "Active",
   },
   {
     EmployeeId : "4",
-    EmployeeName: 'China',
+    EmployeeName: 'Meharsh',
     DateOfJoining: '02/03/2021',
     status: "Blocked",
   }

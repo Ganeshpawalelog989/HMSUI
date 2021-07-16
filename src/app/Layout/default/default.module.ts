@@ -65,6 +65,7 @@ import { TimepickerModule } from 'ngx-bootstrap/timepicker';
 import { ViewSechedulingComponent } from 'src/app/modules/view-secheduling/view-secheduling.component';
 import { DashboardComponent } from 'src/app/modules/admin/dashboard/dashboard.component';
 import { AdminpatientregistrationComponent } from 'src/app/modules/adminpatientregistration/adminpatientregistration.component';
+import { RegisterHospitaluserComponent } from 'src/app/modules/register-hospitaluser/register-hospitaluser.component';
 
 import { MatDividerModule } from '@angular/material/divider';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -99,6 +100,8 @@ import { SentComponent } from 'src/app/modules/sentnotes/sentnotes.component';
     ViewSechedulingComponent,
     DashboardComponent,
     AdminpatientregistrationComponent,
+    RegisterHospitaluserComponent
+    
   ],
   imports: [
     MatDividerModule,

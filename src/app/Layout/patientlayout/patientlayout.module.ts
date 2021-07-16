@@ -1,4 +1,3 @@
-
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PatientlayoutComponent } from './patientlayout.component';
@@ -31,13 +30,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { ToastrModule, ToastContainerModule } from 'ngx-toastr';
 import { SharedModule } from 'src/app/shared/shared/shared.module';
-
-
+import { PatientdashboardComponent } from 'src/app/modules/patientdashboard/patientdashboard.component';
 
 @NgModule({
   declarations: [
     PatientsidebarComponent,
-    PatientlayoutComponent
+    PatientlayoutComponent,
+    //PatientUserManagementComponent
+    PatientdashboardComponent,
   ],
   imports: [
     CommonModule,
@@ -73,16 +73,16 @@ import { SharedModule } from 'src/app/shared/shared/shared.module';
     MatDatepickerModule,
     MatNativeDateModule,
     MatCardModule,
-    MatSelectModule, 
+    MatSelectModule,
     MatRadioModule,
     HttpClientModule,
     MatToolbarModule,
-    MatGridListModule ,
-    MatTableModule ,
+    MatGridListModule,
+    MatTableModule,
     MatSlideToggleModule,
     MatDialogModule,
     ToastrModule.forRoot(),
     ToastContainerModule,
-  ]
+  ],
 })
-export class PatientlayoutModule { }
+export class PatientlayoutModule {}

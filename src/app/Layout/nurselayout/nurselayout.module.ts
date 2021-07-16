@@ -29,15 +29,16 @@ import { RouterModule } from '@angular/router';
 import { ToastrModule, ToastContainerModule } from 'ngx-toastr';
 import { SharedModule } from 'src/app/shared/shared/shared.module';
 import { NurselayoutComponent } from './nurselayout.component';
-import { NurseSidebarComponent } from 'src/app/shared/components/nurse-sidebar/nurse-sidebar.component';
 
 import { NurseMyprofileComponent } from 'src/app/modules/nurse-myprofile/nurse-myprofile.component';
+import { NurseSidebarComponent } from 'src/app/shared/components/nurse-sidebar/nurse-sidebar.component';
 
 @NgModule({
   declarations: [
     NurselayoutComponent,
-    NurseSidebarComponent,
     NurseMyprofileComponent,
+    NurseSidebarComponent
+    
   ],
   imports: [
     CommonModule,

@@ -5,9 +5,8 @@
         [colspan]="tile.cols"
         [rowspan]="tile.rows"
         [style.background]="tile.color">
-     <button class="btn" value="{{tile.text}}" (click)="openDialog($event)"> {{tile.text}}</button> 
+     <button class="btn" value="{{tile.text}}"  routerLink="PatientSheduling"> {{tile.text}}</button> 
      
     </mat-grid-tile>
    </mat-grid-list>
-  
-   
+
