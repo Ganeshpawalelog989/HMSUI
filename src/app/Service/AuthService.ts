@@ -34,6 +34,7 @@ export class AuthenticationService {
               .pipe(map(user => {
                 console.log(email,password);
                   localStorage.setItem('currentUser', JSON.stringify(user));
+                  console.log(user);
                   this.currentUserSubject.next(user);
                   console.log("Inside the PatientUser");
                   return user;
