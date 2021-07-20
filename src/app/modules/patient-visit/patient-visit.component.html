@@ -83,8 +83,8 @@
             <!-- <button mat-flat-button color="primary">Submit</button> -->
           </div>
           <div class="example-button-row">
-               <button mat-flat-button color="primary" (click) = "toggleReadonly()">Edit</button>&nbsp;&nbsp;&nbsp;&nbsp;
-               <button mat-flat-button color="primary" (click) = "toggleDiable()">Save</button>
+               <button class="btn btn-outline-primary" (click) = "toggleReadonly()">Edit</button>&nbsp;&nbsp;&nbsp;&nbsp;
+               <button class="btn btn-outline-primary" (click) = "toggleDiable()">Save</button>
              </div>
         </form>
         </div>
@@ -147,8 +147,8 @@
                 
               </div>
               <div class="example-button-row">
-                <button mat-flat-button color="primary" (click) = "toggleReadonly()">Edit</button>&nbsp;&nbsp;&nbsp;&nbsp;
-                <button mat-flat-button color="primary" (click) = "toggleDiable()">Save</button>
+                <button class="btn btn-outline-primary" (click) = "toggleReadonly()">Edit</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                <button class="btn btn-outline-primary" (click) = "toggleDiable()">Save</button>
              
             </div>
               </form>  
@@ -209,8 +209,8 @@
                 <br>
                 <br>
                 <div class="example-button-row">
-                <button mat-flat-button color="primary" (click) = "addAllergy(); toggleAllergy()">Add</button> &nbsp;&nbsp;&nbsp;&nbsp;
-                <button mat-flat-button color="primary">Edit</button>
+                <button class="btn btn-outline-primary" (click) = "addAllergy(); toggleAllergy()">Add</button> &nbsp;&nbsp;&nbsp;&nbsp;
+                <button class="btn btn-outline-primary">Edit</button>
                 
               </div>
                </form>
@@ -230,7 +230,7 @@
                       <td><span>{{item.allergyType}}</span></td>
                       <td><span>{{item.allergyName}}</span></td>
                       <td><span>{{item.isallergyfatal}}</span></td>
-                     <button mat-flat-button color="primary" (click) = "removeAllergy(item)">Remove</button>
+                     <button class="btn btn-outline-sencondary" (click) = "removeAllergy(item)">Remove</button>
     
                      </tr>
                      
@@ -272,8 +272,8 @@
                 </div>          
             <br>
           <div class="example-button-row">
-            <button mat-flat-button color="primary">Add </button>&nbsp;&nbsp;
-            <button mat-flat-button color="primary">Edit</button>
+            <button class="btn btn-outline-primary">Add </button>&nbsp;&nbsp;
+            <button class="btn btn-outline-primary">Edit</button>
           </div> 
       </form>
 </accordion-group>
@@ -317,8 +317,8 @@
        </div>
        <br>
        <div class="example-button-row">
-         <button mat-flat-button color="primary" (click) = "addDiagnosis(); toggleDiagnosis()">Add</button> &nbsp;&nbsp;&nbsp;&nbsp;
-         <button mat-flat-button color="primary" >Edit</button> &nbsp;&nbsp;&nbsp;&nbsp;
+         <button class="btn btn-outline-primary" (click) = "addDiagnosis(); toggleDiagnosis()">Add</button> &nbsp;&nbsp;&nbsp;&nbsp;
+         <button class="btn btn-outline-primary" >Edit</button> &nbsp;&nbsp;&nbsp;&nbsp;
 
        </div> 
 
@@ -391,8 +391,8 @@
          <br>
          <br>
          <div class="example-button-row">
-           <button mat-flat-button color="primary" (click) = "addProcedure(); toggleProcedure()">Add</button> &nbsp;&nbsp;&nbsp;&nbsp;
-           <button mat-flat-button color="primary">Edit</button>
+           <button class="btn btn-outline-primary" (click) = "addProcedure(); toggleProcedure()">Add</button> &nbsp;&nbsp;&nbsp;&nbsp;
+           <button class="btn btn-outline-primary" >Edit</button>
          </div> 
         </form> 
         </div> 
@@ -412,7 +412,7 @@
                   <td><span>{{item.procedureDescription}}</span></td>
                   <td><span>{{item.procedureIsDepricated}}</span></td>
                  
-                  <button mat-flat-button color="primary" (click) = "removeProcedure(item)">Remove</button>
+                  <button class="btn btn-outline-sencondary" (click) = "removeProcedure(item)">Remove</button>
               </tr>
          </tbody>
         </table>
@@ -478,8 +478,8 @@
             </div> 
         
             <div class="example-button-row">
-              <button mat-flat-button color="primary" (click) = "addMedication(); toggleMedication()">Add</button> &nbsp;&nbsp;&nbsp;&nbsp;
-              <button mat-flat-button color="primary">Edit</button>
+              <button class="btn btn-outline-primary" (click) = "addMedication(); toggleMedication()">Add</button> &nbsp;&nbsp;&nbsp;&nbsp;
+              <button class="btn btn-outline-primary">Edit</button>
             </div>
             </div>
          </div>
@@ -504,7 +504,7 @@
               <td><span>{{item.drugGenericName}}</span></td>
               <td><span>{{item.drugBrandedName}}</span></td>
               <td><span>{{item.drugForm}}</span></td>  
-              <button mat-flat-button color="primary" (click) = "removeMedication(item)">Remove</button>                   
+              <button class="btn btn-outline-sencondary" (click) = "removeMedication(item)">Remove</button>                   
             </tr>
         </tbody>
         </table>
@@ -512,5 +512,5 @@
     </accordion-group>
     </accordion>
     <br>
-    <button class="btn btn-primary"  routerLink="T">Back</button>
+    <button class="btn btn-outline-primary"  routerLink="T">Back</button>
     

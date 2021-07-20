@@ -11,57 +11,57 @@
        <mat-radio-button value="1" color="primary">Mr&nbsp;</mat-radio-button>  
        <mat-radio-button value="1" color="primary">Ms&nbsp;</mat-radio-button>
        <mat-radio-button value="1" color="primary">Mrs&nbsp;</mat-radio-button>
-       <mat-radio-button value="1" color="primary">Dr&nbsp;</mat-radio-button>
+       
       </mat-radio-group> 
 
 
      <div class="row">
      <mat-form-field appearance="legacy" class="full-width col-4" >
        <mat-label class="label" >FirstName</mat-label>
-     <input matInput  required [readonly]="isReadonly"/>
+     <input matInput  formControlname='FirstName'  required />
      </mat-form-field>
      <mat-form-field appearance="legacy" class="full-width col-4">
        <mat-label>LastName</mat-label>
-       <input matInput  required [readonly]="isReadonly"/> 
+       <input matInput formContrilname='LastName'  required/> 
      </mat-form-field>
      </div>
  
      <div class="row">
      <mat-form-field appearance="legacy" class="full-width col-4">
        <mat-label>DOB</mat-label>
-       <input matInput [matDatepicker]="picker"  required [readonly]="isReadonly">
+       <input matInput [matDatepicker]="picker" formControlName ='DOB'  required  click =CalculateAge()  >
        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
        <mat-datepicker #picker></mat-datepicker>
      </mat-form-field>
      <mat-form-field appearance="legacy" class="full-width col-4">
        <mat-label>Age</mat-label>
-       <input matInput  required [readonly]="isReadonly">
+       <input matInput  formControlName="Age" value="{{age}}">
      </mat-form-field>
    </div>
      
    <div class="row">
      <mat-form-field appearance="legacy" class="full-width col-3" >
        <mat-label>Race</mat-label>
-       <input matInput required [readonly]="isReadonly">
+       <input matInput formControlName="Race" required >
      </mat-form-field>
      <mat-form-field appearance="legacy" class="full-width col-2">
        <mat-label>Ethnicity</mat-label>
-       <input matInput required [readonly]="isReadonly"> 
+       <input matInput formControlName="Ethnicity" required > 
      </mat-form-field>
      <mat-form-field appearance="legacy" class="full-width col-3">
        <mat-label>Lanaguageknown</mat-label>
-       <input matInput required [readonly]="isReadonly">
+       <input matInput formControlName="Lanaguageknown" required >
      </mat-form-field>
    </div>
  
    <div class="row">
      <mat-form-field appearance="legacy" class="full-width col-4">
        <mat-label>Email </mat-label>
-       <input matInput placeholder="Your email" required [readonly]="isReadonly">
+       <input matInput formControlName="Email" placeholder="Your email" required >
        <mat-icon matSuffix>mail_outline</mat-icon>
      </mat-form-field>
-     <mat-form-field class="full-width col-4">
-       <mat-select placeholder="Gender">
+     <mat-form-field class="full-width col-4" >
+       <mat-select placeholder="Gender"  formControlName="Gender">
          <mat-option *ngFor="let gender of genders" [value]="gender">
            {{ gender }}
          </mat-option>
@@ -72,19 +72,19 @@
    <div class="row">
       <mat-form-field appearance="legacy" class="full-width col-4">
         <mat-label>HomeAddress</mat-label>
-        <textarea matInput required [readonly]="isReadonly"></textarea>
+        <textarea matInput formControlName="HomeAddress" required ></textarea>
       </mat-form-field>
        <mat-form-field appearance="legacy" class="full-width col-4">
         <mat-label>ContantNo:</mat-label>
 
-        <input matInput placeholder="Your Phone" required [readonly]="isReadonly">
+        <input matInput formControlName="ContantNo" placeholder="Your Phone" required >
         <mat-icon matSuffix>phone</mat-icon>
         </mat-form-field> 
         <!-- <button mat-flat-button color="primary">Submit</button> -->
       </div>
       <div class="example-button-row">
-           <button mat-flat-button color="primary" (click) = "toggleReadonly()">Edit</button>&nbsp;&nbsp;&nbsp;&nbsp;
-           <button mat-flat-button color="primary" (click) = "toggleDiable()">Save</button>
+           <button class="btn btn-outline-primary" (click) = "toggleReadonly()">Edit</button>&nbsp;&nbsp;&nbsp;&nbsp;
+           <button class="btn btn-outline-primary" (click) = "toggleDiable()">Save</button>
          </div>
     </form>
     </div>
@@ -100,23 +100,24 @@
           <form [formGroup]="EmerencyInfo">
             <mat-radio-group name="id">
               <mat-label> Do you need Access to Patient Portal</mat-label>&nbsp;&nbsp;&nbsp;
-           <mat-radio-button value="1">
+           <mat-radio-button value="1" checked="true" >
                Yes 
            </mat-radio-button>&nbsp;&nbsp;
-           <mat-radio-button value="1">
+           <mat-radio-button value="1" >
               No
           </mat-radio-button>
           </mat-radio-group>
+          
           <br>
           <br>
             <div class="row">
             <mat-form-field appearance="legacy" class="full-width col-4" >
               <mat-label>FirstName</mat-label>
-              <input matInput required [readonly]="isReadonly"/>
+              <input matInput required />
             </mat-form-field>
             <mat-form-field appearance="legacy" class="full-width col-4">
               <mat-label>LastName</mat-label>
-              <input matInput required [readonly]="isReadonly">
+              <input matInput required >
             </mat-form-field>
           </div>
           <div class="row">
@@ -129,26 +130,26 @@
             </mat-form-field>
             <mat-form-field appearance="legacy" class="full-width col-4" >
               <mat-label>Email Address:</mat-label>
-              <input matInput  required [readonly]="isReadonly" >
+              <input matInput  required  >
               <mat-icon matSuffix>mail_outline</mat-icon>
             </mat-form-field>
           </div>
           <div class="row">
             <mat-form-field appearance="legacy" class="full-width col-4">
               <mat-label>Contant No:</mat-label>
-              <input matInput placeholder="Your Phone"  required [readonly]="isReadonly">
+              <input matInput placeholder="Your Phone"  required >
               <mat-icon matSuffix>phone</mat-icon>
             </mat-form-field>
             <mat-form-field appearance="legacy" class="full-width col-4" >
               <mat-label>Home Address</mat-label>
-              <textarea matInput  required [readonly]="isReadonly"></textarea>
+              <textarea matInput  required ></textarea>
               <input matInput >
             </mat-form-field>
             
           </div>
           <div class="example-button-row">
-            <button mat-flat-button color="primary" (click) = "toggleReadonly()">Edit</button>&nbsp;&nbsp;&nbsp;&nbsp;
-            <button mat-flat-button color="primary" (click) = "toggleDiable()">Save</button>
+            <button class="btn btn-outline-primary" (click) = "toggleReadonly()">Edit</button>&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="btn btn-outline-primary" (click) = "toggleDiable()">Save</button>
          
         </div>
           </form>  
@@ -167,7 +168,7 @@
          <div class="col">
           <form [formGroup]="Allery">
             
-            <div class="row">
+            <!-- <div class="row">
              <mat-radio-group name="id">
                 <mat-label>Patient has any known Allergy</mat-label>&nbsp;&nbsp;&nbsp;
              <mat-radio-button value="1">
@@ -178,9 +179,11 @@
             </mat-radio-button>
             </mat-radio-group>
           </div>
+           -->
+
           <div class="row">
             <mat-form-field class="full-width col-4">
-              <mat-select placeholder="Allery Type" formControlName="allergyType" required>
+              <mat-select placeholder="Allery Type" formControlName="allergyType" >
                 <mat-option *ngFor="let al of alergy" [value]="al">
                   {{ al }}
                 </mat-option>
@@ -189,7 +192,7 @@
           </div>
           <div class="row">
             <mat-form-field class="full-width col-4">
-                <mat-select placeholder="Allery Name" formControlName="allergyName" required>
+                <mat-select placeholder="Allery Name" formControlName="allergyName" >
                   <mat-option *ngFor="let al of alergy" [value]="al">
                     {{ al }}
                   </mat-option>
@@ -197,21 +200,36 @@
               </mat-form-field>
             </div>
               <br>
-              <mat-radio-group name="id">
+              <mat-radio-group name="id"  >
                 <mat-label> Is Allergy Fatal</mat-label>&nbsp;&nbsp;&nbsp;
              <mat-radio-button value="1" >
                  Yes 
              </mat-radio-button>&nbsp;&nbsp;
-             <mat-radio-button value="1">
+             <mat-radio-button value="2"  checked="fasle">
                 No
             </mat-radio-button>
             </mat-radio-group>
+            
+             <!-- <div class="row">
+              <div class="col-md-6">
+                  <section class="example-section">
+                      <mat-checkbox formControlName="allergyIsFatal"
+                          class="example-margin">
+                          {{patientDetails.AllergyfatalCheckbox}}
+                      </mat-checkbox>
+                  </section>
+      
+              </div>
+          </div> -->
+
+
+
             <br>
             <br>
             <div class="example-button-row">
-            <button mat-flat-button color="primary" (click) = "addAllergy(); toggleAllergy()">Add</button> &nbsp;&nbsp;&nbsp;&nbsp;
-            <button mat-flat-button color="primary">Edit</button>&nbsp;&nbsp;&nbsp;&nbsp;
-            <button mat-flat-button color="primary">Save</button>
+            <button  class="btn btn-outline-primary" (click) = "addAllergy(); toggleAllergy()">Add</button> &nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="btn btn-outline-primary">Edit</button>&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="btn btn-outline-primary">Save</button>
             
           </div>
            </form>

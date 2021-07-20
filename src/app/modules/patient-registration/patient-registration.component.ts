@@ -77,6 +77,11 @@ export class PatientRegistrationComponent implements OnInit {
     this.regiForm.reset();
 }
 
+OnReset(){
+  this.router.navigate([''])
+}
+
+
   getAllData()
  {
   this.service.getAllPost().subscribe(data => {

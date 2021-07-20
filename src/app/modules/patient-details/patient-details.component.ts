@@ -3,6 +3,9 @@ import { validateBasis } from '@angular/flex-layout';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { PatientDetails } from 'src/app/Model/PatientDetails';
+
+
 
 @Component({
   selector: 'app-patient-details',
@@ -10,24 +13,39 @@ import { Observable } from 'rxjs';
   styleUrls: ['./patient-details.component.scss']
 })
 export class PatientDetailsComponent implements OnInit {
-  
-//   //Allergy Details
+public birthdate: any;
+public age!: number ;
+
+public CalculateAge(): void {
+  if (this.birthdate) {
+    var timeDiff = Math.abs(Date.now() - new Date(this.birthdate).getTime());
+    this.age = Math.floor(timeDiff / (1000 * 3600 * 24) / 365.25);
+  }
+}
+
+//patient deatils 
+ 
+  //Allergy Details
   Allery : FormGroup;
   allergyList :any;
   isallergy: boolean = false ; // hidden by default
-
   isReadonly = true;
-  constructor(private formBuilder : FormBuilder, private router : Router, private fb:FormBuilder) { 
+  constructor(private formBuilder : FormBuilder, private router : Router, private fb:FormBuilder ) { 
+   
     // //Allergy Details
       this.allergyList = [];
       this.Allery = this.fb.group({
-        allergyType: ['', Validators.required],
-        allergyName: ['', Validators.required],
-        isallergyfatal: ['', Validators.required],
+        allergyType: [''],
+        allergyName: ['', ],
+        //isallergyfatal:
+        allergyIsFatal: [false],
+
       })
 
   }
   ngOnInit(): void {
+    this.birthdate = new Date();
+    this.CalculateAge();
   }
  
   genders = [
@@ -57,15 +75,18 @@ export class PatientDetailsComponent implements OnInit {
     "Other",
   ];
 
+  
+
   onSubmitUserDetails(value: any){
     console.log(value);
   }
   
   //Patient Details for adding tables
- // public addItem() : void 
- // {
- //   this.listData.push(this.patientvisit.value);
- // }
+ public addItem()  
+ {
+   //this.listData.push(this.patientvisit.value);
+  
+ }
  // togglePatient() {
 
  //   this.ispatient = ! this.ispatient; 
@@ -82,7 +103,7 @@ addAllergy(){
   this.allergyList.push(this.Allery.value);
   this.resetAllery();
 }
-toggleAllergy() {
+  toggleAllergy() {
   this.isallergy = ! this.isallergy;
   }
   resetAllery(){
@@ -94,7 +115,9 @@ toggleAllergy() {
       this.allergyList.splice(index,1)
     });
   }
-
+  IsAlleryfatal(){
+    
+  }
 
   //Nevigate to Emergency Info Form
   onPatientSubmit() {
@@ -113,27 +136,29 @@ toggleAllergy() {
    filteredOptions: Observable<string[]> | undefined;
 
    patientDetails: FormGroup = this.formBuilder.group({
-    FirstName :['',Validators.required,Validators.minLength(2) ],
-    LastName :['',Validators.minLength , Validators.minLength(2)],
-    DOB :['',Validators.required ],
-    Age :['',Validators.required],
-    Gender:['',Validators.required],
-    Race:['',Validators.required],
-    Ethnicity:['',Validators.required],
-    Lanaguageknown :['',Validators.required],
-    Email :['',Validators.required],
-    HomeAddress :['',Validators.required],
-    ContantNo :['',Validators.required]
-   });
+    FirstName :['',[Validators.required, Validators.pattern('[a-zA-Z]*') ]],
+    LastName :['',[Validators.minLength , Validators.minLength(2)]],
+    DOB :['',[Validators.required ]],
+    Age :['',[Validators.required]],
+    Gender:['',[Validators.required]],
+    Race:['',[Validators.required]],
+    Ethnicity:['',[Validators.required]],
+    Lanaguageknown :['',[Validators.required]],
+    Email :['',[Validators.required]],
+    HomeAddress :['',[Validators.required, Validators.maxLength(50)]] ,
+    ContantNo :['',[Validators.required , Validators.pattern("^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$")]]
+    
+ 
+  });
   
-      EmerencyInfo: FormGroup = this.formBuilder.group({
-    FirstName :['',Validators.required ],
-    LastName :['',Validators.minLength],
-    Email :['',Validators.required],
-    HomeAddress :['',Validators.required],
-    ContantNo :['',Validators.required],
-    Relation :['',Validators.required]
+    EmerencyInfo: FormGroup = this.formBuilder.group({
+    FirstName :['',[Validators.required , Validators.pattern('[a-zA-Z]*')] ],
+    LastName :['',[Validators.minLength]],
+    Email :['',[Validators.required]],
+    HomeAddress :['',[Validators.required]],
+    ContantNo :['',[Validators.required , Validators.pattern("^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$")]],
+    Relation :['',[Validators.required]]
    });
-
-
 }
+
+
