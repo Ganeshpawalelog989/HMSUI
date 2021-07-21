@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
-import { usernotes } from 'src/app/Model/UserNotes';
+import { usernotes } from 'src/app/Model/NotesUser';
 import { NotesService } from '../../Service/notes.service';
 @Component({
   selector: 'app-sent',

@@ -8,7 +8,7 @@ import {
 } from '@angular/forms';
 import { from } from 'rxjs';
 import { NotesService } from '../../Service/notes.service';
-import { Notes } from '../../Model/notes';
+import { Notes, usernotes } from '../../Model/NotesUser';
 import { ToastService } from 'src/app/Service/toast.service';
 
 @Component({
@@ -22,6 +22,7 @@ export class SendnotesComponent implements OnInit {
   public note: any;
   designation: any;
   submitted = false;
+  flag =true;
 
   constructor(
     private noteService: NotesService,
@@ -40,15 +41,19 @@ export class SendnotesComponent implements OnInit {
       urgency: new FormControl('', [Validators.required]),
     });
     this.designation = this.form.value.designation;
-    this.noteService.getUsersByRole('23').subscribe((val: any[]) => {
+    this.noteService.getUsersByRole(this.note).subscribe((val: any[]) => {
       this.users = val.filter((user: any) => {
         // TODO: sender id is hardcoded for now . would be fetched from session
-        return user.userId !== 23;
+        return this.noteService.getUsersByRole;
       });
       console.log(val);
     });
   }
 
+   hideform()
+   {
+     this.flag =!this.flag
+   }
   match() {
     let senderId = 23;
     let recieverId = this.form.value;
@@ -62,9 +67,9 @@ export class SendnotesComponent implements OnInit {
       return;
     }
 
-    let newNotes: Notes = this.form.value;
+    let newNotes: usernotes = this.form.value;
     // TODO: sender id is hardcoded for now . would be fetched from session
-    newNotes.senderId = 23;
+    //newNotes.SenderId = "";
     this.noteService.sendNotes(newNotes).subscribe(
       (data: { message: any }) => {
         this.toastService.show(data.message, {
@@ -91,7 +96,7 @@ export class SendnotesComponent implements OnInit {
       );
   }
 
-  getf() {
+  get f() {
     return this.form.controls;
   }
 }

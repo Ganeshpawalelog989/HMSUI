@@ -41,7 +41,7 @@ import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { TodayAppointmentComponent } from 'src/app/modules/today-appointment/today-appointment.component';
 //import { AppointmentComponent } from 'src/app/modules/appointment/appointment.component';
 //import { AppointmentDeleteComponent } from 'src/app/modules/appointment-delete/appointment-delete.component';
-
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -57,7 +57,7 @@ import { TodayAppointmentComponent } from 'src/app/modules/today-appointment/tod
   ],
   imports: [
     CommonModule,
-    
+    MatExpansionModule,
     SharedModule,
     MatGridListModule,
     RouterModule,

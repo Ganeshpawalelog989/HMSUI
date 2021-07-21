@@ -64,6 +64,10 @@ const routes: Routes = [
       {
         path: 'recievenotes', component: RecieveNotesComponent
       },
+
+      {
+        path:'sentnotes', component:SentComponent
+      },
       {
         path: 'myprofile', component: NurseMyprofileComponent
       }

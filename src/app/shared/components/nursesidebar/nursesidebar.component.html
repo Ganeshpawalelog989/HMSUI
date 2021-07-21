@@ -14,9 +14,20 @@
     <a mat-list-item routerLinkActive="list-item-active" routerLink="/Nurse">Dashboard</a>
     <a mat-list-item routerLinkActive="list-item-active" routerLink="myprofile">My Profile</a>
     <a mat-list-item routerLinkActive="list-item-active" routerLink="appointment">Scheduling</a>
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="sendnotes">Inbox </a>
-    
-    <mat-divider></mat-divider>
+    <!-- <a mat-list-item routerLinkActive="list-item-active" routerLink="sendnotes">Inbox </a> -->
+    <mat-accordion class="app-nav-accordion">
+        <mat-expansion-panel class="mat-elevation-z0">
+          <mat-expansion-panel-header>
+            <mat-panel-title>Notes</mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-nav-list>
+            <a mat-list-item routerLinkActive="list-item-active" routerLink="sendnotes">Send Note</a>
+            <a mat-list-item routerLinkActive="list-item-active" routerLink="recievenotes">Reciever Notes</a>
+            <a mat-list-item routerLinkActive="list-item-active" routerLink="sentnotes">Sent Notes</a>
 
+        </mat-nav-list>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <mat-divider></mat-divider>
     
 </mat-nav-list> 
