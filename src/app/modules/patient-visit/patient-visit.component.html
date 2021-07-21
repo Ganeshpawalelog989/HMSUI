@@ -9,9 +9,9 @@
          
          <mat-radio-group >
            <mat-radio-button value="1" color="primary">Mr&nbsp;</mat-radio-button>  
-           <mat-radio-button value="1" color="primary">Ms&nbsp;</mat-radio-button>
-           <mat-radio-button value="1" color="primary">Mrs&nbsp;</mat-radio-button>
-           <mat-radio-button value="1" color="primary">Dr&nbsp;</mat-radio-button>
+           <mat-radio-button value="2" color="primary">Ms&nbsp;</mat-radio-button>
+           <mat-radio-button value="3" color="primary">Mrs&nbsp;</mat-radio-button>
+           <mat-radio-button value="4" color="primary">Dr&nbsp;</mat-radio-button>
           </mat-radio-group> 
     
     
@@ -83,8 +83,8 @@
             <!-- <button mat-flat-button color="primary">Submit</button> -->
           </div>
           <div class="example-button-row">
-               <button mat-flat-button color="primary" (click) = "toggleReadonly()">Edit</button>&nbsp;&nbsp;&nbsp;&nbsp;
-               <button mat-flat-button color="primary" (click) = "toggleDiable()">Save</button>
+               <button class="btn btn-outline-primary" (click) = "toggleReadonly()">Edit</button>&nbsp;&nbsp;&nbsp;&nbsp;
+               <button class="btn btn-outline-primary" (click) = "toggleDiable()">Save</button>
              </div>
         </form>
         </div>
@@ -103,7 +103,7 @@
                <mat-radio-button value="1">
                    Yes 
                </mat-radio-button>&nbsp;&nbsp;
-               <mat-radio-button value="1">
+               <mat-radio-button value="2">
                   No
               </mat-radio-button>
               </mat-radio-group>
@@ -147,8 +147,8 @@
                 
               </div>
               <div class="example-button-row">
-                <button mat-flat-button color="primary" (click) = "toggleReadonly()">Edit</button>&nbsp;&nbsp;&nbsp;&nbsp;
-                <button mat-flat-button color="primary" (click) = "toggleDiable()">Save</button>
+                <button class="btn btn-outline-primary" (click) = "toggleReadonly()">Edit</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                <button class="btn btn-outline-primary" (click) = "toggleDiable()">Save</button>
              
             </div>
               </form>  
@@ -167,8 +167,8 @@
              <div class="col">
               <form [formGroup]="Allery">
                
-                <div class="row">
-                 <mat-radio-group name="id">
+               <!-- <div class="row">
+                  <mat-radio-group name="id">
                     <mat-label>Patient has any known Allergy</mat-label>&nbsp;&nbsp;&nbsp;
                  <mat-radio-button value="1">
                      Yes 
@@ -176,13 +176,13 @@
                  <mat-radio-button value="1">
                     No
                 </mat-radio-button>
-                </mat-radio-group>
-              </div>
+                </mat-radio-group> 
+              </div>-->
               <div class="row">
                 <mat-form-field class="full-width col-4">
                   <mat-select placeholder="Allery Type" formControlName="allergyType" required>
-                    <mat-option *ngFor="let al of alergy" [value]="al">
-                      {{ al }}
+                    <mat-option *ngFor="let al of alergy" value="al.typeofAllergies">
+                      {{ al.typeofAllergies }}
                     </mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -190,28 +190,29 @@
               <div class="row">
                 <mat-form-field class="full-width col-4">
                     <mat-select placeholder="Allery Name" formControlName="allergyName" required>
-                      <mat-option *ngFor="let al of alergy" [value]="al">
-                        {{ al }}
+                      <mat-option *ngFor="let al of alergy">
+                        {{ al.allergyName }}
                       </mat-option>
                     </mat-select>
                   </mat-form-field>
                 </div>
                   <br>
-                  <mat-radio-group name="id">
+                  
+                  <!-- <mat-radio-group name="id" formControlName="isallergyfatal">
                     <mat-label> Is Allergy Fatal</mat-label>&nbsp;&nbsp;&nbsp;
-                 <mat-radio-button value="1" >
+                 <mat-radio-button value="Yes"  (change)="currentValue($event.value)">
                      Yes 
                  </mat-radio-button>&nbsp;&nbsp;
-                 <mat-radio-button value="1">
+                 <mat-radio-button value="No"  checked="true" (change)="currentValue($event.value)">
                     No
                 </mat-radio-button>
-                </mat-radio-group>
+                </mat-radio-group> -->
                 <br>
                 <br>
                 <div class="example-button-row">
-                <button mat-flat-button color="primary" (click) = "addAllergy(); toggleAllergy()">Add</button> &nbsp;&nbsp;&nbsp;&nbsp;
-                <button mat-flat-button color="primary">Edit</button>
-                
+                <button class="btn btn-outline-primary" (click) = "addAllergy()" [disabled]= "!Allery.valid">Add</button> &nbsp;&nbsp;&nbsp;&nbsp;
+                <br>
+                <br>
               </div>
                </form>
              </div>
@@ -219,21 +220,29 @@
           </div>
           
           <div class="container" *ngIf="isallergy">
-            <table class="table">
-                <thead>
+            <table class="table table-striped" >
+                <thead style="text-align: center;">
                     <th scope="col">Allergy Type</th>
                     <th scope="col">Allergy Name</th>
-                    <th>Is Allergy Fatal</th>
+                    <!-- <th scope="col">Is Allergy Fatal</th> -->
+                    <th scope="col">Action</th>
                 </thead>
-                <tbody>
+                <tbody style="text-align: center;">
                      <tr *ngFor="let item of allergyList">
                       <td><span>{{item.allergyType}}</span></td>
                       <td><span>{{item.allergyName}}</span></td>
-                      <td><span>{{item.isallergyfatal}}</span></td>
-                     <button mat-flat-button color="primary" (click) = "removeAllergy(item)">Remove</button>
-    
-                     </tr>
+                      <!-- <td><span>{{item.isallergyfatal}}</span></td>                      -->
+                      <td>
+                        <button class="btn" style="color: blue;">
+                          <mat-icon>edit</mat-icon>
+                          </button>
+                        <button class="btn" style="color: red;" (click) = "removeAllergy(item)">
+                         <mat-icon>delete</mat-icon>
+                         </button>
                      
+                      </td>
+                     
+                     </tr>
                 </tbody>
             </table>
     
@@ -272,8 +281,8 @@
                 </div>          
             <br>
           <div class="example-button-row">
-            <button mat-flat-button color="primary">Add </button>&nbsp;&nbsp;
-            <button mat-flat-button color="primary">Edit</button>
+            <button class="btn btn-outline-primary">Add </button>&nbsp;&nbsp;
+            <button class="btn btn-outline-primary">Edit</button>
           </div> 
       </form>
 </accordion-group>
@@ -305,20 +314,19 @@
         </mat-form-field>
         </div>
         <div class="row">
-          <mat-radio-group name="id">
+          <mat-radio-group name="id" formControlName= "diagnosisIsDepricated">
              <mat-label> Diagnosis Is Depricated</mat-label>&nbsp;&nbsp;&nbsp;
-          <mat-radio-button value="1">
+          <mat-radio-button value="Yes" (change)="currentValue($event.value)">
               Yes 
           </mat-radio-button>&nbsp;&nbsp;
-          <mat-radio-button value="1">
+          <mat-radio-button value="No" (change)="currentValue($event.value)">
              No
          </mat-radio-button>
          </mat-radio-group>
        </div>
        <br>
        <div class="example-button-row">
-         <button mat-flat-button color="primary" (click) = "addDiagnosis(); toggleDiagnosis()">Add</button> &nbsp;&nbsp;&nbsp;&nbsp;
-         <button mat-flat-button color="primary" >Edit</button> &nbsp;&nbsp;&nbsp;&nbsp;
+         <button class="btn btn-outline-primary" (click) = "addDiagnosis()" [disabled]= "!diagnosisdetails.valid">Add</button> &nbsp;&nbsp;&nbsp;&nbsp;
 
        </div> 
 
@@ -328,20 +336,28 @@
    </div>
    </div>
    <div class="container" *ngIf="isdiagnosis">
-    <table class="table">
-        <thead>
+    <table class="table table-striped">
+        <thead style="text-align: center;">
             <th scope="col" class="full-width col-3">Diagnosis Code</th>
             <th scope="col" class="full-width col-3">Diagnosis Description</th>
-            <th scope="col" class="full-width col-3">Diagnosis Is Depricated</th>
+             <th scope="col" class="full-width col-3">Diagnosis Is Depricated</th> 
+            <th scope="col" class="full-width col-3">Action</th>
             
         </thead>
-        <tbody>
+        <tbody style="text-align: center;">
           <tr *ngFor="let item of diagnosisList">
               <td><span>{{item.diagnosisCode}}</span></td>
               <td><span>{{item.diagnosisDescription}}</span></td>
-              <td><span>{{item.diagnosisIsDepricated}}</span></td>
-             
-              <button mat-flat-button color="primary" (click) = "removeDiagnosis(item)">Remove</button>
+             <td><span>{{item.diagnosisIsDepricated}}</span></td>
+             <td>
+              <button class="btn" style="color: blue;">
+                <mat-icon>edit</mat-icon>
+                </button>
+              <button class="btn" style="color: red;" (click) = "removeDiagnosis(item)">
+               <mat-icon>delete</mat-icon>
+               </button>
+           
+            </td>
           </tr>
      </tbody>
     </table>
@@ -378,12 +394,12 @@
           </div>
           
            <div class="row">
-            <mat-radio-group name="id">
+            <mat-radio-group name="id" formControlName= "procedureIsDepricated"> 
                <mat-label> Procedure Is Depricated</mat-label>&nbsp;&nbsp;&nbsp;
-            <mat-radio-button value="1">
+            <mat-radio-button value="Yes" (change)="currentValue($event.value)">
                 Yes 
             </mat-radio-button>&nbsp;&nbsp;
-            <mat-radio-button value="1">
+            <mat-radio-button value="No" (change)="currentValue($event.value)">
                No
            </mat-radio-button>
            </mat-radio-group>
@@ -391,28 +407,35 @@
          <br>
          <br>
          <div class="example-button-row">
-           <button mat-flat-button color="primary" (click) = "addProcedure(); toggleProcedure()">Add</button> &nbsp;&nbsp;&nbsp;&nbsp;
-           <button mat-flat-button color="primary">Edit</button>
+           <button class="btn btn-outline-primary" (click) = "addProcedure()" [disabled]= "!proceduredetails.valid">Add</button> &nbsp;&nbsp;&nbsp;&nbsp;
          </div> 
         </form> 
         </div> 
         </div>
       </div>
       <div class="container" *ngIf="isprocedure">
-        <table class="table">
-            <thead>
-                <th scope="col" class="full-width col-1">Procedure Code</th>
-                <th scope="col" class="full-width col-1">Procedure Description</th>
-                <th scope="col" class="full-width col-1">Procedure Is Depricated</th>
+        <table class="table table-striped">
+            <thead style="text-align: center;">
+                <th scope="col" class="full-width col-3">Procedure Code</th>
+                <th scope="col" class="full-width col-3">Procedure Description</th>
+                <th scope="col" class="full-width col-3">Procedure Is Depricated</th>
+                <th scope="col" class="full-width col-3">Action</th>
                 
             </thead>
-            <tbody>
+            <tbody style="text-align: center;">
               <tr *ngFor="let item of procedureList">
                   <td><span>{{item.procedureCode}}</span></td>
                   <td><span>{{item.procedureDescription}}</span></td>
                   <td><span>{{item.procedureIsDepricated}}</span></td>
+                  <td>
+                    <button class="btn" style="color: blue;">
+                      <mat-icon>edit</mat-icon>
+                      </button>
+                    <button class="btn" style="color: red;" (click) = "removeProcedure(item)">
+                     <mat-icon>delete</mat-icon>
+                     </button>
                  
-                  <button mat-flat-button color="primary" (click) = "removeProcedure(item)">Remove</button>
+                  </td>
               </tr>
          </tbody>
         </table>
@@ -478,8 +501,8 @@
             </div> 
         
             <div class="example-button-row">
-              <button mat-flat-button color="primary" (click) = "addMedication(); toggleMedication()">Add</button> &nbsp;&nbsp;&nbsp;&nbsp;
-              <button mat-flat-button color="primary">Edit</button>
+              <button class="btn btn-outline-primary" (click) = "addMedication()" [disabled]= "!patientmedForm.valid">Add</button> &nbsp;&nbsp;&nbsp;&nbsp;
+              <button class="btn btn-outline-primary">Edit</button>
             </div>
             </div>
          </div>
@@ -491,20 +514,31 @@
         </div>
       </div>
       <div class="container" *ngIf="ismedication">
-        <table class="table">
-            <thead>
+        <table class="table table-striped">
+            <thead style="text-align: center;">
                 <th scope="col">Drug Id</th>
                 <th scope="col">Drug Generic Name</th>
                 <th scope="col">Drug Branded Name</th>
-                <th scope="col">Drug Form</th>        
+                <th scope="col">Drug Form</th>   
+                <th scope="col">Action</th>   
+
             </thead>
-            <tbody>
+            <tbody style="text-align: center;">
             <tr *ngFor="let item of medicationList">
               <td><span>{{item.drugId}}</span></td>
               <td><span>{{item.drugGenericName}}</span></td>
               <td><span>{{item.drugBrandedName}}</span></td>
               <td><span>{{item.drugForm}}</span></td>  
-              <button mat-flat-button color="primary" (click) = "removeMedication(item)">Remove</button>                   
+
+              <td>
+                <button class="btn" style="color: blue;">
+                  <mat-icon>edit</mat-icon>
+                  </button>
+                <button class="btn" style="color: red;" (click) = "removeMedication(item)">
+                 <mat-icon>delete</mat-icon>
+                 </button>
+             
+              </td>
             </tr>
         </tbody>
         </table>
@@ -512,5 +546,5 @@
     </accordion-group>
     </accordion>
     <br>
-    <button class="btn btn-primary"  routerLink="T">Back</button>
+    <button class="btn btn-outline-primary" routerLink="T">Back</button>
     

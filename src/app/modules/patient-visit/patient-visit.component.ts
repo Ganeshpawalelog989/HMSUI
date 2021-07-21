@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
+import { PatientvisitService } from 'src/app/Service/patientvisit.service';
 
 @Component({
   selector: 'app-patient-visit',
@@ -13,46 +14,47 @@ export class PatientVisitComponent implements OnInit {
 
 //   //Allergy Details
 Allery : FormGroup;
-allergyList :any;
-isallergy: boolean = false ; // hidden by default
+allergyList :any = [];
+isallergy: boolean = true; // hidden by default
 
 //   //Diagnosis Details
   diagnosisdetails: FormGroup;
-  diagnosisList : any;
-  isdiagnosis: boolean = false;
+  diagnosisList : any = [];
+  isdiagnosis: boolean = true;
 
 // //Procedure Details
   proceduredetails : FormGroup;
-  procedureList : any;
-  isprocedure: boolean = false;
+  procedureList : any= [];
+  isprocedure: boolean = true;
 
 //   //Medication Details
   patientmedForm : FormGroup;
-  medicationList: any;
-  ismedication: boolean = false;
+  medicationList: any = [];
+  ismedication: boolean = true;
 
 
 
 
 isReadonly = true;
-constructor(private formBuilder : FormBuilder, private router : Router, private fb:FormBuilder) { 
+constructor(private formBuilder : FormBuilder, private router : Router, private fb:FormBuilder,
+  private getpatient:PatientvisitService) { 
   // //Allergy Details
-    this.allergyList = [];
+   // this.allergyList = [];
     this.Allery = this.fb.group({
       allergyType: ['', Validators.required],
       allergyName: ['', Validators.required],
-      isallergyfatal: ['', Validators.required],
+      //isallergyfatal: ['', Validators.required],
     })
 
       //Diagnosis Details
-      this.diagnosisList = [];
+     // this.diagnosisList = [];
       this.diagnosisdetails = this.fb.group({
         diagnosisCode: ['', Validators.required],
         diagnosisDescription: ['', Validators.required],
         diagnosisIsDepricated: ['', Validators.required],
       })
       //Procedure Details
-      this.procedureList = [];
+     // this.procedureList = [];
       this.proceduredetails = this.fb.group({
         procedureCode: ['', Validators.required],
         procedureDescription: ['', Validators.required],
@@ -60,22 +62,51 @@ constructor(private formBuilder : FormBuilder, private router : Router, private 
       })
 
       // Medication Details 
-    this.medicationList = [];
+   // this.medicationList = [];
     this.patientmedForm = this.fb.group({
       drugId: ['', Validators.required],
       drugGenericName: ['', Validators.required],
       drugBrandedName: ['', Validators.required],
       drugForm: ['', Validators.required],
     })
-
-    
+   
 
 }
+
+alergy:any[] =[];
+
+
+
+// Allergy Details
+addAllergy(){
+  debugger;
+  var a= this.allergyList.push(this.Allery.value);
+  //console.log(a);
+  //this.isallergy= !this.isallergy;
+  //this.toggleAllergy();
+  this.Allery.reset();
+  //this.resetAllery();
+  
+  }
+  // toggleAllergy() {
+  // this.isallergy = ! this.isallergy;
+  // }
+  resetAllery(){
+    this.Allery.reset();
+  }
+  removeAllergy(element:any){
+    this.allergyList.forEach((value: any, index:any)=>{
+      if(value == element)
+      this.allergyList.splice(index,1)
+    });
+  }
+
 //Diagnosis Details
 addDiagnosis(){
   debugger;
   this.diagnosisList.push(this.diagnosisdetails.value); 
-  this.resetDiagnosis();
+  this.diagnosisdetails.reset();
+  //this.resetDiagnosis();
 }
 toggleDiagnosis() {
   this.isdiagnosis = ! this.isdiagnosis; 
@@ -95,7 +126,8 @@ toggleDiagnosis() {
 addProcedure(){
   debugger;
   this.procedureList.push(this.proceduredetails.value);
-  this.resetProcedure();
+  this.proceduredetails.reset();
+  //this.resetProcedure();
 }
 toggleProcedure() {
   this.isprocedure = ! this.isprocedure;
@@ -114,7 +146,8 @@ toggleProcedure() {
 addMedication(){
   debugger;
   this.medicationList.push(this.patientmedForm.value);
-  this.resetMedication();
+  this.patientmedForm.reset();
+ //this.resetMedication();
 }
 toggleMedication(){
   this.ismedication = ! this.ismedication;
@@ -130,16 +163,24 @@ removeMedication(element:any){
     });
   }
 
+  currentValue(e:any){
+    console.log(e);
+  }
 
-
+ 
 
 ngOnInit(): void {
   
-  this.filteredOptions = this.myControl.valueChanges
-  .pipe(
-    startWith(''),
-    map(value => this._filter(value))
-  );
+   this.getpatient.getPatientVisitList()
+.subscribe(data => {
+  console.log(data);
+  this.alergy= data;
+
+
+})
+
+
+  
   
 }
 private _filter(value: string): string[] {
@@ -167,14 +208,7 @@ Relation =[
  
 ];
 
-alergy=[
-  "food",
-  "Fungi",
-  "Drug",
-  "Plant",
-  "Venom or Salivary",
-  "Other",
-];
+
 
 onSubmitUserDetails(value: any){
   console.log(value);
@@ -197,24 +231,7 @@ onMedicationSubmit(){
 //   }
 
 
-// Allergy Details
-addAllergy(){
-debugger;
-this.allergyList.push(this.Allery.value);
-this.resetAllery();
-}
-toggleAllergy() {
-this.isallergy = ! this.isallergy;
-}
-resetAllery(){
-  this.Allery.reset();
-}
-removeAllergy(element:any){
-  this.allergyList.forEach((value: any, index:any)=>{
-    if(value == element)
-    this.allergyList.splice(index,1)
-  });
-}
+
 
 
 //Nevigate to Emergency Info Form
