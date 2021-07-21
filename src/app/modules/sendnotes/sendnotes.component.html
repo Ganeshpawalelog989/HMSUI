@@ -2,14 +2,14 @@
 <div class="row mb-5">
     <div class="col-12">
       <div class="form-group">
-        <button class="btn btn-success float-end" style="width: 100px"  (click)=hideform()>
+        <button class="btn btn-outline-primary" style="width: auto"  (click)=hideform()>
           Add Notes
         </button>
       </div>
     </div>
   </div>
 <fieldset *ngIf="!flag"
-  style="border-radius: 10px; border: 1px solid lightgray; padding: 20px"
+  style="border-radius: 10px; border: 1px solid lightgray; padding: 5px"
 >
 
 
@@ -30,7 +30,7 @@
                   (change)="populateDesgination()"
                 >
                   <option *ngFor="let user of users" Value="user.userId">
-                    {{ user.firstName }} {{ user.lastName }}
+                    {{ user }} 
                   </option>
                 </select>
                 <div
@@ -153,7 +153,7 @@
       <div class="row mb-5">
         <div class="col-12">
           <div class="form-group">
-            <button class="btn btn-success float-end" style="width: 100px">
+            <button class="btn btn-outline-primary" style="width: 100px">
               Send
             </button>
           </div>

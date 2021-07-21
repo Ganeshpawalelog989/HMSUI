@@ -3,11 +3,17 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: true,
-  baseUrl : "http://localhost:50471/Registration",
-  baseUrlLogin: 'http://localhost:50471/login',
+
+  production: false,
   baseUrlNotes : "https://localhost:44379/api/Send",
-  baseurlRole:"https://localhost:44379/api/Send?noteId"
+  baseurlRole:"https://localhost:44379/api/Send?noteId",
+  baseUrl : "http://localhost:50471/Patient/Registration",
+  basehospitalUrl : "http://localhost:50471/Hospital/Registration",
+  baseUrlLogin: 'http://localhost:50471/login',
+  baseUrlPatientList: 'http://localhost:64913/api/Admin/patient-listing',
+  adminstatusUrl: 'http://localhost:64913/api/Admin/updatepatient',
+  baseUrlPhysicianList: 'http://localhost:64913/api/Physician/physician-listing',
+
 };
 
 /*

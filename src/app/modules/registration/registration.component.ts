@@ -5,7 +5,8 @@ import { AuthenticationService } from 'src/app/Service/AuthService';
 import { Patient } from 'src/app/Model/Patient';
 import { UserService } from 'src/app/Service/user.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { RegisterUser } from 'src/app/Model/RegisterUser';
+import { RegisterUser  } from 'src/app/Model/RegisterUser'
+//import {HospitalAuthServiceService} from 'src/app/Service/hospital-auth-service.service';
 
 @Component({
   selector: 'app-registration',
@@ -25,22 +26,16 @@ export class RegistrationComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.regiForm = this.formBuilder.group({
-      Fname: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(4),
-          Validators.maxLength(20),
-          Validators.pattern('[a-zA-Z]+'),
-        ],
-      ],
-      Lname: ['', Validators.required],
-      Email: ['', [Validators.required, Validators.email]],
-      RoleId: ['', Validators.required],
-      //Dob : ['', [Validators.required]],
-      ContantNumber: ['', Validators.required],
-    });
+      this.regiForm = this.formBuilder.group({
+        
+        FirstName: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(20), Validators.pattern('[a-zA-Z]+')]],
+        LastName : ['', Validators.required],
+        Email : ['', [Validators.required, Validators.email]],
+        RoleId : ['', Validators.required],
+        //Dob : ['', [Validators.required]],
+        ContactNumber :['',Validators.required]
+      })
+  
   }
 
   // convenience getter for easy access to form fields
@@ -57,18 +52,15 @@ export class RegistrationComponent implements OnInit {
       return;
     }
 
-    // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.regiForm.value))
-
-    this.userServ.register(this.regiForm.value).subscribe(
-      (data) => {
-        console.log(data);
-        this.router.navigate(['/login']);
-      },
-      (error) => {
-        this.router.navigate(['/register']);
-        console.log(error);
-      }
-    );
+      this.userServ.hospregister(this.regiForm.value)
+    .subscribe(data=>{
+      console.log(data);
+      this.router.navigate(['/login']);
+    },
+    error=>{
+      this.router.navigate(['/register'])
+      console.log(error);
+    })
   }
 
   onReset() {

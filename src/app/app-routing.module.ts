@@ -25,27 +25,28 @@ import { ViewSechedulingComponent } from './modules/view-secheduling/view-seched
 import { NurselayoutComponent } from './Layout/nurselayout/nurselayout.component';
 import { PatientlayoutComponent } from './Layout/patientlayout/patientlayout.component';
 import { PhysicianlayoutComponent } from './Layout/physicianlayout/physicianlayout.component';
-import { DashboardComponent } from './modules/admin/dashboard/dashboard.component';
-import { AdminpatientregistrationComponent } from './modules/adminpatientregistration/adminpatientregistration.component';
 import { NurseMyprofileComponent } from './modules/nurse-myprofile/nurse-myprofile.component';
+import { DashboardComponent } from './modules/admin/dashboard/dashboard.component';
 import { PhysicianMyprofileComponent } from './modules/physician-myprofile/physician-myprofile.component';
+import { AdminpatientregistrationComponent } from './modules/adminpatientregistration/adminpatientregistration.component';
 import { PatientVisitComponent } from './modules/patient-visit/patient-visit.component';
 import { TodayAppointmentComponent } from './modules/today-appointment/today-appointment.component';
 import { PatientdashboardComponent } from './modules/patientdashboard/patientdashboard.component';
-import { SentComponent } from './modules/sentnotes/sentnotes.component';
+import { NurseUserManagementComponent } from './modules/admin/nurse-user-management/nurse-user-management.component';
 import { AppointmentComponent } from './modules/appointment/appointment.component';
+import { SentComponent } from './modules/sentnotes/sentnotes.component';
 
 const routes: Routes = [
-  { path: '', component: HomescreenComponent },
-
-  {
-    path: 'admin', component: DefaultComponent,
-    children: [
-      { path: '', component: PatientUserManagementComponent },
-      { path: 'HospitalUser', component: HospitalUserComponent },
-      { path: 'dashboard', component: DashboardComponent }
-    ]
-  },
+  {   path : '' , component : HomescreenComponent  },
+  
+  {  path : 'admin' ,component : DefaultComponent, 
+     children : [
+    { path : 'patient-user' , component : PatientUserManagementComponent  },
+    { path : 'physician-user', component : HospitalUserComponent },
+    { path : 'nurse-user', component : NurseUserManagementComponent },
+    { path : '' , component : DashboardComponent } 
+  ] 
+},
 
   {
     path: 'Nurse', component: NurselayoutComponent,
@@ -69,8 +70,11 @@ const routes: Routes = [
         path:'sentnotes', component:SentComponent
       },
       {
-        path: 'myprofile', component: NurseMyprofileComponent
-      }
+         path : 'myprofile' , component : NurseMyprofileComponent
+      },
+      {
+        path : 'patientvisit' , component : PatientVisitComponent
+     }
     ]
   },
   {
@@ -89,24 +93,20 @@ const routes: Routes = [
         path: 'views', component: ViewSechedulingComponent
       },
       {
-        path: 'myprofile', component: PhysicianMyprofileComponent
-      },
-      {
-        path: 'patientvisit', component: PatientVisitComponent
-      },
-      {
-        path: 'sendnotes', component: SendnotesComponent
-      },
-      {
-        path: 'recievenotes', component: RecieveNotesComponent
-      },
-      {
-        path: 'sentnotes',
-        component: SentComponent
-      },
-      {
-        path: 'myprofile', component: NurseMyprofileComponent
-      }
+         path : 'views' , component : ViewSechedulingComponent
+       },
+       {
+          path : 'myprofile' , component : PhysicianMyprofileComponent
+       },
+       {
+          path : 'patientvisit' , component : PatientVisitComponent
+       },
+       {
+        path : 'sendnotes' , component : SendnotesComponent
+     },
+     {
+        path : 'recievenotes' , component : RecieveNotesComponent
+     },
     ]
   },
   {
@@ -134,22 +134,24 @@ const routes: Routes = [
   {
     path: 'patientregistration', component: PatientRegistrationComponent
   },
-
-
-
-  { path: 'change-password', component: ChangePasswordComponent },
-
-  { path: 'patient-medication-details', component: PatientMedicationDetailsComponent },
+ 
   {
-    path: 'Physician', component: PhysicianViewComponent
-  },
-  {
-    path: 'adminpatientregister', component: AdminpatientregistrationComponent
-  },
+    path : 'bookappoinemnt' , component : AppointmentDeleteComponent
+ },
 
-  {
-    path: 'patientvisit', component: PatientVisitComponent
-  }
+{path:'change-password',  component:ChangePasswordComponent},
+
+{path:'patient-medication-details',  component:PatientMedicationDetailsComponent},
+{
+  path : 'Physician' , component : PhysicianViewComponent
+},
+{
+  path : 'adminpatientregister' , component : AdminpatientregistrationComponent
+},
+
+{
+  path : 'patientvisit' , component : PatientVisitComponent
+}
 
 ];
 

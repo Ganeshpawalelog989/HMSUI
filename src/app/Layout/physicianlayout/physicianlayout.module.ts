@@ -43,6 +43,8 @@ import { TodayAppointmentComponent } from 'src/app/modules/today-appointment/tod
 //import { AppointmentDeleteComponent } from 'src/app/modules/appointment-delete/appointment-delete.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 
+
+
 @NgModule({
   declarations: [
     PhysicianlayoutComponent,
@@ -105,7 +107,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
       useFactory: adapterFactory,
       }),
       FlatpickrModule,
-      NgbModalModule
+      NgbModalModule,
+      MatExpansionModule
   ]
 })
 export class PhysicianlayoutModule { }

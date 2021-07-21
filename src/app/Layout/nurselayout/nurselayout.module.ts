@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NursesidebarComponent } from 'src/app/shared/components/nursesidebar/nursesidebar.component';
 import { NurselayoutComponent } from './nurselayout.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -31,8 +30,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ToastContainerModule, ToastrModule } from 'ngx-toastr';
 import { NurseMyprofileComponent } from 'src/app/modules/nurse-myprofile/nurse-myprofile.component';
-import {MatExpansionModule} from '@angular/material/expansion';
 
+import { NursesidebarComponent } from 'src/app/shared/components/nursesidebar/nursesidebar.component';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -84,7 +84,9 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatDialogModule,
     ToastrModule.forRoot(),
     ToastContainerModule,
+    MatExpansionModule
   ]
 })
+
 export class NurselayoutModule { }
 

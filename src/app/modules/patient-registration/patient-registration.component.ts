@@ -27,8 +27,8 @@ export class PatientRegistrationComponent implements OnInit {
   ngOnInit(): void {
     this.regiForm = this.formBuilder.group({
 
-      Fname: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(20), Validators.pattern('[a-zA-Z]+')]],
-      Lname: ['', Validators.required],
+      FirstName: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(20), Validators.pattern('[a-zA-Z]+')]],
+      LastName: ['', Validators.required],
       Email: ['', [Validators.required, Validators.email]],
       RoleId : ['2'],
       ContactNumber:['', Validators.required],       

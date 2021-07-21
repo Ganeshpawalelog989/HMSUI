@@ -12,7 +12,10 @@ import { PhysicianlayoutModule } from './Layout/physicianlayout/physicianlayout.
 import { patientlayout } from './Layout/patientlayout/patientlayout.module';
 import {CommonModule} from "@angular/common";
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,

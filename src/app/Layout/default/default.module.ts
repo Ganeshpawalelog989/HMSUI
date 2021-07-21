@@ -63,6 +63,7 @@ import { ViewSechedulingComponent } from 'src/app/modules/view-secheduling/view-
 import { DashboardComponent } from 'src/app/modules/admin/dashboard/dashboard.component';
 import { AdminpatientregistrationComponent } from 'src/app/modules/adminpatientregistration/adminpatientregistration.component';
 import { RegisterHospitaluserComponent } from 'src/app/modules/register-hospitaluser/register-hospitaluser.component';
+import { NurseUserManagementComponent } from 'src/app/modules/admin/nurse-user-management/nurse-user-management.component';
 
 @NgModule({
   declarations: [
@@ -89,8 +90,8 @@ import { RegisterHospitaluserComponent } from 'src/app/modules/register-hospital
     ViewSechedulingComponent,
     DashboardComponent,
     AdminpatientregistrationComponent,
-    RegisterHospitaluserComponent
-    
+    RegisterHospitaluserComponent,
+    NurseUserManagementComponent
   ],
   imports: [
     CommonModule,

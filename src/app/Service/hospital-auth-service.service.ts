@@ -1,3 +1,16 @@
+// import { Injectable } from '@angular/core';
+
+// @Injectable({
+//   providedIn: 'root'
+// })
+// export class HospitalAuthServiceService {
+
+//   constructor() { }
+// }
+
+
+
+
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
@@ -7,26 +20,23 @@ import { environment } from 'src/environments/environment';
 import { RegisterUser } from 'src/app/Model/RegisterUser';
 import { User,NurseUser,PatientUser,PhysicianUser,HospitalUser } from 'src/app/Model/User';
 @Injectable({ providedIn: 'root' })
-export class AuthenticationService {
-    private currentUserSubject: BehaviorSubject<PatientUser>;
-    public currentUser: Observable<PatientUser>;
-
-    public currentHospitalUserSubject:BehaviorSubject<HospitalUser>;//
-    public currentHospitalUser: Observable<HospitalUser>;//
+export class HospitalAuthServiceService {
+    private currentUserSubject: BehaviorSubject<HospitalUser>;
+    public currentUser: Observable<HospitalUser>;
+    //public currentHospitalUser:Observable<HospitalUser>;//
     constructor(private http: HttpClient) {
-        this.currentUserSubject = new BehaviorSubject<PatientUser>(JSON.parse(localStorage.getItem('currentUser') || '{}'));
+        this.currentUserSubject = new BehaviorSubject<HospitalUser>(JSON.parse(localStorage.getItem('currentUser') || '{}'));
         this.currentUser = this.currentUserSubject.asObservable();
 
-        this.currentHospitalUserSubject = new BehaviorSubject<HospitalUser>(JSON.parse(localStorage.getItem('currentUser') || '{}'));//
-        this.currentHospitalUser = this.currentHospitalUserSubject.asObservable();//
+        //this.currentHospitalUserSubject = new BehaviorSubject<HospitalUser>(JSON.parse(localStorage.getItem('currentUser') || '{}'));//
+       // this.currentHospitalUser = this.currentHospitalUserSubject.asObservable();//
     }
 
-    public get currentUserValue(): PatientUser {
+    public get currentUserValue(): HospitalUser {
         return this.currentUserSubject.value;
     }
 
-    login(email: string, password: string) {
-      debugger;
+    hospitallogin(email: string, password: string) {
         console.log("Inside the Service");
         //  let apiUrl  = `${environment.baseUrl}?`+"email="+email+"&"+"password="+password;
           // console.log("Api Url is here : ",apiUrl);
@@ -35,24 +45,16 @@ export class AuthenticationService {
               .pipe(map(user => {
                 console.log(email,password);
                   localStorage.setItem('currentUser', JSON.stringify(user));
-                  console.log(user);
                   this.currentUserSubject.next(user);
-                  console.log("Inside the PatientUser");
+                  console.log("Inside the HospitalUser");
                   return user;
             }));
     }
   
-    register(posts : PatientUser) : Observable<any>
+    hospitalregister(posts : HospitalUser) : Observable<any>
     {
       debugger;
       return this.http.post<any>(`${environment.baseUrl}`,posts);
-    }
-
-
-    hospregister(posts : HospitalUser) : Observable<any>
-    {
-      debugger;
-      return this.http.post<any>(`${environment.basehospitalUrl}`,posts);
     }
 
 
