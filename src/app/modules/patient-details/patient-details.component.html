@@ -168,18 +168,18 @@
          <div class="col">
           <form [formGroup]="Allery">
             
-            <!-- <div class="row">
-             <mat-radio-group name="id">
+            <div class="row">
+             <mat-radio-group name="id"  >
                 <mat-label>Patient has any known Allergy</mat-label>&nbsp;&nbsp;&nbsp;
-             <mat-radio-button value="1">
+             <mat-radio-button value="Yes">
                  Yes 
              </mat-radio-button>&nbsp;&nbsp;
-             <mat-radio-button value="1">
+             <mat-radio-button value="No">
                 No
             </mat-radio-button>
             </mat-radio-group>
           </div>
-           -->
+          
 
           <div class="row">
             <mat-form-field class="full-width col-4">
@@ -200,34 +200,20 @@
               </mat-form-field>
             </div>
               <br>
-              <mat-radio-group name="id"  >
+              <mat-radio-group name="id" formControlName="allergyIsFatal" >
                 <mat-label> Is Allergy Fatal</mat-label>&nbsp;&nbsp;&nbsp;
-             <mat-radio-button value="1" >
+             <mat-radio-button value="Yes" (change)="currentValue($event.value)" >
                  Yes 
              </mat-radio-button>&nbsp;&nbsp;
-             <mat-radio-button value="2"  checked="fasle">
+             <mat-radio-button value="No" (change)="currentValue($event.value)" checked="true">
                 No
             </mat-radio-button>
             </mat-radio-group>
-            
-             <!-- <div class="row">
-              <div class="col-md-6">
-                  <section class="example-section">
-                      <mat-checkbox formControlName="allergyIsFatal"
-                          class="example-margin">
-                          {{patientDetails.AllergyfatalCheckbox}}
-                      </mat-checkbox>
-                  </section>
-      
-              </div>
-          </div> -->
-
-
-
+  
             <br>
             <br>
             <div class="example-button-row">
-            <button  class="btn btn-outline-primary" (click) = "addAllergy(); toggleAllergy()">Add</button> &nbsp;&nbsp;&nbsp;&nbsp;
+            <button  class="btn btn-outline-primary" (click) = "addAllergy()" [disabled]="!Allery.valid">Add</button> &nbsp;&nbsp;&nbsp;&nbsp;
             <button class="btn btn-outline-primary">Edit</button>&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="btn btn-outline-primary">Save</button>
             
@@ -243,14 +229,26 @@
                 <th scope="col">Allergy Type</th>
                 <th scope="col">Allergy Name</th>
                 <th>Is Allergy Fatal</th>
+                <th>Action</th>
+                
             </thead>
             <tbody>
                  <tr *ngFor="let item of allergyList">
                   <td><span>{{item.allergyType}}</span></td>
                   <td><span>{{item.allergyName}}</span></td>
-                  <td><span>{{item.isallergyfatal}}</span></td>
-                 <button mat-flat-button color="primary" (click) = "removeAllergy(item)">Remove</button>
-
+                  <td><span>{{item.allergyIsFatal}}</span></td>
+                   
+                  <td>
+                    <button class="btn" style="color: blue;">
+                      <mat-icon>edit</mat-icon>
+                      </button>
+                    <button class="btn" style="color: red;" (click) = "removeAllergy(item)">
+                     <mat-icon>delete</mat-icon>
+                     </button>
+                 
+                  </td>
+                   
+      
                  </tr>
                  
             </tbody>

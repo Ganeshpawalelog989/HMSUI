@@ -12,10 +12,10 @@ import { PatientDetails } from 'src/app/Model/PatientDetails';
   templateUrl: './patient-details.component.html',
   styleUrls: ['./patient-details.component.scss']
 })
+
 export class PatientDetailsComponent implements OnInit {
 public birthdate: any;
 public age!: number ;
-
 public CalculateAge(): void {
   if (this.birthdate) {
     var timeDiff = Math.abs(Date.now() - new Date(this.birthdate).getTime());
@@ -27,19 +27,18 @@ public CalculateAge(): void {
  
   //Allergy Details
   Allery : FormGroup;
-  allergyList :any;
-  isallergy: boolean = false ; // hidden by default
+  allergyList :any =[];
+  isallergy: boolean = true ; // hidden by default
   isReadonly = true;
   constructor(private formBuilder : FormBuilder, private router : Router, private fb:FormBuilder ) { 
    
     // //Allergy Details
-      this.allergyList = [];
+      //this.//allergyList = [];
+
       this.Allery = this.fb.group({
         allergyType: [''],
-        allergyName: ['', ],
-        //isallergyfatal:
-        allergyIsFatal: [false],
-
+        allergyName: [''],
+        allergyIsFatal: [''],
       })
 
   }
@@ -98,10 +97,12 @@ public CalculateAge(): void {
 
 
 // Allergy Details
+
 addAllergy(){
   debugger;
   this.allergyList.push(this.Allery.value);
-  this.resetAllery();
+  //this.resetAllery();
+     this.Allery.reset();
 }
   toggleAllergy() {
   this.isallergy = ! this.isallergy;
@@ -115,9 +116,13 @@ addAllergy(){
       this.allergyList.splice(index,1)
     });
   }
-  IsAlleryfatal(){
-    
-  }
+  currentValue(e:any){​​​​​​​​
+  console.log(e);
+  }​​​​​​​​
+
+
+
+
 
   //Nevigate to Emergency Info Form
   onPatientSubmit() {
