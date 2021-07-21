@@ -33,15 +33,17 @@ import { AdminpatientregistrationComponent } from './modules/adminpatientregistr
 import { PatientVisitComponent } from './modules/patient-visit/patient-visit.component';
 import { TodayAppointmentComponent } from './modules/today-appointment/today-appointment.component';
 import { PatientdashboardComponent } from './modules/patientdashboard/patientdashboard.component';
+import { NurseUserManagementComponent } from './modules/admin/nurse-user-management/nurse-user-management.component';
 
 const routes: Routes = [
   {   path : '' , component : HomescreenComponent  },
   
   {  path : 'admin' ,component : DefaultComponent, 
      children : [
-    { path : '' , component : PatientUserManagementComponent  },
-    { path : 'HospitalUser', component : HospitalUserComponent },
-    { path : 'dashboard' , component : DashboardComponent } 
+    { path : 'patient-user' , component : PatientUserManagementComponent  },
+    { path : 'physician-user', component : HospitalUserComponent },
+    { path : 'nurse-user', component : NurseUserManagementComponent },
+    { path : '' , component : DashboardComponent } 
   ] 
 },
 

@@ -37,9 +37,9 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    debugger;
-    var role2 = JSON.parse(this.role);
-   console.log("Final ROle"+ role2.defaultRole);
+  //   debugger;
+  //  var role2 = JSON.parse(this.role);
+  //  console.log("Final ROle"+ role2.defaultRole);
 
   //console.log("Defrole"+ JSON.stringify(this.role.defaultRole))
   //var temp= Object.keys(role1[0]);
@@ -54,6 +54,10 @@ export class LoginComponent implements OnInit {
   get f() { return this.loginForm.controls; }
 
   onSubmit() {
+    debugger;
+   
+ 
+
       this.submitted = true;
    // debugger;
       // reset alerts on submit
@@ -73,25 +77,27 @@ export class LoginComponent implements OnInit {
               //this.router.navigate(['/physician']);
              // this.router.navigate(['/patient']);
               //this.router.navigate(['/Nurse']);
-              if(this.role1.defaultRole === "Admin")
+              //var role2 = JSON.parse(this.role);
+              console.log("Final ROle"+ data.defaultRole);
+              if(data.defaultRole === "Admin")
               {
                 debugger;
                 this.router.navigate(['/admin']);
                 console.log("Welcome to Admin Page");
               }
-              if(this.role1.defaultRole === "Patient")
+              if(data.defaultRole === "Patient")
               {
                 debugger;
                 this.router.navigate(['/patient']);
                 console.log("Welcome to Patient Page");
               }
-              if(this.role1.defaultRole === "Nurse")
+              if(data.defaultRole === "Nurse")
               {
                 debugger;
                 this.router.navigate(['/Nurse']);
                 console.log("Welcome to Nurse Page");
               }
-              if(this.role1.defaultRole === "Physican")
+              if(data.defaultRole === "Physican")
               {
                 debugger;
                 this.router.navigate(['/physician']);

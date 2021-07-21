@@ -15,7 +15,7 @@ export class PatientVisitComponent implements OnInit {
 Allery : FormGroup;
 allergyList :any;
 isallergy: boolean = false ; // hidden by default
-
+isOpen:boolean=true;
 //   //Diagnosis Details
   diagnosisdetails: FormGroup;
   diagnosisList : any;
