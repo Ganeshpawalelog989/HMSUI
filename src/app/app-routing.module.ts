@@ -35,6 +35,7 @@ import { TodayAppointmentComponent } from './modules/today-appointment/today-app
 import { PatientdashboardComponent } from './modules/patientdashboard/patientdashboard.component';
 import { NurseUserManagementComponent } from './modules/admin/nurse-user-management/nurse-user-management.component';
 
+import{MasterdataComponent} from 'src/app/modules/admin/masterdata/masterdata.component';
 const routes: Routes = [
   {   path : '' , component : HomescreenComponent  },
   
@@ -43,6 +44,7 @@ const routes: Routes = [
     { path : 'patient-user' , component : PatientUserManagementComponent  },
     { path : 'physician-user', component : HospitalUserComponent },
     { path : 'nurse-user', component : NurseUserManagementComponent },
+    { path:  'master-data',component:MasterdataComponent},
     { path : '' , component : DashboardComponent } 
   ] 
 },
@@ -69,7 +71,8 @@ const routes: Routes = [
       },
       {
         path : 'patientvisit' , component : PatientVisitComponent
-     }
+     },
+     {path : 'PatientDetails' , component : PatientDetailsComponent}
     ]
   },
   {

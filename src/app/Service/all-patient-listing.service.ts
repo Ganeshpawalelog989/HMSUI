@@ -45,7 +45,7 @@ export class AllPatientListingService {
  }
 
 
-  updatepatientstatus(id:string,Patient:any):Observable<any>
+  updatepatientstatus(id:string,status:string):Observable<any>
   {
     debugger;
     
@@ -68,10 +68,10 @@ export class AllPatientListingService {
 
     //return this.http.post<any>(`${environment.adminstatusUrl}`+'/'+id,Patient);
     
-    return this.http.post<any>(`${environment.adminstatusUrl}`,Patient);
+    //return this.http.post<any>(`${environment.adminstatusUrl}`,Patient);
     
     //console.log(`${environment.adminstatusUrl}`+'/'+id,status)
-   
+      console.log(`${environment.adminstatusUrl}`+'/'+id+'?status='+status)
     //console.log(`${environment.adminstatusUrl}`+'/'+id+'?'+body.status,null)
 
     //return this.http.put<any>(`${environment.adminstatusUrl}`+'/'+id,status);
@@ -82,7 +82,7 @@ export class AllPatientListingService {
     
    //return this.http.put<any>(`${environment.adminstatusUrl}`+'/'+id+'?'+body.status,{headers,params});
   
-   //return this.http.post<any>(`${environment.adminstatusUrl}`+'/'+id+'?'+body.status,null);
+   return this.http.get<any>(`${environment.adminstatusUrl}`+'/'+id+'?status='+status);
    
 
    // return this.http.put<any>(`${environment.adminstatusUrl}`,{param});
@@ -102,7 +102,11 @@ export class AllPatientListingService {
    return this.http.get<any>(`${environment.baseUrlPhysicianList}`);
  }
 
-
+ getNurseList():Observable<any>
+ {
+   debugger;
+   return this.http.get<any>(`${environment.baseUrlNurseList}`);
+ }
 
 
 

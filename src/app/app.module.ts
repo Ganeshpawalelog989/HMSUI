@@ -15,6 +15,7 @@ import { PhysicianlayoutModule } from './Layout/physicianlayout/physicianlayout.
   declarations: [
     AppComponent,
     
+    
     ],
   imports: [
     BrowserModule,
