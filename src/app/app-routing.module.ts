@@ -148,7 +148,13 @@ const routes: Routes = [
 {
   path : 'adminpatientregister' , component : AdminpatientregistrationComponent
 },
-
+// {
+//   path : 'admin' , component : AdminComponent,
+//   children : [
+//     {path : 'patient' , component : PatientUserManagementComponent},
+//     {path : 'hospitalUser', component : HospitalUserComponent} 
+//   ] 
+// },
 {
   path : 'patientvisit' , component : PatientVisitComponent
 }
