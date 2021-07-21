@@ -10,6 +10,8 @@ export const environment = {
   baseUrlPatientList: 'http://localhost:64913/api/Admin/patient-listing',
   adminstatusUrl: 'http://localhost:64913/api/Admin/updatepatient',
   baseUrlPhysicianList: 'http://localhost:64913/api/Physician/physician-listing',
+  baseurlRole:'',
+  baseUrlNotes:''
 };
 
 /*
