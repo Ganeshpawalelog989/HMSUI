@@ -1,51 +1,27 @@
-export const PatientDetails = {
-    Header:"Personal Details",
-    FirstnamePlaceholder:"Enter First Name",
-    FirstnameError:"Please Enter First Name !",
-    FirstnamepatternError:"Please Enter Alphabets Only !",
-    LastnamePlaceholder:"Enter Last Name",
-    LastnameError:"Please Enter Last Name !",
-    LastnamepatternError:"Please Enter Alphabets Only !",
-    DobPlaceholder:"Date Of Birth",
-    AgeHolder:"Age",
-    AgeError:"Please Enter age !",
-    GenderLable:"Select Gender",
-    GenderError:"Gender is required",
-    RaceLable:"Select Race",
-    RaceError:"Race is required",
-    EthinicityLable:"Select Ethinicity",
-    EmailPlaceholder:"Enter Email",
-    EmailError:"Please Enter Email Address !",
-    EmailvalidError:"Please Valid Email Address!",
-    AddressCheckbox:"Address is same as above!",
-    LanguageLable:"Select Language Known",
-    LanguageHolder:"Select Language Known",
-    LanguageError:"Please select language known!",
-    ContactPlaceholder:"Enter Contact Number",
-    ContactError:"Please Enter Contact Number",
-    ContactvalidError:"Please Valid Contact Number!",
-    RelationshipHolder:"Relationship",
-    RelationshipError:"Relationship is required",
-    AddressPlaceholder:"Enter address",
-    AddressError:"Please Enter address !",
-    PatientCheckbox:"Do you need access to patient portal",
-    EmergencyHeader:"Emergency Contact Information",
-    EmergencyfirstnamePlaceholder:"Enter First Name",
-    AllergyTypelable:"Allergy Type",
-    AllergyTypeholder:"Select Allergy Type",
-    AllergyNamelable:"Allergy Name",
-    AllergyNameholder:"Select Allergy Name",
-    AllergyClinicallable:"Allergy Clinical Information",
-    AllergyClinicalholder:"Enter Allergy Clinical Information",
-    AllergyClinicalerror:"Please Enter Allergy Clinical Information",
-    AllergyTypeerror:"Please Select Allergy Type !",
-    AllergyfatalCheckbox:"Is Allergy Fatal?!",
-    AllergyDescriptionlable:"Allergy Description",
-    AllergyDescriptionholder:"Enter Allergy Description",
-    AllergyDescriptionerror:"Please Enter Allergy Description !",
-    AllergyType:"Allergy Type",
-    AllergyName:"Allergy Name",
-    AllergyClinicalinformation:"Allergy Clinical Information",
-    AllergyFatal:"Allergy Is Fatal",
-    AllergyDescription:"Allergy Description",
-  }
+export class PatientDetails {
+  public Id : number;
+  public PatientId : number;
+  public Fname : string ; 
+  public Lname : string ; 
+  public Date : Date;
+  public Age : number;
+  public Gender : string;
+  public Race : string ;
+  public Ethinicity  : string;
+  public LanguagesKnown : string;
+  public Email : string;
+  public HomeAddress : string;
+  public ContactNumber : string;
+  public EmergencyFname : string;
+  public EmergencyLname : string;
+  public Relationship : string;
+  public EmergencyEmail : string;
+  public EmergencyAddress : string;
+  public EmergencyMobileNo : string;
+  public AccessFlag : string;
+  public TypeofAllergies : string;
+  public IsAllergyFatal : boolean;
+  public RegistrationDate : Date;
+  public Ssn  : string;
+  public Title  : string;
+}

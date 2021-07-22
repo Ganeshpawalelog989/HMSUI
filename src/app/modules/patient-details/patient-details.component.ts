@@ -41,8 +41,7 @@ public CalculateAge(): void {
 
   }
   ngOnInit(): void {
-    this.birthdate = new Date();
-    this.CalculateAge();
+   
   }
  
   genders = [

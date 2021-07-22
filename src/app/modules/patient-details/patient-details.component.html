@@ -12,7 +12,7 @@
      <div class="row">
      <mat-form-field appearance="legacy" class="full-width col-4" >
        <mat-label class="label" >FirstName</mat-label>
-     <input matInput  formControlname='FirstName'  required />
+     <input matInput  formControlname='FirstName'  required value="" />
      </mat-form-field>
      <mat-form-field appearance="legacy" class="full-width col-4">
        <mat-label>LastName</mat-label>
@@ -23,7 +23,7 @@
      <div class="row">
      <mat-form-field appearance="legacy" class="full-width col-4">
        <mat-label>DOB</mat-label>
-       <input matInput [matDatepicker]="picker" formControlName ='DOB'  required  click =CalculateAge()  >
+       <input matInput [matDatepicker]="picker" formControlName ='DOB'  required  (click)=CalculateAge()  >
        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
        <mat-datepicker #picker></mat-datepicker>
      </mat-form-field>
