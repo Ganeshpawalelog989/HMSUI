@@ -64,6 +64,7 @@ import { DashboardComponent } from 'src/app/modules/admin/dashboard/dashboard.co
 import { AdminpatientregistrationComponent } from 'src/app/modules/adminpatientregistration/adminpatientregistration.component';
 import { RegisterHospitaluserComponent } from 'src/app/modules/register-hospitaluser/register-hospitaluser.component';
 import { NurseUserManagementComponent } from 'src/app/modules/admin/nurse-user-management/nurse-user-management.component';
+import { MasterdataComponent } from 'src/app/modules/admin/masterdata/masterdata.component';
 
 @NgModule({
   declarations: [
@@ -91,7 +92,8 @@ import { NurseUserManagementComponent } from 'src/app/modules/admin/nurse-user-m
     DashboardComponent,
     AdminpatientregistrationComponent,
     RegisterHospitaluserComponent,
-    NurseUserManagementComponent
+    NurseUserManagementComponent,
+    MasterdataComponent
   ],
   imports: [
     CommonModule,

@@ -15,6 +15,7 @@ import {CommonModule} from "@angular/common";
   declarations: [
     AppComponent,
     
+    
     ],
   imports: [
     BrowserModule,

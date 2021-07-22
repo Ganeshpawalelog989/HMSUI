@@ -130,7 +130,7 @@ saveStatus(data : any ){
   this.userStatus.status=data.status
   this.selectedPatient="";
   
-  this.patientservice.updatepatientstatus(data.patientId,this.userStatus);
+  this.patientservice.updatepatientstatus(data.patientId,this.userStatus.status);
 
   console.log(this.userStatus)
   console.log("data"+ data.patientId)
