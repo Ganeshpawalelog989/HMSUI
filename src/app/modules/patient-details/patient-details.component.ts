@@ -15,7 +15,10 @@ export class PatientDetailsComponent implements OnInit {
   Allery : FormGroup;
   allergyList :any;
   isallergy: boolean = false ; // hidden by default
+  
 
+  
+  //-----------------------------------------
   isReadonly = true;
   constructor(private formBuilder : FormBuilder, private router : Router, private fb:FormBuilder) { 
     // //Allergy Details
@@ -30,6 +33,7 @@ export class PatientDetailsComponent implements OnInit {
   ngOnInit(): void {
   }
  
+
   genders = [
     "Male",
     "Female",

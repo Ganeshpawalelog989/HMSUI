@@ -3,7 +3,8 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
-
+import { PatientvisitService } from 'src/app/Service/patientvisit.service';
+import {PatientDetails} from 'src/app/Model/patientvisit';
 @Component({
   selector: 'app-patient-visit',
   templateUrl: './patient-visit.component.html',
@@ -11,64 +12,112 @@ import { map, startWith } from 'rxjs/operators';
 })
 export class PatientVisitComponent implements OnInit {
 
-  //   //Allergy Details
-  Allery : FormGroup;
-  allergyList :any = [];
-  isallergy: boolean = true; // hidden by default
-  isOpen:boolean=true;
-  //   //Diagnosis Details
-    diagnosisdetails: FormGroup;
-    diagnosisList : any = [];
-    isdiagnosis: boolean = true;
-  
-  // //Procedure Details
-    proceduredetails : FormGroup;
-    procedureList : any= [];
-    isprocedure: boolean = true;
-  
-  //   //Medication Details
-    patientmedForm : FormGroup;
-    medicationList: any = [];
-    ismedication: boolean = true;
-  
-  
-  
-  
-  isReadonly = true;
-  constructor(private formBuilder : FormBuilder, private router : Router, private fb:FormBuilder) { 
-    // //Allergy Details
-     // this.allergyList = [];
-      this.Allery = this.fb.group({
-        allergyType: ['', Validators.required],
-        allergyName: ['', Validators.required],
-        isallergyfatal: ['', ],
+//   //Allergy Details
+Allery : FormGroup;
+allergyList :any = [];
+isallergy: boolean = true; // hidden by default
+
+isOpen: boolean = true;
+
+//   //Diagnosis Details
+  diagnosisdetails: FormGroup;
+  diagnosisList : any = [];
+  isdiagnosis: boolean = true;
+
+// //Procedure Details
+  proceduredetails : FormGroup;
+  procedureList : any= [];
+  isprocedure: boolean = true;
+
+//   //Medication Details
+  patientmedForm : FormGroup;
+  medicationList: any = [];
+  ismedication: boolean = true;
+
+
+
+
+isReadonly = true;
+constructor(private formBuilder : FormBuilder, private router : Router, private fb:FormBuilder,
+  private getpatient:PatientvisitService) { 
+
+    this.patientDetails = this.fb.group({
+       Id : ['', ],
+       PatientId : [''],
+       Fname : [''],
+       Lname : [''],
+       Dob : [''],
+       Age : [''],
+       Gender: [''],
+       Race: [''],
+       Ethnicity: [''],
+       LanguageKnown: [''],
+       Email: [''],
+       HomeAddress: [''],
+       ContactNumber: [''],
+       EmergencyFname: [''],
+       EmergencyLname: [''],
+       Relationship: [''],
+       EmergencyEmail: [''],
+       EmergencyAddress: [''],
+       EmergencyMobileNo: [''],
+       AccessFlag: [''],
+       TypeOfAllergy: [''],
+       IsAllergyFatal: [''],
+       RegistrationDate : [''],
+       Ssn : [''],
+       Title : ['']
+
+    })
+  // //Allergy Details
+   // this.allergyList = [];
+    this.Allery = this.fb.group({
+      allergyType: ['', Validators.required],
+      allergyName: ['', Validators.required],
+      //isallergyfatal: ['', Validators.required],
+    })
+
+      //Diagnosis Details
+     // this.diagnosisList = [];
+      this.diagnosisdetails = this.fb.group({
+        diagnosisCode: ['', Validators.required],
+        diagnosisDescription: ['', Validators.required],
+        diagnosisIsDepricated: [''],
       })
-  
-        //Diagnosis Details
-       // this.diagnosisList = [];
-        this.diagnosisdetails = this.fb.group({
-          diagnosisCode: ['', Validators.required],
-          diagnosisDescription: ['', Validators.required],
-          diagnosisIsDepricated: ['', ],
-        })
-        //Procedure Details
-       // this.procedureList = [];
-        this.proceduredetails = this.fb.group({
-          procedureCode: ['', Validators.required],
-          procedureDescription: ['', Validators.required],
-          procedureIsDepricated: ['', ],
-        })
-  
-        // Medication Details 
-     // this.medicationList = [];
-      this.patientmedForm = this.fb.group({
-        drugId: ['', Validators.required],
-        drugGenericName: ['', Validators.required],
-        drugBrandedName: ['', Validators.required],
-        drugForm: ['', Validators.required],
+      //Procedure Details
+     // this.procedureList = [];
+      this.proceduredetails = this.fb.group({
+        procedureCode: ['', Validators.required],
+        procedureDescription: ['', Validators.required],
+        procedureIsDepricated: ['', Validators.required],
       })
-     
-  
+
+      // Medication Details 
+   // this.medicationList = [];
+    this.patientmedForm = this.fb.group({
+      drugId: ['', Validators.required],
+      drugName: ['', Validators.required],
+      drugGenericName: ['', Validators.required],
+      drugBrandName: ['', Validators.required],
+      drugForm: ['', Validators.required],
+    })
+   
+
+}
+
+alergy=[
+    "food",
+    "Fungi",
+    "Drug",
+    "Plant",
+    "Venom or Salivary",
+    "Other",
+  ];
+
+
+
+toggleDiagnosis() {
+  this.isdiagnosis = ! this.isdiagnosis; 
   }
   
   
@@ -103,74 +152,125 @@ export class PatientVisitComponent implements OnInit {
     this.diagnosisdetails.reset();
     //this.resetDiagnosis();
   }
-  toggleDiagnosis() {
-    this.isdiagnosis = ! this.isdiagnosis; 
-    }
-    resetDiagnosis(){
-      this.diagnosisdetails.reset();
-    }
-    removeDiagnosis(element:any){
-      this.diagnosisList.forEach((value: any, index:any)=>{
-        if(value == element)
-        this.diagnosisList.splice(index,1)
-      });
-    }
-  
-  
-  //Procedure Detials
-  addProcedure(){
-    debugger;
-    this.procedureList.push(this.proceduredetails.value);
+  removeDiagnosis(element:any){
+    this.diagnosisList.forEach((value: any, index:any)=>{
+      if(value == element)
+      this.diagnosisList.splice(index,1)
+    });
+  }
+
+
+//Procedure Detials
+addProcedure(){
+  debugger;
+  this.procedureList.push(this.proceduredetails.value);
+  this.proceduredetails.reset();
+  //this.resetProcedure();
+}
+toggleProcedure() {
+  this.isprocedure = ! this.isprocedure;
+  }       
+  resetProcedure(){
     this.proceduredetails.reset();
     //this.resetProcedure();
   }
-  toggleProcedure() {
-    this.isprocedure = ! this.isprocedure;
-    }       
-    resetProcedure(){
-      this.proceduredetails.reset();
-    }       
-    removeProcedure(element:any){
-      this.procedureList.forEach((value: any, index:any)=>{
-        if(value == element)
-        this.procedureList.splice(index,1)
-      });
-    }
-  
-  //-----Medication Details
-  addMedication(){
-    debugger;
-    this.medicationList.push(this.patientmedForm.value);
-    this.patientmedForm.reset();
-   //this.resetMedication();
+  removeProcedure(element:any){
+    this.procedureList.forEach((value: any, index:any)=>{
+      if(value == element)
+      this.procedureList.splice(index,1)
+    });
   }
-  toggleMedication(){
-    this.ismedication = ! this.ismedication;
+
+//-----Medication Details
+addMedication(){
+  debugger;
+  this.medicationList.push(this.patientmedForm.value);
+  this.patientmedForm.reset();
+ //this.resetMedication();
+}
+toggleMedication(){
+  this.ismedication = ! this.ismedication;
+}
+resetMedication(){
+  this.patientmedForm.reset();
+}
+
+removeMedication(element:any){
+    this.medicationList.forEach((value: any, index:any)=>{
+      if(value == element)
+      this.medicationList.splice(index,1)
+    });
   }
-  resetMedication(){
-    this.patientmedForm.reset();
+
+  currentValue(e:any){
+    console.log(e);
   }
+
+ 
+
+ngOnInit(): void {
   
-  removeMedication(element:any){
-      this.medicationList.forEach((value: any, index:any)=>{
-        if(value == element)
-        this.medicationList.splice(index,1)
-      });
-    }
+  this.getpatient.getPatientVisitList()
+.subscribe(data => {
+  console.log(data);
+  this.alergy= data;
   
-    currentValue(e:any){
-      console.log(e);
-    }
+
+})
+
+
   
   
-  ngOnInit(): void {
-    
-    this.filteredOptions = this.myControl.valueChanges
-    .pipe(
-      startWith(''),
-      map(value => this._filter(value))
-    );
-    
+}
+
+genders = [
+  "Male",
+  "Female",
+  "Other"
+];
+
+Relation =[
+  "Father",
+  "Mother",
+  "Other"
+];
+
+ option = [
+  {id: 'y', name: 'YES'},
+  {id: 'n', name: 'NO'},
+ 
+];
+
+
+
+onSubmitUserDetails(value: any){
+  console.log(value);
+}
+onMedicationSubmit(){
+
+}
+//Patient Details for adding tables
+// public addItem() : void 
+// {
+//   this.listData.push(this.patientvisit.value);
+// }
+// togglePatient() {
+
+//   this.ispatient = ! this.ispatient; 
+//   }
+//   resetPatientDetails()
+//   {
+//     this.patientvisit.reset();
+//   }
+
+
+
+
+
+//Nevigate to Emergency Info Form
+onPatientSubmit() {
+  //    localStorage.setItem('isLoggedin', 'true');
+      this.router.navigate(['/EmerencyInfo']);
   }
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
@@ -179,39 +279,39 @@ export class PatientVisitComponent implements OnInit {
   }
   
   
-  genders = [
-    "Male",
-    "Female",
-    "Other"
-  ];
+  // genders = [
+  //   "Male",
+  //   "Female",
+  //   "Other"
+  // ];
   
-  Relation =[
-    "Father",
-    "Mother",
-    "Other"
-  ];
+  // Relation =[
+  //   "Father",
+  //   "Mother",
+  //   "Other"
+  // ];
   
-   option = [
-    {id: 'y', name: 'YES'},
-    {id: 'n', name: 'NO'},
+  //  option = [
+  //   {id: 'y', name: 'YES'},
+  //   {id: 'n', name: 'NO'},
    
-  ];
+  // ];
   
-  alergy=[
-    "food",
-    "Fungi",
-    "Drug",
-    "Plant",
-    "Venom or Salivary",
-    "Other",
-  ];
+  // alergy=[
+  //   "food",
+  //   "Fungi",
+  //   "Drug",
+  //   "Plant",
+  //   "Venom or Salivary",
+  //   "Other",
+  // ];
   
-  onSubmitUserDetails(value: any){
-    console.log(value);
-  }
-  onMedicationSubmit(){
+  // onSubmitUserDetails(value: any){
+  //   console.log(value);
+  // }
+  // onMedicationSubmit(){
   
-  }
+  // }
   //Patient Details for adding tables
   // public addItem() : void 
   // {
@@ -231,10 +331,10 @@ export class PatientVisitComponent implements OnInit {
   
   
   //Nevigate to Emergency Info Form
-  onPatientSubmit() {
-    //    localStorage.setItem('isLoggedin', 'true');
-        this.router.navigate(['/EmerencyInfo']);
-    }
+  // onPatientSubmit() {
+  //   //    localStorage.setItem('isLoggedin', 'true');
+  //       this.router.navigate(['/EmerencyInfo']);
+  //   }
     toggleReadonly() {
       this.isReadonly = !this.isReadonly;
     }

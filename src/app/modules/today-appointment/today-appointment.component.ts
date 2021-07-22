@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PatientvisitService } from 'src/app/Service/patientvisit.service';
 
 interface PatientUser {
   PatientId : string
@@ -43,81 +44,50 @@ const user: PatientUser[] = [
 })
 export class TodayAppointmentComponent implements OnInit {
 
-  ngOnInit(): void {
+  constructor(private servivcePat : PatientvisitService) {
     
+
   }
+
+  ngOnInit(): void {
+    debugger;
+    this.servivcePat.getPatientVisitList()
+    .subscribe(data=>{
+      console.log(data);
+      this.users =data;
+    })   
+  }
+  
+
+  /**
+   *
+   */
+  
   public searchText : any = "";
   isPrint: boolean = true;
 
   myFlagForSlideToggle: boolean = true;
    
  // disabled : boolean
- btnValue : string = "";
+ ObjPatient : any;
  btnValue1 : string = "";
  
   isChecked = true;
 
   public selectedPatient : string = "";
-  users = user;
+  users : any[]=[];
   userStatus : any;
 
-show(selectedPatientId : any)
-{
-  debugger;
-	this.selectedPatient  = selectedPatientId 
-  this.userStatus = this.users.find(x=>x.PatientId==selectedPatientId);
-  console.log(this.userStatus.status);
 
-  if(this.userStatus.PatientId == selectedPatientId)
-  {
-    if(this.userStatus.status =="Active")
-    {
-	    this.btnValue = "InActive"
-	    this.btnValue1 = "Blocked"
-
-    }
-    if(this.userStatus.status =="InActive")
-    {
-	    this.btnValue = "Active"
-      this.btnValue1 = "Blocked"
-    }
-    if(this.userStatus.status =="Blocked")
-    {
-	    this.btnValue = "Active"
-      this.btnValue1 = "InActive"
-    }
-  }
-}
 Patient : any
-getCurrentStatus(e:any)
-{
-  debugger;
-	console.log(e);
-	if(this.userStatus.status =="Active")
-	{
-    
-		this.userStatus.status = e;		
-	}
-	if(this.userStatus.status =="InActive")
-	{
-		this.userStatus.status = e;		
-	}
-	if(this.userStatus.status =="Blocked")
-	{
-		this.userStatus.status = e;		
-	}
-}
-saveStatus(data : any ){
-  //this.getCurrentStatus(data)
-  
-  this.userStatus=data
-  this.selectedPatient="";
-  
-  console.log(this.userStatus)
-}
-cancleStatus(){
-  this.selectedPatient="";
 
+showDetailsForm(Id: string)
+{
+
+  this.ObjPatient = this.servivcePat.getPatientVisitById(Id)
+  .subscribe(data=>{
+    console.log(data);
+  })
 }
 
 }
