@@ -36,16 +36,26 @@ import { PatientdashboardComponent } from './modules/patientdashboard/patientdas
 import { NurseUserManagementComponent } from './modules/admin/nurse-user-management/nurse-user-management.component';
 
 import{MasterdataComponent} from 'src/app/modules/admin/masterdata/masterdata.component';
+import { DiagnosisdataComponent } from './modules/admin/masterdata/diagnosisdata/diagnosisdata.component';
+import { MedicationdataComponent } from './modules/admin/masterdata/medicationdata/medicationdata.component';
+import { ProceduredataComponent } from './modules/admin/masterdata/proceduredata/proceduredata.component';
+import { AllergydataComponent } from './modules/admin/masterdata/allergydata/allergydata.component';
 const routes: Routes = [
   {   path : '' , component : HomescreenComponent  },
   
   {  path : 'admin' ,component : DefaultComponent, 
      children : [
+    {path : '' , component : DashboardComponent},
     { path : 'patient-user' , component : PatientUserManagementComponent  },
     { path : 'physician-user', component : HospitalUserComponent },
     { path : 'nurse-user', component : NurseUserManagementComponent },
     { path:  'master-data',component:MasterdataComponent},
-    { path : '' , component : DashboardComponent } 
+    { path : 'allergymaster' , component : AllergydataComponent },
+    { path : 'diagnosis-data' , component : DiagnosisdataComponent } ,
+    { path : 'medication-data' , component : MedicationdataComponent } ,
+    { path : 'procedure-data' , component : ProceduredataComponent } 
+
+
   ] 
 },
 
