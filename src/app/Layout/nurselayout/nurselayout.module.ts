@@ -31,7 +31,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ToastContainerModule, ToastrModule } from 'ngx-toastr';
 import { NurseMyprofileComponent } from 'src/app/modules/nurse-myprofile/nurse-myprofile.component';
-
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 @NgModule({
@@ -83,6 +83,7 @@ import { NurseMyprofileComponent } from 'src/app/modules/nurse-myprofile/nurse-m
     MatDialogModule,
     ToastrModule.forRoot(),
     ToastContainerModule,
+    MatExpansionModule
   ]
 })
 

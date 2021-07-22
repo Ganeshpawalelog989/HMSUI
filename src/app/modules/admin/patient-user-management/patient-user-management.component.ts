@@ -1,30 +1,35 @@
 //import { Component, OnInit } from '@angular/core';
 import {Component, OnInit} from '@angular/core';
-import { PatientUser } from 'src/app/Model/Admin';
-
-
+import{AllPatientListingService} from 'src/app/Service/all-patient-listing.service';
+interface PatientUser {
+  PatientId : string
+  PatientName: string;
+  Date: string;
+  status: string;
+}
+PatientUser:[];
 const user: PatientUser[] = [
   {
     PatientId : "1",
-    PatientName: 'Ganesh',
+    PatientName: 'Russia',
     Date: '02/03/2021',
     status: "Active",
   },
   {
     PatientId : "2",
-    PatientName: 'Santosh',
+    PatientName: 'Canada',
     Date: '02/03/2021',
     status: "InActive",
   },
   {
     PatientId : "3",
-    PatientName: 'Sachin',
+    PatientName: 'United States',
     Date: '02/03/2021',
     status: "Active",
   },
   {
     PatientId : "4",
-    PatientName: 'samir',
+    PatientName: 'China',
     Date: '02/03/2021',
     status: "Blocked",
   }
@@ -39,9 +44,25 @@ const user: PatientUser[] = [
 })
  export class PatientUserManagementComponent implements OnInit {
 
-  ngOnInit(): void {
-    
+  constructor(private patientservice:AllPatientListingService){
+
   }
+
+  ngOnInit(): void {
+    this.GetAllPatientsList();
+  }
+
+  public listing : any[]=[];
+  GetAllPatientsList() {
+    debugger;
+    this.patientservice.getPatientList().subscribe((data: any[]) => {
+      console.log(data);
+      this.listing=data;
+    })
+  }
+
+
+
   public searchText : any = "";
   isPrint: boolean = true;
 
@@ -61,10 +82,10 @@ show(selectedPatientId : any)
 {
   debugger;
 	this.selectedPatient  = selectedPatientId 
-  this.userStatus = this.users.find(x=>x.PatientId==selectedPatientId);
+  this.userStatus = this.listing.find(x=>x.patientId==selectedPatientId);
   console.log(this.userStatus.status);
 
-  if(this.userStatus.PatientId == selectedPatientId)
+  if(this.userStatus.patientId == selectedPatientId)
   {
     if(this.userStatus.status =="Active")
     {
@@ -105,11 +126,14 @@ getCurrentStatus(e:any)
 }
 saveStatus(data : any ){
   //this.getCurrentStatus(data)
-  
-  this.userStatus=data
+  debugger;
+  this.userStatus.status=data.status
   this.selectedPatient="";
   
+  this.patientservice.updatepatientstatus(data.patientId,this.userStatus);
+
   console.log(this.userStatus)
+  console.log("data"+ data.patientId)
 }
 cancleStatus(){
   this.selectedPatient="";

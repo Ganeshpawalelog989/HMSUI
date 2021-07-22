@@ -31,11 +31,9 @@ public CalculateAge(): void {
   isallergy: boolean = true ; // hidden by default
   isReadonly = true;
   constructor(private formBuilder : FormBuilder, private router : Router, private fb:FormBuilder ) { 
-   
-    // //Allergy Details
+   // //Allergy Details
       //this.//allergyList = [];
-
-      this.Allery = this.fb.group({
+         this.Allery = this.fb.group({
         allergyType: [''],
         allergyName: [''],
         allergyIsFatal: [''],
@@ -84,17 +82,8 @@ public CalculateAge(): void {
  public addItem()  
  {
    //this.listData.push(this.patientvisit.value);
-  
- }
- // togglePatient() {
-
- //   this.ispatient = ! this.ispatient; 
- //   }
- //   resetPatientDetails()
- //   {
- //     this.patientvisit.reset();
- //   }
-
+  }
+ 
 
 // Allergy Details
 
@@ -119,42 +108,30 @@ addAllergy(){
   currentValue(e:any){​​​​​​​​
   console.log(e);
   }​​​​​​​​
-
-
-
-
-
-  //Nevigate to Emergency Info Form
-  onPatientSubmit() {
-    //    localStorage.setItem('isLoggedin', 'true');
-        this.router.navigate(['/EmerencyInfo']);
-    }
-    toggleReadonly() {
+  
+  toggleReadonly() {
       this.isReadonly = !this.isReadonly;
     }
     toggleDiable() {
       this.isReadonly = true;
     }
-
-   myControl = new FormControl();
+ // myControl
+   PatientDetails = new FormControl();
    options: string[] = ['Ayahuasca', 'Cocaine', 'Hallucinogens'];
    filteredOptions: Observable<string[]> | undefined;
-
    patientDetails: FormGroup = this.formBuilder.group({
-    FirstName :['',[Validators.required, Validators.pattern('[a-zA-Z]*') ]],
-    LastName :['',[Validators.minLength , Validators.minLength(2)]],
-    DOB :['',[Validators.required ]],
-    Age :['',[Validators.required]],
-    Gender:['',[Validators.required]],
-    Race:['',[Validators.required]],
-    Ethnicity:['',[Validators.required]],
-    Lanaguageknown :['',[Validators.required]],
-    Email :['',[Validators.required]],
-    HomeAddress :['',[Validators.required, Validators.maxLength(50)]] ,
-    ContantNo :['',[Validators.required , Validators.pattern("^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$")]]
-    
- 
-  });
+   FirstName :['',[Validators.required, Validators.pattern('[a-zA-Z]*') ]],
+   LastName :['',[Validators.minLength , Validators.minLength(2)]],
+   DOB :['',[Validators.required ]],
+   Age :['',[Validators.required]],
+   Gender:['',[Validators.required]],
+   Race:['',[Validators.required]],
+   Ethnicity:['',[Validators.required]],
+   Lanaguageknown :['',[Validators.required]],
+   Email :['',[Validators.required]],
+   HomeAddress :['',[Validators.required, Validators.maxLength(50)]] ,
+   ContantNo :['',[Validators.required , Validators.pattern("^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$")]]
+    });
   
     EmerencyInfo: FormGroup = this.formBuilder.group({
     FirstName :['',[Validators.required , Validators.pattern('[a-zA-Z]*')] ],

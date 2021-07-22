@@ -6,6 +6,7 @@ import {Patient} from 'src/app/Model/Patient';
 import {UserService} from 'src/app/Service/user.service'
 import { Router, ActivatedRoute } from '@angular/router';
 import { RegisterUser  } from 'src/app/Model/RegisterUser'
+//import {HospitalAuthServiceService} from 'src/app/Service/hospital-auth-service.service';
 
 @Component({
   selector: 'app-registration',
@@ -27,12 +28,12 @@ export class RegistrationComponent implements OnInit {
   ngOnInit() {
       this.regiForm = this.formBuilder.group({
         
-        Fname: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(20), Validators.pattern('[a-zA-Z]+')]],
-        Lname : ['', Validators.required],
+        FirstName: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(20), Validators.pattern('[a-zA-Z]+')]],
+        LastName : ['', Validators.required],
         Email : ['', [Validators.required, Validators.email]],
         RoleId : ['', Validators.required],
         //Dob : ['', [Validators.required]],
-        ContantNumber :['',Validators.required]
+        ContactNumber :['',Validators.required]
       })
   
   }
@@ -52,7 +53,7 @@ export class RegistrationComponent implements OnInit {
 
      // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.regiForm.value))
 
-      this.userServ.register(this.regiForm.value)
+      this.userServ.hospregister(this.regiForm.value)
     .subscribe(data=>{
       console.log(data);
       this.router.navigate(['/login']);

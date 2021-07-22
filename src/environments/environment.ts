@@ -4,8 +4,14 @@
 
 export const environment = {
   production: false,
-  baseUrl : "http://localhost:50471/Registration",
-  baseUrlLogin: 'http://localhost:50471/login'
+  baseUrl : "http://localhost:50471/Patient/Registration",
+  basehospitalUrl : "http://localhost:50471/Hospital/Registration",
+  baseUrlLogin: 'http://localhost:50471/login',
+  baseUrlPatientList: 'http://localhost:64913/api/Admin/patient-listing',
+  adminstatusUrl: 'http://localhost:64913/api/Admin/updatepatient',
+  baseUrlPhysicianList: 'http://localhost:64913/api/Physician/physician-listing',
+  baseurlRole:'',
+  baseUrlNotes:''
 };
 
 /*

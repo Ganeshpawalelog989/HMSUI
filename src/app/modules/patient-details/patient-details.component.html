@@ -2,19 +2,13 @@
 <accordion-group heading="Patient Details">      
   <div class="container">
       <div class="row">
- 
-       <div class="col">
-   
+      <div class="col">
      <form [formGroup]="patientDetails">
-     
-     <mat-radio-group >
+      <mat-radio-group >
        <mat-radio-button value="1" color="primary">Mr&nbsp;</mat-radio-button>  
-       <mat-radio-button value="1" color="primary">Ms&nbsp;</mat-radio-button>
-       <mat-radio-button value="1" color="primary">Mrs&nbsp;</mat-radio-button>
-       
-      </mat-radio-group> 
-
-
+       <mat-radio-button value="2" color="primary">Ms&nbsp;</mat-radio-button>
+       <mat-radio-button value="3" color="primary">Mrs&nbsp;</mat-radio-button>
+     </mat-radio-group> 
      <div class="row">
      <mat-form-field appearance="legacy" class="full-width col-4" >
        <mat-label class="label" >FirstName</mat-label>
@@ -67,6 +61,12 @@
          </mat-option>
        </mat-select>
      </mat-form-field>
+     
+      <!-- <mat-radio-group  >
+        <mat-radio-button value="1" color="primary">Male&nbsp;</mat-radio-button>  
+        <mat-radio-button value="2" color="primary">Female&nbsp;</mat-radio-button>
+      </mat-radio-group>
+        -->
    </div>
  
    <div class="row">

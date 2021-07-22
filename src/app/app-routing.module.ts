@@ -26,22 +26,24 @@ import { ViewSechedulingComponent } from './modules/view-secheduling/view-seched
 import { NurselayoutComponent } from './Layout/nurselayout/nurselayout.component';
 import { PatientlayoutComponent } from './Layout/patientlayout/patientlayout.component';
 import { PhysicianlayoutComponent } from './Layout/physicianlayout/physicianlayout.component';
-import { DashboardComponent } from './modules/admin/dashboard/dashboard.component';
-import { AdminpatientregistrationComponent } from './modules/adminpatientregistration/adminpatientregistration.component';
 import { NurseMyprofileComponent } from './modules/nurse-myprofile/nurse-myprofile.component';
+import { DashboardComponent } from './modules/admin/dashboard/dashboard.component';
 import { PhysicianMyprofileComponent } from './modules/physician-myprofile/physician-myprofile.component';
+import { AdminpatientregistrationComponent } from './modules/adminpatientregistration/adminpatientregistration.component';
 import { PatientVisitComponent } from './modules/patient-visit/patient-visit.component';
 import { TodayAppointmentComponent } from './modules/today-appointment/today-appointment.component';
 import { PatientdashboardComponent } from './modules/patientdashboard/patientdashboard.component';
+import { NurseUserManagementComponent } from './modules/admin/nurse-user-management/nurse-user-management.component';
 
 const routes: Routes = [
   {   path : '' , component : HomescreenComponent  },
   
   {  path : 'admin' ,component : DefaultComponent, 
      children : [
-    { path : '' , component : PatientUserManagementComponent  },
-    { path : 'HospitalUser', component : HospitalUserComponent },
-    { path : 'dashboard' , component : DashboardComponent } 
+    { path : 'patient-user' , component : PatientUserManagementComponent  },
+    { path : 'physician-user', component : HospitalUserComponent },
+    { path : 'nurse-user', component : NurseUserManagementComponent },
+    { path : '' , component : DashboardComponent } 
   ] 
 },
 

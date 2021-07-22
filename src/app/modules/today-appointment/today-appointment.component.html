@@ -26,16 +26,17 @@
       <td>{{ user.Date }}</td>
       <td>{{ user.status }}</td>
       <td>
-          <button class=" btn btn-outline-primary" routerLink="patientvisit"> Proceed </button>
+        
+          <button class=" btn" style="color: blue;" routerLink="patientvisit"> <mat-icon>forward</mat-icon> </button>
         <!-- <button  class="btn btn-primary" (click)="show(user.PatientId)" *ngIf="selectedPatient!==user.PatientId"  > Edit</button>
         -->
-        <mat-radio-group aria-label="Select an option" *ngIf="selectedPatient===user.PatientId">
+        <!-- <mat-radio-group aria-label="Select an option" *ngIf="selectedPatient===user.PatientId">
           <mat-radio-button value={{btnValue}} name="btnValue"  (change)="getCurrentStatus($event.value)">{{btnValue}}</mat-radio-button>
           <mat-radio-button value={{btnValue1}} name="btnValue1" (change)="getCurrentStatus($event.value)">{{btnValue1}}</mat-radio-button>
           <button class="btn btn-success" (click)="saveStatus(user) ">save </button>
           <button class="btn btn-secondary" (click)=cancleStatus()>cancel</button>
           
-          </mat-radio-group>
+          </mat-radio-group> -->
       </td>
     </tr>
     </tbody>

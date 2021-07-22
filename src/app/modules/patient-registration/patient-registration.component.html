@@ -39,9 +39,9 @@
           <mat-label>First Name</mat-label>
          
           
-           <input  matInput formControlName="Fname" placeholder="First Name" required>
+           <input  matInput formControlName="FirstName" placeholder="First Name" required>
            
-         <mat-error *ngIf="!regiForm.controls['Fname'].valid">  First Name is required </mat-error> 
+         <mat-error *ngIf="!regiForm.controls['FirstName'].valid">  First Name is required </mat-error> 
           </mat-form-field>
       </div>
     
@@ -49,8 +49,8 @@
        <div class="col-md-3">
         <mat-form-field class="full-width" appearance="outline">
           <mat-label>Last Name</mat-label>
-           <input  matInput formControlName="Lname" placeholder="Last Name" required>
-            <mat-error *ngIf="!regiForm.controls['Lname'].valid">  Last name is required </mat-error> 
+           <input  matInput formControlName="LastName" placeholder="Last Name" required>
+            <mat-error *ngIf="!regiForm.controls['LastName'].valid">  Last name is required </mat-error> 
           </mat-form-field>
       </div>
     </div>
