@@ -65,6 +65,13 @@ import { AdminpatientregistrationComponent } from 'src/app/modules/adminpatientr
 import { RegisterHospitaluserComponent } from 'src/app/modules/register-hospitaluser/register-hospitaluser.component';
 import { NurseUserManagementComponent } from 'src/app/modules/admin/nurse-user-management/nurse-user-management.component';
 import { MasterdataComponent } from 'src/app/modules/admin/masterdata/masterdata.component';
+import { DiagnosisdataComponent } from 'src/app/modules/admin/masterdata/diagnosisdata/diagnosisdata.component';
+import { MedicationdataComponent } from 'src/app/modules/admin/masterdata/medicationdata/medicationdata.component';
+import { ProceduredataComponent } from 'src/app/modules/admin/masterdata/proceduredata/proceduredata.component';
+import { AllergydataComponent } from 'src/app/modules/admin/masterdata/allergydata/allergydata.component';
+import { DiagnosismasterformComponent } from 'src/app/modules/diagnosismasterform/diagnosismasterform.component';
+import { MedicationmasterformComponent } from 'src/app/modules/medicationmasterform/medicationmasterform.component';
+import { ProceduremasterformComponent } from 'src/app/modules/proceduremasterform/proceduremasterform.component';
 
 @NgModule({
   declarations: [
@@ -93,7 +100,14 @@ import { MasterdataComponent } from 'src/app/modules/admin/masterdata/masterdata
     AdminpatientregistrationComponent,
     RegisterHospitaluserComponent,
     NurseUserManagementComponent,
-    MasterdataComponent
+    MasterdataComponent,
+    DiagnosisdataComponent,
+    MedicationdataComponent,
+    ProceduredataComponent,
+    AllergydataComponent,
+    DiagnosismasterformComponent,
+    MedicationmasterformComponent,
+    ProceduremasterformComponent
   ],
   imports: [
     CommonModule,
