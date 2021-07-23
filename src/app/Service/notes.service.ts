@@ -18,6 +18,9 @@ export class NotesService {
     return this.http.get<UserRole[]>(`${environment.baseurlRole}?role=${userRole}`);
     
   }
+
+
+  
   sendNotes(newNote: usernotes): Observable<any> {
     return this.http.post<usernotes>(`${environment.baseUrlNotes}`,newNote);
   }

@@ -9,8 +9,8 @@ import { HomescreenModule } from './homescreen/homescreen/homescreen/homescreen.
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NurselayoutModule } from './Layout/nurselayout/nurselayout.module';
 import { PhysicianlayoutModule } from './Layout/physicianlayout/physicianlayout.module';
-import { PatientlayoutModule } from './Layout/patientlayout/patientlayout.module';
-
+import { patientlayout } from './Layout/patientlayout/patientlayout.module';
+import {CommonModule} from "@angular/common";
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,11 +23,13 @@ import { PatientlayoutModule } from './Layout/patientlayout/patientlayout.module
     BrowserAnimationsModule,
     MatButtonModule,
     DefaultModule,
-    PatientlayoutModule,
+    patientlayout,
     HomescreenModule,
     NgbModule,
     NurselayoutModule,
     PhysicianlayoutModule,
+    CommonModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent],

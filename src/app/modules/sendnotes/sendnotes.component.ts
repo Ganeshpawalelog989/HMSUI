@@ -18,13 +18,11 @@ import { ToastService } from 'src/app/Service/toast.service';
 })
 export class SendnotesComponent implements OnInit {
   form: FormGroup;
-  //public users: any[];
-  public users = ['Ganesh', 'Sachin', 'Meharsh'];
-
+  public users: any[];
   public note: any;
   designation: any;
   submitted = false;
-  flag = true;
+  flag =true;
 
   constructor(
     private noteService: NotesService,
@@ -52,9 +50,10 @@ export class SendnotesComponent implements OnInit {
     });
   }
 
-  hideform() {
-    this.flag = !this.flag;
-  }
+   hideform()
+   {
+     this.flag =!this.flag
+   }
   match() {
     let senderId = 23;
     let recieverId = this.form.value;
@@ -71,30 +70,30 @@ export class SendnotesComponent implements OnInit {
     let newNotes: usernotes = this.form.value;
     // TODO: sender id is hardcoded for now . would be fetched from session
     //newNotes.SenderId = "";
-    // this.noteService.sendNotes().subscribe(
-    //   (data: { message: any }) => {
-    //     this.toastService.show(data.message, {
-    //       classname: 'bg-success text-light',
-    //       delay: 5000,
-    //     });
-    //   },
-    //   (error: any) => {
-    //     this.toastService.show('Server Error please try later', {
-    //       classname: 'bg-danger text-light',
-    //       delay: 5000,
-    //     });
-    //   }
-    // );
+    this.noteService.sendNotes(newNotes).subscribe(
+      (data: { message: any }) => {
+        this.toastService.show(data.message, {
+          classname: 'bg-success text-light',
+          delay: 5000,
+        });
+      },
+      (error: any) => {
+        this.toastService.show('Server Error please try later', {
+          classname: 'bg-danger text-light',
+          delay: 5000,
+        });
+      }
+    );
   }
 
   populateDesgination() {
-    // this.form
-    //   .get('designation')
-    //   .setValue(
-    //     this.users.find(
-    //       (u: { userId: any }) => u.userId === this.form.get('recieverId').value
-    //     ).role.role
-    //   );
+    this.form
+      .get('designation')
+      .setValue(
+        this.users.find(
+          (u: { userId: any }) => u.userId === this.form.get('recieverId').value
+        ).role.role
+      );
   }
 
   get f() {

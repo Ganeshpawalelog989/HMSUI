@@ -21,25 +21,25 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { ToastContainerModule, ToastrModule } from 'ngx-toastr';
+import { NurseMyprofileComponent } from 'src/app/modules/nurse-myprofile/nurse-myprofile.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { NurselayoutComponent } from './nurselayout.component';
+import { RouterModule } from '@angular/router';
+import { SharedModule } from 'src/app/shared/shared/shared.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RouterModule } from '@angular/router';
-import { ToastrModule, ToastContainerModule } from 'ngx-toastr';
-import { SharedModule } from 'src/app/shared/shared/shared.module';
-import { NurselayoutComponent } from './nurselayout.component';
-import { NurseMyprofileComponent } from 'src/app/modules/nurse-myprofile/nurse-myprofile.component';
-import { MatExpansionModule } from '@angular/material/expansion';
-import { NurseSidebarComponent } from 'src/app/shared/components/nurse-sidebar/nurse-sidebar.component';
 import { TodayAppointmentnewComponent } from 'src/app/modules/today-appointmentnew/today-appointmentnew.component';
+
 
 @NgModule({
   declarations: [
     NurselayoutComponent,
     NurseMyprofileComponent,
-    NurseSidebarComponent,
-    TodayAppointmentnewComponent,
+    TodayAppointmentnewComponent
+    
   ],
   imports: [
     CommonModule,
@@ -85,7 +85,8 @@ import { TodayAppointmentnewComponent } from 'src/app/modules/today-appointmentn
     MatDialogModule,
     ToastrModule.forRoot(),
     ToastContainerModule,
-    MatExpansionModule,
-  ],
+    MatExpansionModule
+  ]
 })
-export class NurselayoutModule {}
+
+export class NurselayoutModule { }

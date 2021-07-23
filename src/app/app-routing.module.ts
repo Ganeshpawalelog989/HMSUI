@@ -30,11 +30,11 @@ import { DashboardComponent } from './modules/admin/dashboard/dashboard.componen
 import { PhysicianMyprofileComponent } from './modules/physician-myprofile/physician-myprofile.component';
 import { AdminpatientregistrationComponent } from './modules/adminpatientregistration/adminpatientregistration.component';
 import { PatientVisitComponent } from './modules/patient-visit/patient-visit.component';
-import { SentComponent } from './modules/sentnotes/sentnotes.component';
-
 import { TodayAppointmentComponent } from './modules/today-appointment/today-appointment.component';
 import { PatientdashboardComponent } from './modules/patientdashboard/patientdashboard.component';
 import { NurseUserManagementComponent } from './modules/admin/nurse-user-management/nurse-user-management.component';
+import { AppointmentComponent } from './modules/appointment/appointment.component';
+import { SentComponent } from './modules/sentnotes/sentnotes.component';
 
 import { MasterdataComponent } from 'src/app/modules/admin/masterdata/masterdata.component';
 import { DiagnosisdataComponent } from './modules/admin/masterdata/diagnosisdata/diagnosisdata.component';
@@ -67,9 +67,15 @@ const routes: Routes = [
     children: [
       { path: '', component: TodayAppointmentnewComponent },
       {
+        path: 'appointment',
+        component: AppointmentComponent,
+      },
+
+      {
         path: 'bookappoinemnt',
         component: AppointmentDeleteComponent,
       },
+
       {
         path: 'sendnotes',
         component: SendnotesComponent,
@@ -78,27 +84,22 @@ const routes: Routes = [
         path: 'recievenotes',
         component: RecieveNotesComponent,
       },
+
       {
         path: 'sentnotes',
         component: SentComponent,
       },
-
       {
-        path: 'myprofile',
-        component: NurseMyprofileComponent,
+        path: 'patientvisit',
+        component: PatientVisitComponent,
       },
       {
         path: 'patientvisit',
         component: PatientVisitComponent,
       },
       { path: 'PatientDetails', component: PatientDetailsComponent },
-      // {
-      //   path: 'todaynew',
-      //   component: TodayAppointmentnewComponent,
-      // },
     ],
   },
-
   {
     path: 'physician',
     component: PhysicianlayoutComponent,
@@ -107,7 +108,10 @@ const routes: Routes = [
         path: '',
         component: TodayAppointmentComponent,
       },
-
+      {
+        path: 'appointment',
+        component: AppointmentComponent,
+      },
       {
         path: 'bookappoinemnt',
         component: AppointmentDeleteComponent,
@@ -150,15 +154,7 @@ const routes: Routes = [
         path: 'PatientSheduling',
         component: PatientUserShedulingComponent,
       },
-
-      {
-        path: 'PatientSheduling',
-        component: PatientUserShedulingComponent,
-      },
-      {
-        path: 'PatientDetails',
-        component: PatientDetailsComponent,
-      },
+      { path: 'PatientDetails', component: PatientDetailsComponent },
     ],
   },
 
@@ -180,7 +176,7 @@ const routes: Routes = [
     component: AppointmentDeleteComponent,
   },
 
-  { path: 'emerencyinfo', component: EmerencyInfoComponent },
+  { path: 'change-password', component: ChangePasswordComponent },
 
   {
     path: 'patient-medication-details',
@@ -194,15 +190,16 @@ const routes: Routes = [
     path: 'adminpatientregister',
     component: AdminpatientregistrationComponent,
   },
-
+  // {
+  //   path : 'admin' , component : AdminComponent,
+  //   children : [
+  //     {path : 'patient' , component : PatientUserManagementComponent},
+  //     {path : 'hospitalUser', component : HospitalUserComponent}
+  //   ]
+  // },
   {
     path: 'patientvisit',
     component: PatientVisitComponent,
-  },
-
-  {
-    path: 'allery',
-    component: AlleryComponent,
   },
 ];
 
