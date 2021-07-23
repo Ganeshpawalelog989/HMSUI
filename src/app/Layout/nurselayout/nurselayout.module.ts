@@ -23,7 +23,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ToastContainerModule, ToastrModule } from 'ngx-toastr';
 import { NurseMyprofileComponent } from 'src/app/modules/nurse-myprofile/nurse-myprofile.component';
-import {MatExpansionModule} from '@angular/material/expansion';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { NurselayoutComponent } from './nurselayout.component';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared/shared.module';
@@ -32,14 +32,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { TodayAppointmentnewComponent } from 'src/app/modules/today-appointmentnew/today-appointmentnew.component';
-
+import { NursesidebarComponent } from 'src/app/shared/components/nursesidebar/nursesidebar.component';
 
 @NgModule({
   declarations: [
     NurselayoutComponent,
     NurseMyprofileComponent,
-    TodayAppointmentnewComponent
-    
+    TodayAppointmentnewComponent,
+    NursesidebarComponent,
   ],
   imports: [
     CommonModule,
@@ -85,8 +85,7 @@ import { TodayAppointmentnewComponent } from 'src/app/modules/today-appointmentn
     MatDialogModule,
     ToastrModule.forRoot(),
     ToastContainerModule,
-    MatExpansionModule
-  ]
+    MatExpansionModule,
+  ],
 })
-
-export class NurselayoutModule { }
+export class NurselayoutModule {}

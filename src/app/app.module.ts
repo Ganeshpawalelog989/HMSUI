@@ -10,13 +10,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NurselayoutModule } from './Layout/nurselayout/nurselayout.module';
 import { PhysicianlayoutModule } from './Layout/physicianlayout/physicianlayout.module';
 import { patientlayout } from './Layout/patientlayout/patientlayout.module';
-import {CommonModule} from "@angular/common";
+import { CommonModule } from '@angular/common';
 @NgModule({
-  declarations: [
-    AppComponent,
-   
-    
-    ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -28,8 +24,7 @@ import {CommonModule} from "@angular/common";
     NgbModule,
     NurselayoutModule,
     PhysicianlayoutModule,
-    CommonModule
-    
+    CommonModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
