@@ -85,7 +85,7 @@ currentDate = new Date();
       new Date(this.currentDate.setDate(this.currentDate.getDate() + 7))
     ])
   });
-
+ 
   @ViewChild('modalContent', { static: true }) modalContent: TemplateRef<any> | undefined;
 
   view: CalendarView = CalendarView.Month;

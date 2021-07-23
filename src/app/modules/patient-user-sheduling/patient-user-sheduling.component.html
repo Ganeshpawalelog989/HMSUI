@@ -2,8 +2,9 @@
 <accordion [isAnimated]="true">
     <accordion-group heading="Appointment Details">
       <div class="form-group col-md-4" >
-          <label>Physician Name</label>&nbsp;
+          <label>Nurse Name</label>&nbsp;
           <select class="form-control">
+            <option>-- Select Nurse Name --</option>
               <option>ganesh</option>
               <option>sachin</option>
               <option>mahesh</option>
@@ -24,9 +25,24 @@
 
  </div><br> -->
  <div class="form-group col-md-4">
-  <label for="id">Physician ID</label>&nbsp;
+  <label for="id">Nurse ID</label>&nbsp;
    <input type="text" class="form-control" >
 </div><br>
+
+<div>
+
+    <button class="btn btn-primary" >Add Appointment</button>&nbsp;
+
+    <!-- <button class="btn btn-primary" [disabled]="!appointment.valid" >Edit Appointment</button>&nbsp;
+
+    <button class="btn btn-primary" [disabled]="!appointment.valid" >Delete Appointment</button>&nbsp; -->
+
+</div>
+
+
+
+
+
     </accordion-group>
     
     <accordion-group heading="Available Date and Time">
