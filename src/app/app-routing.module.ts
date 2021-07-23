@@ -85,9 +85,7 @@ const routes: Routes = [
         path: '',
         component: TodayAppointmentComponent,
       },
-      // {
-      //    path : 'appointment' , component : AppointmentComponent
-      // },
+    
       {
         path: 'bookappoinemnt',
         component: AppointmentDeleteComponent,
@@ -114,11 +112,15 @@ const routes: Routes = [
         path: '',
         component: PatientdashboardComponent,
       },
+      
       {
         path: 'PatientSheduling',
         component: PatientUserShedulingComponent,
       },
-      { path: 'PatientDetails', component: PatientDetailsComponent },
+      {
+        path: 'PatientDetails',
+        component: PatientDetailsComponent
+      },
     ],
   },
 
