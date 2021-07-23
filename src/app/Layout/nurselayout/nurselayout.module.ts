@@ -29,16 +29,17 @@ import { RouterModule } from '@angular/router';
 import { ToastrModule, ToastContainerModule } from 'ngx-toastr';
 import { SharedModule } from 'src/app/shared/shared/shared.module';
 import { NurselayoutComponent } from './nurselayout.component';
-
 import { NurseMyprofileComponent } from 'src/app/modules/nurse-myprofile/nurse-myprofile.component';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { NurseSidebarComponent } from 'src/app/shared/components/nurse-sidebar/nurse-sidebar.component';
+import { TodayAppointmentnewComponent } from 'src/app/modules/today-appointmentnew/today-appointmentnew.component';
 
 @NgModule({
   declarations: [
     NurselayoutComponent,
     NurseMyprofileComponent,
-    NurseSidebarComponent
-    
+    NurseSidebarComponent,
+    TodayAppointmentnewComponent,
   ],
   imports: [
     CommonModule,
@@ -84,6 +85,7 @@ import { NurseSidebarComponent } from 'src/app/shared/components/nurse-sidebar/n
     MatDialogModule,
     ToastrModule.forRoot(),
     ToastContainerModule,
+    MatExpansionModule,
   ],
 })
 export class NurselayoutModule {}

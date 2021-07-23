@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AddDialogContantComponent } from '../add-dialog-contant/add-dialog-contant.component';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { HospitalUser } from 'src/app/Model/Admin';
-
+import{AllPatientListingService} from 'src/app/Service/all-patient-listing.service';
 
 
 // export interface HospitalUser {
@@ -51,6 +51,11 @@ const user: HospitalUser[] = [
 
 export class HospitalUserComponent implements OnInit {
 
+ 
+
+
+
+
   public searchText : any = "";
 
   isPrint: boolean = true;
@@ -64,7 +69,10 @@ export class HospitalUserComponent implements OnInit {
   
 
   
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog,private physicianservice:AllPatientListingService) { 
+
+
+  }
 
   // openDialog() {
   //   const dialogRef = this.dialog.open();
@@ -89,7 +97,19 @@ export class HospitalUserComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.GetAllPhysicianList();
   }
+
+
+  public listing : any[]=[];
+  GetAllPhysicianList() {
+    debugger;
+    this.physicianservice.getPhysicianList().subscribe((data: any[]) => {
+      console.log(data);
+      this.listing=data;
+    })
+  }
+
   public selectedEmployee : string = "";
   users = user;
   userStatus : any;
@@ -101,10 +121,10 @@ show(selectedEmployeeId : any)
 {
   debugger;
 	this.selectedEmployee  = selectedEmployeeId
-  this.userStatus = this.users.find(x=>x.EmployeeId==selectedEmployeeId);
+  this.userStatus = this.listing.find(x=>x.physicianId==selectedEmployeeId);
   console.log(this.userStatus.status);
 
-  if(this.userStatus.EmployeeId == selectedEmployeeId)
+  if(this.userStatus.physicianId == selectedEmployeeId)
   {
     if(this.userStatus.status =="Active")
     {

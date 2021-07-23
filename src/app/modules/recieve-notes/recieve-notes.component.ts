@@ -1,4 +1,3 @@
-
 import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -10,7 +9,7 @@ import {
   Validators,
   FormBuilder,
 } from '@angular/forms';
-import { Notes } from '../../Model/notes';
+import { Notes } from '../../Model/NotesUser';
 import { ToastService } from '../../Service/toast.service';
 @Component({
   selector: 'app-recieve-notes',

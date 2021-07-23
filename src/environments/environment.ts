@@ -4,9 +4,19 @@
 
 export const environment = {
   production: false,
-  // baseUrl : "http://localhost:50471/Registration",
+  baseUrl : "http://localhost:50471/Patient/Registration",
+  basehospitalUrl : "http://localhost:50471/Hospital/Registration",
   baseUrlLogin: 'http://localhost:50471/login',
-  baseUrl: 'http://localhost:3000/posts',
+  baseUrlPatientList: 'http://localhost:64913/api/Admin/patient-listing',
+  adminstatusUrl: 'http://localhost:64913/api/Admin/updatepatient',
+  baseUrlPhysicianList: 'http://localhost:64913/api/Physician/physician-listing',
+  baseUrlNurseList: 'http://localhost:64913/api/Nurse/nurse-listing',
+  baseurlRole:'',
+  baseUrlNotes:'',
+  baseurlAllergyMasterData:'http://localhost:64913/api/MasterData/Allergy-listing',
+  baseurlDiagnosisMasterData:'http://localhost:64913/api/MasterData/Diagnosis-listing',
+  baseurlMedicationMasterData:'http://localhost:64913/api/MasterData/Medication-listing',
+  baseurlProcedureMasterData:'http://localhost:64913/api/MasterData/Procedure-listing',
 };
 
 /*

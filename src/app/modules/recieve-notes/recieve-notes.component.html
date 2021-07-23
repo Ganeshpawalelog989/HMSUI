@@ -36,8 +36,7 @@
 
 
 <ng-template #content let-modal>
-  <fieldset style="border-radius: 10px; border: 1px solid lightgray; padding:
-                                          20px;">
+  <fieldset style="border-radius: 10px; border: 1px solid lightgray; padding: 20px;">
     <div class="container-fluid">
       <form (ngSubmit)='sendNotes()' [formGroup]='replyForm' novalidate class="form">
         <div class="modal-header">
@@ -51,8 +50,7 @@
                 <div class="form-group">
                   <textarea id="msg" placeholder="Message" class="form-control" formControlName="reply" [ng
                     class]="{ 'is-invalid': submitted && f.reply.errors }" rows="6" cols="60"></textarea>
-                  <div *ngIf="submitted &&
-                                                                  f.reply.errors" class="invalid-feedback">
+                  <div *ngIf="submitted && f.reply.errors" class="invalid-feedback">
                     <div *ngIf="f.reply.errors.required">Message is
                       required</div>
                     <div *ngIf="f.reply.errors.maxlength">Notes contains
@@ -65,13 +63,11 @@
         </div>
         <div class="modal-footer">
           <div class="form-group">
-            <button type="reset" class="btn
-                                                                            btn-secondary" (click)="modal.close()">
+            <button type="reset" class="btn btn-secondary" (click)="modal.close()">
               Close</button>
           </div>
           <div class="form-group">
-            <button type="submit" class="btn
-                                                                                btn-success">Save</button>
+            <button type="submit" class="btnbtn-success">Save</button>
           </div>
         </div>
       </form>

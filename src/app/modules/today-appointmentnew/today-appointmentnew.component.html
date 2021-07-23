@@ -1,0 +1,45 @@
+<!-- <form class="form-inline waves-light" mdbWavesEffect >
+    <div class="md-form mt-0">
+      <input class="form-control mr-sm-2" type="text"  placeholder="Search" name="Search"  [(ngModel)]="searchText">
+    </div>
+  </form> -->
+<h2>Today Appointment List</h2>
+<br>
+<button class=" btn  btn-outline-primary" routerLink="appointment"> Add Appointment </button>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Patient Id</th>
+            <th scope="col">Patient Name</th>
+            <th scope="col">Date</th>
+            <th scope="col">Status</th>
+            <th scope="col">Proceed</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users">
+
+            <td>
+                {{ user.PatientId }}
+            </td>
+            <td>{{ user.PatientName }}</td>
+            <td>{{ user.Date }}</td>
+            <td>{{ user.status }}</td>
+            <td>
+
+                <button class=" btn" style="color: blue;" routerLink="patientvisit">
+                    <mat-icon>forward</mat-icon>
+                </button>
+                <!-- <button  class="btn btn-primary" (click)="show(user.PatientId)" *ngIf="selectedPatient!==user.PatientId"  > Edit</button>
+        -->
+                <!-- <mat-radio-group aria-label="Select an option" *ngIf="selectedPatient===user.PatientId">
+          <mat-radio-button value={{btnValue}} name="btnValue"  (change)="getCurrentStatus($event.value)">{{btnValue}}</mat-radio-button>
+          <mat-radio-button value={{btnValue1}} name="btnValue1" (change)="getCurrentStatus($event.value)">{{btnValue1}}</mat-radio-button>
+          <button class="btn btn-success" (click)="saveStatus(user) ">save </button>
+          <button class="btn btn-secondary" (click)=cancleStatus()>cancel</button>
+          
+          </mat-radio-group> -->
+            </td>
+        </tr>
+    </tbody>
+</table>

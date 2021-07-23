@@ -1,0 +1,67 @@
+
+
+
+<div class="container">
+    <div class="row">
+  
+     <div class="col">
+      <form [formGroup]="Allery">
+        <mat-card-title style="text-align: center;">  
+          <h2>Medication Form</h2>
+        </mat-card-title>
+        
+      
+        <mat-form-field appearance="legacy" class="full-width col-4">
+          <mat-label>Drug Name</mat-label>
+          <input matInput required > 
+        </mat-form-field>
+
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+
+
+
+
+        <mat-form-field appearance="legacy" class="full-width col-4">
+            <mat-label>Drug manufacturer</mat-label>
+            <input matInput required > 
+          </mat-form-field>
+
+       
+
+         <br>
+
+         <mat-form-field class="full-width col-4">
+            <mat-select placeholder="Drug Form">
+              <mat-option *ngFor="let al of medication" [value]="al">
+                {{ al }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+  
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+          <mat-form-field appearance="legacy" class="full-width col-4">
+            <mat-label>Drug strength </mat-label>
+            <input matInput required data-toggle="tooltip" data-placement="top"
+            title="In mg"> 
+          </mat-form-field>
+
+        <br>
+
+       
+       
+        <mat-form-field appearance="legacy" class="full-width col-4">
+            <mat-label>Active ingredient  </mat-label>
+            <input matInput required > 
+          </mat-form-field>
+
+        <div class="example-button-row">
+        <button mat-flat-button color="primary">Submit</button>
+      </div>
+       </form>
+     </div>
+    </div>
+  </div>
+  

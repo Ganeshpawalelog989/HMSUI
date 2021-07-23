@@ -25,16 +25,23 @@ import { ViewSechedulingComponent } from './modules/view-secheduling/view-seched
 import { NurselayoutComponent } from './Layout/nurselayout/nurselayout.component';
 import { PatientlayoutComponent } from './Layout/patientlayout/patientlayout.component';
 import { PhysicianlayoutComponent } from './Layout/physicianlayout/physicianlayout.component';
-import { DashboardComponent } from './modules/admin/dashboard/dashboard.component';
-import { AdminpatientregistrationComponent } from './modules/adminpatientregistration/adminpatientregistration.component';
 import { NurseMyprofileComponent } from './modules/nurse-myprofile/nurse-myprofile.component';
+import { DashboardComponent } from './modules/admin/dashboard/dashboard.component';
 import { PhysicianMyprofileComponent } from './modules/physician-myprofile/physician-myprofile.component';
+import { AdminpatientregistrationComponent } from './modules/adminpatientregistration/adminpatientregistration.component';
 import { PatientVisitComponent } from './modules/patient-visit/patient-visit.component';
 import { SentComponent } from './modules/sentnotes/sentnotes.component';
 
 import { TodayAppointmentComponent } from './modules/today-appointment/today-appointment.component';
 import { PatientdashboardComponent } from './modules/patientdashboard/patientdashboard.component';
+import { NurseUserManagementComponent } from './modules/admin/nurse-user-management/nurse-user-management.component';
 
+import { MasterdataComponent } from 'src/app/modules/admin/masterdata/masterdata.component';
+import { DiagnosisdataComponent } from './modules/admin/masterdata/diagnosisdata/diagnosisdata.component';
+import { MedicationdataComponent } from './modules/admin/masterdata/medicationdata/medicationdata.component';
+import { ProceduredataComponent } from './modules/admin/masterdata/proceduredata/proceduredata.component';
+import { AllergydataComponent } from './modules/admin/masterdata/allergydata/allergydata.component';
+import { TodayAppointmentnewComponent } from './modules/today-appointmentnew/today-appointmentnew.component';
 const routes: Routes = [
   { path: '', component: HomescreenComponent },
 
@@ -42,9 +49,15 @@ const routes: Routes = [
     path: 'admin',
     component: DefaultComponent,
     children: [
-      { path: '', component: PatientUserManagementComponent },
-      { path: 'HospitalUser', component: HospitalUserComponent },
-      { path: 'dashboard', component: DashboardComponent },
+      { path: '', component: DashboardComponent },
+      { path: 'patient-user', component: PatientUserManagementComponent },
+      { path: 'physician-user', component: HospitalUserComponent },
+      { path: 'nurse-user', component: NurseUserManagementComponent },
+      { path: 'master-data', component: MasterdataComponent },
+      { path: 'allergymaster', component: AllergydataComponent },
+      { path: 'diagnosis-data', component: DiagnosisdataComponent },
+      { path: 'medication-data', component: MedicationdataComponent },
+      { path: 'procedure-data', component: ProceduredataComponent },
     ],
   },
 
@@ -52,7 +65,7 @@ const routes: Routes = [
     path: 'Nurse',
     component: NurselayoutComponent,
     children: [
-      { path: '', component: TodayAppointmentComponent },
+      { path: '', component: TodayAppointmentnewComponent },
       {
         path: 'bookappoinemnt',
         component: AppointmentDeleteComponent,
@@ -74,6 +87,15 @@ const routes: Routes = [
         path: 'myprofile',
         component: NurseMyprofileComponent,
       },
+      {
+        path: 'patientvisit',
+        component: PatientVisitComponent,
+      },
+      { path: 'PatientDetails', component: PatientDetailsComponent },
+      // {
+      //   path: 'todaynew',
+      //   component: TodayAppointmentnewComponent,
+      // },
     ],
   },
 
@@ -85,10 +107,14 @@ const routes: Routes = [
         path: '',
         component: TodayAppointmentComponent,
       },
-    
+
       {
         path: 'bookappoinemnt',
         component: AppointmentDeleteComponent,
+      },
+      {
+        path: 'views',
+        component: ViewSechedulingComponent,
       },
       {
         path: 'views',
@@ -102,6 +128,14 @@ const routes: Routes = [
         path: 'patientvisit',
         component: PatientVisitComponent,
       },
+      {
+        path: 'sendnotes',
+        component: SendnotesComponent,
+      },
+      {
+        path: 'recievenotes',
+        component: RecieveNotesComponent,
+      },
     ],
   },
   {
@@ -112,14 +146,18 @@ const routes: Routes = [
         path: '',
         component: PatientdashboardComponent,
       },
-      
+      {
+        path: 'PatientSheduling',
+        component: PatientUserShedulingComponent,
+      },
+
       {
         path: 'PatientSheduling',
         component: PatientUserShedulingComponent,
       },
       {
         path: 'PatientDetails',
-        component: PatientDetailsComponent
+        component: PatientDetailsComponent,
       },
     ],
   },
@@ -135,6 +173,11 @@ const routes: Routes = [
   {
     path: 'patientregistration',
     component: PatientRegistrationComponent,
+  },
+
+  {
+    path: 'bookappoinemnt',
+    component: AppointmentDeleteComponent,
   },
 
   { path: 'emerencyinfo', component: EmerencyInfoComponent },

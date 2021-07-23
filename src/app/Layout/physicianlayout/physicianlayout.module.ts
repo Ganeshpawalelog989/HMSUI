@@ -44,7 +44,11 @@ import { FlatpickrModule } from 'angularx-flatpickr';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { TodayAppointmentComponent } from 'src/app/modules/today-appointment/today-appointment.component';
 //import { AppointmentComponent } from 'src/app/modules/appointment/appointment.component';
+//import { AppointmentDeleteComponent } from 'src/app/modules/appointment-delete/appointment-delete.component';
+import {MatExpansionModule} from '@angular/material/expansion';
 import { AppointmentDeleteComponent } from 'src/app/modules/appointment-delete/appointment-delete.component';
+
+
 
 @NgModule({
   declarations: [
@@ -111,9 +115,10 @@ import { AppointmentDeleteComponent } from 'src/app/modules/appointment-delete/a
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory,
-    }),
-    FlatpickrModule,
-    NgbModalModule,
-  ],
+      }),
+      FlatpickrModule,
+      NgbModalModule,
+      MatExpansionModule
+  ]
 })
 export class PhysicianlayoutModule {}

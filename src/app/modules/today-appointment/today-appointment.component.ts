@@ -10,27 +10,27 @@ interface PatientUser {
 const user: PatientUser[] = [
   {
     PatientId : "1",
-    PatientName: 'Russia',
+    PatientName: 'Sachin',
     Date: '02/03/2021',
-    status: "Active",
+    status: "Nurse Process",
   },
   {
     PatientId : "2",
-    PatientName: 'Canada',
+    PatientName: 'Meharsh',
     Date: '02/03/2021',
-    status: "InActive",
+    status: "Nurse Process",
   },
   {
     PatientId : "3",
-    PatientName: 'United States',
+    PatientName: 'Anand',
     Date: '02/03/2021',
-    status: "Active",
+    status: "Nurse Process",
   },
   {
     PatientId : "4",
-    PatientName: 'China',
+    PatientName: 'Santosh',
     Date: '02/03/2021',
-    status: "Blocked",
+    status: "Nurse Process",
   }
 ];
 

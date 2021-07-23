@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import {AuthenticationService} from 'src/app/Service/AuthService';
 import { Router, ActivatedRoute } from '@angular/router';
+import {AuthenticationService } from 'src/app/Service/AuthService'
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -8,8 +8,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
+  userServ: any;
 
-  constructor(private userServ : AuthenticationService,private router : Router) { }
+  constructor(private service : AuthenticationService,private router : Router) { }
 
   ngOnInit(): void {
   }
@@ -30,5 +31,6 @@ export class HeaderComponent implements OnInit {
     }, 300);
   }
 
+ 
 
 }

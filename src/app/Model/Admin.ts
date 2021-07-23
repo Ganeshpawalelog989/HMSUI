@@ -6,7 +6,7 @@ export interface HospitalUser {
   }
 
 export  interface PatientUser {
-    PatientId : string
+    patientId : string
     PatientName: string;
     Date: string;
     status: string;

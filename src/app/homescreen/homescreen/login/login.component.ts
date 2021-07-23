@@ -28,16 +28,25 @@ export class LoginComponent implements OnInit {
   loading = false;
   submitted = false;
   value : string = "";
-
+  role:any= localStorage.getItem('currentUser');
   constructor(private fb: FormBuilder,
      private service : AuthenticationService,
      private router : Router,
      private route : ActivatedRoute , private toastr : NotificationService) {
+      
   }
 
   ngOnInit() {
-  }
+  //   debugger;
+  //  var role2 = JSON.parse(this.role);
+  //  console.log("Final ROle"+ role2.defaultRole);
 
+  //console.log("Defrole"+ JSON.stringify(this.role.defaultRole))
+  //var temp= Object.keys(role1[0]);
+  //console.log("temp"+ temp);
+  }
+  
+   role1:any = JSON.parse(this.role);
   loginForm: FormGroup = this.fb.group({
     Email: ['', [Validators.required, Validators.email]],
     Password: ['', [Validators.required, Validators.minLength(6)]]
@@ -46,6 +55,9 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     debugger;
+   
+ 
+
       this.submitted = true;
    // debugger;
       // reset alerts on submit
@@ -61,8 +73,36 @@ export class LoginComponent implements OnInit {
             .pipe(first())
             .subscribe(data=>{
               this.showSuccessLogin();
-                this.router.navigate(['/Ab/dashboard']);
-               
+             // this.router.navigate(['/admin']);
+              //this.router.navigate(['/physician']);
+             // this.router.navigate(['/patient']);
+              //this.router.navigate(['/Nurse']);
+              //var role2 = JSON.parse(this.role);
+              console.log("Final ROle"+ data.defaultRole);
+              if(data.defaultRole === "Admin")
+              {
+                debugger;
+                this.router.navigate(['/admin']);
+                console.log("Welcome to Admin Page");
+              }
+              if(data.defaultRole === "Patient")
+              {
+                debugger;
+                this.router.navigate(['/patient']);
+                console.log("Welcome to Patient Page");
+              }
+              if(data.defaultRole === "Nurse")
+              {
+                debugger;
+                this.router.navigate(['/Nurse']);
+                console.log("Welcome to Nurse Page");
+              }
+              if(data.defaultRole === "Physican")
+              {
+                debugger;
+                this.router.navigate(['/physician']);
+                console.log("Welcome to Physician Page");
+              }
      
               },
               error => {
@@ -79,7 +119,7 @@ export class LoginComponent implements OnInit {
   }
   showErrorLogin()
   {
-    this.toastr.showSuccess("Error!!!","Username or paswword is incorrect");
+    this.toastr.showError("Error!!!","Username or paswword is incorrect");
   }
 
 

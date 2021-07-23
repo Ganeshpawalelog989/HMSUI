@@ -1,28 +1,25 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { User } from '../Model/user';
-import { Notes } from '../Model/notes';
+import {  UserRole } from '../Model/NotesUser';
+import { Notes } from '../Model/NotesUser';
 import { environment } from '../../environments/environment';
-import { usernotes } from '../Model/UserNotes';
+import { usernotes } from '../Model/NotesUser';
 
 @Injectable({
   providedIn: 'root',
 })
 export class NotesService {
-  //private base_Url = 'http://localhost:3000';
   constructor(private http: HttpClient) {}
 
-  getUsersByRole(userRole: string): Observable<User[]> {
-    return this.http.get<User[]>(
-      `${environment.baseUrl}/user-api/user/getUsersByRole?role=${userRole}`
-    );
+  getUsersByRole(userRole: string): Observable<UserRole[]> {
+    // return this.http.get<User[]>(
+    //   `${environment.baseUrl}/user-api/user/getUsersByRole?role=${userRole}`
+    return this.http.get<UserRole[]>(`${environment.baseurlRole}?role=${userRole}`);
+    
   }
-  sendNotes(newNote: Notes): Observable<any> {
-    return this.http.post(
-      `${environment.baseUrl}/notes-service/note/addNote`,
-      newNote
-    );
+  sendNotes(newNote: usernotes): Observable<any> {
+    return this.http.post<usernotes>(`${environment.baseUrlNotes}`,newNote);
   }
   getSentNotes(senderId: number): Observable<usernotes[]> {
     return this.http.get<usernotes[]>(

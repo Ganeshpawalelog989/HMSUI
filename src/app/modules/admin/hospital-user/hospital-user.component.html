@@ -23,12 +23,12 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let user of users  | filter : searchText" >
+  <tr *ngFor="let user of listing  | filter : searchText" >
     <td>
-      {{ user.EmployeeId }}
+      {{ user.physicianId }}
     </td>
-    <td>{{ user.EmployeeName  }}</td>
-    <td>{{ user.DateOfJoining }}</td>
+    <td>{{ user.physicianName  }}</td>
+    <td>{{ user.lastUpdatedOn }}</td>
     <td>{{ user.status }}</td>
     <td>
        <!-- <button  class="btn btn-primary" (click)="show(user.EmployeeId)" *ngIf="selectedEmployee!==user.EmployeeId">Edit</button>
@@ -39,8 +39,8 @@
         <button class="btn btn-secondary" (click)=cancleStatus()>cancel</button>
         </mat-radio-group>
        -->
-        <button  class="btn" style="color: blue;" (click)="show(user.EmployeeId)" *ngIf="selectedEmployee!==user.EmployeeId"  > <mat-icon>edit</mat-icon></button>
-      <mat-radio-group aria-label="Select an option" *ngIf="selectedEmployee===user.EmployeeId">
+        <button  class="btn" style="color: blue;" (click)="show(user.physicianId)" *ngIf="selectedEmployee!==user.physicianId"  > <mat-icon>edit</mat-icon></button>
+      <mat-radio-group aria-label="Select an option" *ngIf="selectedEmployee===user.physicianId">
         <mat-radio-button value={{btnValue}} name="btnValue"  (change)="getCurrentStatus($event.value)">&nbsp;{{btnValue}}&nbsp;</mat-radio-button>&nbsp;
         <mat-radio-button value={{btnValue1}} name="btnValue1" (change)="getCurrentStatus($event.value)">&nbsp;{{btnValue1}}&nbsp;</mat-radio-button>&nbsp;
         <button class="btn " style="color: green;" (click)="saveStatus(user) ">&nbsp;<mat-icon>save</mat-icon> &nbsp;</button>
