@@ -2,9 +2,9 @@
     <div class="profile-card">
         <div class="header">
             <h2>Admin</h2>
-            <h4>example@email.com</h4>
+            <h4>admin@gmail.com</h4>
         </div>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7FqSE46QFOJAAmw4ALVH4w1kR-IaV8cil9g&usqp=CAU" alt="Soufiane FADIL">
+        <img src="https://www.hostirian.com/wp-content/uploads/2014/04/Admin.png" alt="Soufiane FADIL">
     </div>
 
     <mat-divider></mat-divider>
@@ -15,6 +15,23 @@
     <a mat-list-item routerLinkActive="list-item-active"routerLink='patient-user'>Patient User Management</a>
     <a mat-list-item routerLinkActive="list-item-active" routerLink="physician-user">Physician User Management</a>
     <a mat-list-item routerLinkActive="list-item-active" routerLink="nurse-user">Nurse User Management</a>
+    <!-- <a mat-list-item routerLinkActive="list-item-active" routerLink="master-data">Master Data Management</a>
+     -->
+     <mat-accordion class="app-nav-accordion">
+        <mat-expansion-panel class="mat-elevation-z0">
+          <mat-expansion-panel-header>
+            <mat-panel-title>Master Data Management</mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-nav-list>
+            <a mat-list-item routerLinkActive="list-item-active" routerLink="diagnosis-data">Diagnosis Data</a>
+            <a mat-list-item routerLinkActive="list-item-active" routerLink="medication-data">Medication Data</a>
+            <a mat-list-item routerLinkActive="list-item-active" routerLink="procedure-data">Procedure Data</a>
+            <a mat-list-item routerLinkActive="list-item-active" routerLink="allergymaster">Allergy Data</a>
+        </mat-nav-list>
+        </mat-expansion-panel>
+      </mat-accordion> 
+    
+    
     <mat-divider></mat-divider>
 
     <h2 matSubheader>Tools</h2>

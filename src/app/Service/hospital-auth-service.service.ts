@@ -57,7 +57,12 @@ export class HospitalAuthServiceService {
       return this.http.post<any>(`${environment.baseUrl}`,posts);
     }
 
-
+    getHospitalById(id : string) : Observable<any>
+    {
+      debugger;
+      return this.http.get<any>(`${environment.basrurlGetNurseById}`+id);
+    }
+    
     logout() {
         // remove user from local storage to log user out
         localStorage.removeItem('currentUser');

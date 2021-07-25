@@ -1,0 +1,35 @@
+<!-- <form class="form-inline waves-light" mdbWavesEffect >
+    <div class="md-form mt-0">
+      <input class="form-control mr-sm-2" type="text"  placeholder="Search" name="Search"  [(ngModel)]="searchText">
+    </div>
+  </form> -->
+  <!-- <button class="btn btn-outline-primary">Add Diagnosis </button> -->
+  <button class="btn btn-outline-primary" value="Add Diagnosis" (click)="openDialog($event)"> Add Diagnosis</button> 
+    
+
+  <br>
+  <br>
+  
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      
+      <th scope="col">Diagnosis Id</th>
+      <th scope="col">Diagnosis Description</th>
+      <th scope="col">Diagnosis Type</th>
+      <th scope="col">IsDepricated</th>
+      
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of listing ">
+       <td>
+        {{ user.diagnosisId }}
+      </td> 
+      <td>{{ user.diagnosisDescription}} </td>
+      <td>{{ user.diagnosisType }}</td>
+      <td>{{ user.isDepricated }}</td>
+      
+    </tr>
+    </tbody>
+  </table>

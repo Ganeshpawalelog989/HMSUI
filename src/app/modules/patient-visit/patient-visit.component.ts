@@ -3,8 +3,11 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
+import { patientDetails } from 'src/app/Model/Patient';
+import { PatientDetails } from 'src/app/Model/patientdetails';
+import { AuthenticationService } from 'src/app/Service/AuthService';
+import { PatientdetailsService } from 'src/app/Service/patientdetails.service';
 import { PatientvisitService } from 'src/app/Service/patientvisit.service';
-import {PatientDetails} from 'src/app/Model/patientvisit';
 @Component({
   selector: 'app-patient-visit',
   templateUrl: './patient-visit.component.html',
@@ -17,7 +20,11 @@ Allery : FormGroup;
 allergyList :any = [];
 isallergy: boolean = true; // hidden by default
 
+patient_Details : PatientDetails;
 isOpen: boolean = true;
+
+patientDetails: FormGroup;
+EmerencyInfo: FormGroup;
 
 //   //Diagnosis Details
   diagnosisdetails: FormGroup;
@@ -37,9 +44,13 @@ isOpen: boolean = true;
 
 
 
+
+
 isReadonly = true;
 constructor(private formBuilder : FormBuilder, private router : Router, private fb:FormBuilder,
-  private getpatient:PatientvisitService) { 
+  private getpatient:PatientvisitService,
+    private patientService: PatientdetailsService,
+    private userServ: AuthenticationService) { 
 
     this.patientDetails = this.fb.group({
        Id : ['', ],
@@ -89,7 +100,7 @@ constructor(private formBuilder : FormBuilder, private router : Router, private 
       this.proceduredetails = this.fb.group({
         procedureCode: ['', Validators.required],
         procedureDescription: ['', Validators.required],
-        procedureIsDepricated: ['', Validators.required],
+        //procedureIsDepricated: ['', Validators.required],
       })
 
       // Medication Details 
@@ -104,6 +115,71 @@ constructor(private formBuilder : FormBuilder, private router : Router, private 
    
 
 }
+
+public pId:string;
+ngOnInit(): void {
+  
+
+  debugger;
+  var patientuser= localStorage.getItem('currentUser');
+  var user = JSON.parse(patientuser);
+  this.pId = user.userId; 
+  console.log(this.pId);
+ this.getPatientdetails();
+
+ this.patientDetails = this.formBuilder.group({
+  FirstName :['',Validators.required,Validators.minLength(2) ],
+  LastName :['',Validators.minLength , Validators.minLength(2)],
+  DOB :['',Validators.required ],
+  Age :['',Validators.required],
+  Gender:['',Validators.required],
+  Race:['',Validators.required],
+  Ethnicity:['',Validators.required],
+  Lanaguageknown :['',Validators.required],
+  Email :['',Validators.required],
+  HomeAddress :['',Validators.required],
+  ContantNo :['',Validators.required]
+ });
+
+   this.EmerencyInfo = this.formBuilder.group({
+  FirstName :['',Validators.required ],
+  LastName :['',Validators.minLength],
+  Email :['',Validators.required],
+  HomeAddress :['',Validators.required],
+  ContantNo :['',Validators.required],
+  Relation :['',Validators.required]
+ });
+
+  
+}
+
+getPatientdetails(){
+  debugger;
+  this.patientService.getPatientDetailById(this.pId).subscribe(data1=>{  
+    debugger;
+    console.log(data1);
+    this.patient_Details = data1;
+  },
+  error=>{
+    this.router.navigate(['patient'])
+    console.log(error);
+  })
+}
+
+savePatient() {
+  debugger;
+ this.userServ.register(this.patientDetails.value)
+ .subscribe(data=>{
+   debugger;
+   console.log(data);
+  // this.router.navigate(['/login']);
+ },
+ error=>{
+  // this.router.navigate(['/register'])
+   console.log(error);
+ })
+}
+
 
 alergy=[
     "food",
@@ -207,22 +283,7 @@ removeMedication(element:any){
   }
 
  
-
-ngOnInit(): void {
-  
-  this.getpatient.getPatientVisitList()
-.subscribe(data => {
-  console.log(data);
-  this.alergy= data;
-  
-
-})
-
-
-  
-  
-}
-
+ 
 genders = [
   "Male",
   "Female",
@@ -346,29 +407,7 @@ onPatientSubmit() {
    options: string[] = ['Ayahuasca', 'Cocaine', 'Hallucinogens'];
    filteredOptions: Observable<string[]> | undefined;
   
-   patientDetails: FormGroup = this.formBuilder.group({
-    FirstName :['',Validators.required,Validators.minLength(2) ],
-    LastName :['',Validators.minLength , Validators.minLength(2)],
-    DOB :['',Validators.required ],
-    Age :['',Validators.required],
-    Gender:['',Validators.required],
-    Race:['',Validators.required],
-    Ethnicity:['',Validators.required],
-    Lanaguageknown :['',Validators.required],
-    Email :['',Validators.required],
-    HomeAddress :['',Validators.required],
-    ContantNo :['',Validators.required]
-   });
-  
-      EmerencyInfo: FormGroup = this.formBuilder.group({
-    FirstName :['',Validators.required ],
-    LastName :['',Validators.minLength],
-    Email :['',Validators.required],
-    HomeAddress :['',Validators.required],
-    ContantNo :['',Validators.required],
-    Relation :['',Validators.required]
-   });
-  
+   
   //  patientmedForm: FormGroup = this.fb.group({
   //   DrugId: ['', [Validators.required]],
   //   DrugName: ['', [Validators.required]],

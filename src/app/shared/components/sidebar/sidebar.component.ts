@@ -10,6 +10,10 @@ export class SidebarComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    debugger;
+    var patientuser= localStorage.getItem('currentUser');
+    var user = JSON.parse(patientuser);
+    console.log(user);
   }
 
 }

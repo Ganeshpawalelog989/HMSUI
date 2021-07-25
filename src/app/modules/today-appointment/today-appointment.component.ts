@@ -83,7 +83,6 @@ Patient : any
 
 showDetailsForm(Id: string)
 {
-
   this.ObjPatient = this.servivcePat.getPatientVisitById(Id)
   .subscribe(data=>{
     console.log(data);

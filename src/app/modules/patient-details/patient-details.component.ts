@@ -2,7 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { validateBasis } from '@angular/flex-layout';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+
 import { Observable } from 'rxjs';
+import { PatientDetails } from 'src/app/Model/patientdetails';
+import { AuthenticationService } from 'src/app/Service/AuthService';
+import {PatientdetailsService} from 'src/app/Service/patientdetails.service';
+import { UserService } from 'src/app/Service/user.service';
 
 @Component({
   selector: 'app-patient-details',
@@ -14,13 +19,16 @@ export class PatientDetailsComponent implements OnInit {
 //   //Allergy Details
   Allery : FormGroup;
   allergyList :any;
-  isallergy: boolean = false ; // hidden by default
+  isallergy: boolean = true; // hidden by default
+  patient_Details: PatientDetails;
   
-
+  patientDetails: FormGroup;
+  EmerencyInfo : FormGroup;
   
   //-----------------------------------------
   isReadonly = true;
-  constructor(private formBuilder : FormBuilder, private router : Router, private fb:FormBuilder) { 
+  constructor(private formBuilder : FormBuilder, private router : Router, private fb:FormBuilder, 
+    private patientService: PatientdetailsService, private userServ: AuthenticationService) { 
     // //Allergy Details
       this.allergyList = [];
       this.Allery = this.fb.group({
@@ -29,10 +37,60 @@ export class PatientDetailsComponent implements OnInit {
         isallergyfatal: ['', Validators.required],
       })
 
+
   }
+  public pId:string;
   ngOnInit(): void {
+    debugger;
+    var patientuser= localStorage.getItem('currentUser');
+    var user = JSON.parse(patientuser);
+    this.pId = user.userId; 
+    console.log(this.pId);
+   this.getPatientdetails();
+
+
+   this.patientDetails = this.formBuilder.group({
+    FirstName :['',Validators.required,Validators.minLength(2) ],
+    LastName :['',Validators.minLength , Validators.minLength(2)],
+    DOB :['',Validators.required ],
+    Age :['',Validators.required],
+    Gender:['',Validators.required],
+    Race:['',Validators.required],
+    Ethnicity:['',Validators.required],
+    LanguageKnown :['',Validators.required],
+    Email :['',Validators.required],
+    HomeAddress :['',Validators.required],
+    ContantNo :['',Validators.required],
+    title :['']
+   });
+  this.EmerencyInfo = this.formBuilder.group({
+    FirstName :['',Validators.required,Validators.minLength(2) ],
+    LastName :['',Validators.minLength , Validators.minLength(2)],
+    Realtion: ['',Validators.required ],
+    EmailAddress: ['',Validators.required ],
+    ContactNo: ['',Validators.required ],
+    HomeAddress: ['',Validators.required ],
+
+  })
+     
+
   }
  
+  getPatientdetails(){
+    debugger;
+    this.patientService.getPatientDetailById(this.pId).subscribe(data1=>{  
+      debugger;
+      console.log(data1);
+      this.patient_Details = data1;
+    },
+    error=>{
+      this.router.navigate(['patient'])
+      console.log(error);
+    })
+  }
+  currentValue(e:any){
+    console.log(e);
+  }
 
   genders = [
     "Male",
@@ -83,9 +141,14 @@ export class PatientDetailsComponent implements OnInit {
 // Allergy Details
 addAllergy(){
   debugger;
-  this.allergyList.push(this.Allery.value);
-  this.resetAllery();
-}
+  var a= this.allergyList.push(this.Allery.value);
+  //console.log(a);
+  //this.isallergy= !this.isallergy;
+  //this.toggleAllergy();
+  this.Allery.reset();
+  //this.resetAllery();
+  
+  }
 toggleAllergy() {
   this.isallergy = ! this.isallergy;
   }
@@ -99,12 +162,6 @@ toggleAllergy() {
     });
   }
 
-
-  //Nevigate to Emergency Info Form
-  onPatientSubmit() {
-    //    localStorage.setItem('isLoggedin', 'true');
-        this.router.navigate(['/EmerencyInfo']);
-    }
     toggleReadonly() {
       this.isReadonly = !this.isReadonly;
     }
@@ -116,28 +173,19 @@ toggleAllergy() {
    options: string[] = ['Ayahuasca', 'Cocaine', 'Hallucinogens'];
    filteredOptions: Observable<string[]> | undefined;
 
-   patientDetails: FormGroup = this.formBuilder.group({
-    FirstName :['',Validators.required,Validators.minLength(2) ],
-    LastName :['',Validators.minLength , Validators.minLength(2)],
-    DOB :['',Validators.required ],
-    Age :['',Validators.required],
-    Gender:['',Validators.required],
-    Race:['',Validators.required],
-    Ethnicity:['',Validators.required],
-    Lanaguageknown :['',Validators.required],
-    Email :['',Validators.required],
-    HomeAddress :['',Validators.required],
-    ContantNo :['',Validators.required]
-   });
-  
-      EmerencyInfo: FormGroup = this.formBuilder.group({
-    FirstName :['',Validators.required ],
-    LastName :['',Validators.minLength],
-    Email :['',Validators.required],
-    HomeAddress :['',Validators.required],
-    ContantNo :['',Validators.required],
-    Relation :['',Validators.required]
-   });
-
+   savePatient() {
+     debugger;
+    this.userServ.register(this.patientDetails.value)
+    .subscribe(data=>{
+      debugger;
+      console.log(data);
+     // this.router.navigate(['/login']);
+    },
+    error=>{
+     // this.router.navigate(['/register'])
+      console.log(error);
+    })
+  }
+   
 
 }
