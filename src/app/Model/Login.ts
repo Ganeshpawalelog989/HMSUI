@@ -1,22 +1,24 @@
 export class Login{
     
-  public  username:string ;
+  public email : string;
+  public  username?:string ;
 ​
   public  password:string;
 ​
   public  confirmPassword:string;
 ​
-   public token:string;
+   public token?:string;
 ​
-  public  Role:string;
+  public  Role?:string;
 
-  constructor (username : string  , password :string , confirmPassword : string , token : string , Role : string)
+  constructor (email : string , password :string,confirmPassword:string)
   {
-      this.username=username;
+    this.email = email;
+    //  this.username=username;
       this.password=password;
       this.confirmPassword=confirmPassword;
-      this.token=token;
-      this.Role=Role;
+    //  this.token=token;
+    //  this.Role=Role;
   }
 
 }

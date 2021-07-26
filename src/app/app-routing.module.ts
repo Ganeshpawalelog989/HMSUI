@@ -142,6 +142,7 @@ const routes: Routes = [
   {
     path : 'bookappoinemnt' , component : AppointmentDeleteComponent
  },
+ {path: 'forget',component: ForgotPasswordComponent},
 
 {path:'change-password',  component:ChangePasswordComponent},
 

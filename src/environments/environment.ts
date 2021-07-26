@@ -17,6 +17,7 @@ export const environment = {
   baseurlDiagnosisMasterData:'http://localhost:64913/api/MasterData/Diagnosis-listing',
   baseurlMedicationMasterData:'http://localhost:64913/api/MasterData/Medication-listing',
   baseurlProcedureMasterData:'http://localhost:64913/api/MasterData/Procedure-listing',
+  baseurlForgetPassword : "http://localhost:21072/api/Forget"
 };
 
 /*

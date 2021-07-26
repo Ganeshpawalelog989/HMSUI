@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
@@ -59,5 +59,17 @@ export class AuthenticationService {
         // remove user from local storage to log user out
         localStorage.removeItem('currentUser');
       //  this.currentUserSubject.next(null);
+    }
+
+    forgetPassword(email:string,password:string) : Observable<any>
+    {
+      debugger;
+      let params = new HttpParams();
+      params = params.append('email', email);
+      params = params.append('password', password);
+     // params.set('password',password)
+     // return this.http.post<any>(`${environment.baseurlForgetPassword}`,{email,password})
+     return this.http.post<any>(`${environment.baseurlForgetPassword}?email=${email}&password=${password}`
+     ,{params:params})
     }
 }

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Login } from 'src/app/Model/Login';
+import { AuthenticationService } from 'src/app/Service/AuthService';
 
 @Component({
   selector: 'app-change-password',
@@ -10,23 +13,29 @@ export class ChangePasswordComponent implements OnInit {
     hide: boolean = false;
     loading = false;
     submitted = false;
-    pwdpattern='^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&])([a-zA-Z0-9@$!%*?&]{8,})$';
+  //  pwdpattern='^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&])([a-zA-Z0-9@$!%*?&]{8,})$';
     
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,
+    private passServ : AuthenticationService,
+    private router : Router) { }
 
   ngOnInit(): void {
   }
 
-  changepassForm: FormGroup = this.fb.group({
-    password: ['', [Validators.required,  Validators.minLength(8)]],
-    newpassword: ['', [Validators.required,Validators.pattern(this.pwdpattern)]],
-    confirmnewpassword: ['', [Validators.required]]
-  },
   
-  {
-    validators:this.MustMatch('newpassword','confirmnewpassword')
-  }
-  )
+  changepassForm: FormGroup = this.fb.group({
+    email : [''],
+   // password: ['', Validators.required,  Validators.minLength(8)],
+    newpassword: ['', Validators.required],
+    confirmnewpassword: ['', Validators.required]
+  })
+  
+  passObj : Login = new Login(this.f.email.value,this.f.newpassword.value,
+    this.f.confirmnewpassword.value)
+  // {
+  //   validators:this.MustMatch('newpassword','confirmnewpassword')
+  // }\
+// )
   get f() { return this.changepassForm.controls; }
 
   MustMatch(controlName:string,matchingControlName:string){
@@ -47,15 +56,19 @@ export class ChangePasswordComponent implements OnInit {
  }
 
  onSubmit(){
-   
-    
+   debugger;
+  //  if(this.passObj ==null)
+  //  {
+  //    console.log("Invalid entry");
+  //  }
+   this.passServ.forgetPassword(this.changepassForm.value.email,
+    this.changepassForm.value.newpassword)
+    .subscribe(data=>{
+      console.log(data);
+      console.log("Password has changed");
+      this.router.navigate(['/login']);
+    })
+
 }
-
-
-
-
-
-
-
 
 }
