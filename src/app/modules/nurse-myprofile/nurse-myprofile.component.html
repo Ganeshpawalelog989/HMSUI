@@ -20,7 +20,7 @@
            
             <!-- <input formControlName="email" matInput placeholder="Enter email address" required/>
              -->
-             <input  matInput formControlName="Fname" placeholder="First Name" required>
+             <input  matInput formControlName="Fname" placeholder="First Name" required [(ngModel)]="Hospital_Details.fname">
              
            <mat-error *ngIf="!regiForm.controls['Fname'].valid">  First Name is required </mat-error> 
             </mat-form-field>
@@ -33,7 +33,7 @@
            
             <!-- <input formControlName="email" matInput placeholder="Enter email address" required/>
              -->
-             <input  matInput formControlName="Lname" placeholder="Last Name" required>
+             <input  matInput formControlName="Lname" placeholder="Last Name" required [(ngModel)]="Hospital_Details.lname">
              
              <mat-error *ngIf="!regiForm.controls['Lname'].valid">  Last name is required </mat-error> 
             </mat-form-field>
@@ -45,7 +45,7 @@
            
             <!-- <input formControlName="email" matInput placeholder="Enter email address" required/>
              -->
-             <input  matInput formControlName="Email" type="email" placeholder="email" required>
+             <input  matInput formControlName="Email" type="email" placeholder="email" required [(ngModel)]="Hospital_Details.email">
              <mat-error *ngIf="!regiForm.controls['Email'].valid">  Email is required </mat-error> 
              <mat-icon matSuffix>email</mat-icon>
              
@@ -57,7 +57,7 @@
            
             <!-- <input formControlName="email" matInput placeholder="Enter email address" required/>
              -->
-             <input  matInput formControlName="ContantNumber" type="contact" placeholder="email" required>
+             <input  matInput formControlName="ContantNumber" type="contact" placeholder="Contact" required [(ngModel)]="Hospital_Details.contactNumber">
              <mat-error *ngIf="!regiForm.controls['ContantNumber'].valid">  Contact is required </mat-error> 
              <mat-icon matSuffix>contacts</mat-icon>
              

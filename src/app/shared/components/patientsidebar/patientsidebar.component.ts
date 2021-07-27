@@ -1,4 +1,8 @@
+
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { PatientdetailsService } from 'src/app/Service/patientdetails.service';
+
 
 @Component({
   selector: 'app-patientsidebar',
@@ -7,9 +11,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PatientsidebarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router : Router, private patientService: PatientdetailsService  ) { }
 
+  public data: string;
   ngOnInit(): void {
+   
+    // debugger;
+    // var patientuser= localStorage.getItem('currentUser');
+    // var user = JSON.parse(patientuser);
+    // this.data = user.userId; 
+    // console.log(this.data);
+  }
+ 
+  // getPatientdetails(){
+  //   //this.router.navigate(['PatientDetails']);
+  //   this.patientService.getPatientDetailById(this.data).subscribe(data1=>{  
+  //     console.log(data1);
+  //   },
+  //   error=>{
+  //     this.router.navigate(['patient'])
+  //     console.log(error);
+  //   })
+  // }
+
+
+  patientVisit()
+  {
+    this.router.navigate(['/PatientDetails']);
   }
 
 }
