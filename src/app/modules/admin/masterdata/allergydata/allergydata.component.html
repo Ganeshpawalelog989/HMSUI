@@ -11,7 +11,7 @@
   <table class="table table-striped">
     <thead>
     <tr>
-      <!-- <th scope="col">Patient Id</th> -->
+      <th scope="col">Allergy Id</th> 
       <th scope="col">Allergy Name</th>
       <th scope="col">Allergy Description</th>
       <th scope="col">Allergy Type</th>
@@ -20,9 +20,9 @@
     </thead>
     <tbody>
     <tr *ngFor="let user of listing ">
-      <!-- <td>
-        {{ user.patientId }}
-      </td> -->
+       <td>
+        {{ user.allergyId }}
+      </td> 
       <td>{{ user.allergyName}} </td>
       <td>{{ user.allergyDescription }}</td>
       <td>{{ user.allergyType }}</td>

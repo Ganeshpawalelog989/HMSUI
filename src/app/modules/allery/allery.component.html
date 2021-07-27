@@ -5,7 +5,7 @@
     <div class="row">
   
      <div class="col">
-      <form [formGroup]="Allery">
+      <form (ngSubmit)="onSubmit()" name=""  [formGroup]="AllergyForm">
         
         <mat-card-title style="text-align: center;">  
           <h2>Allergy Form</h2>
@@ -18,14 +18,14 @@
          <input mat-input  placeholder="Id">
         </mat-form-field> -->
 
-        <mat-form-field appearance="legacy" class="full-width col-4">
+        <!-- <mat-form-field appearance="legacy" class="full-width col-4">
           <mat-label>Allergy id</mat-label>
           <input matInput required > 
-        </mat-form-field>
+        </mat-form-field> -->
 
 
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp; &nbsp;&nbsp; 
+        <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp; &nbsp;&nbsp;  -->
 
          
 
@@ -38,11 +38,12 @@
           </mat-select>
         </mat-form-field>
   
-        <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp; &nbsp;&nbsp;
         
         <mat-form-field appearance="legacy" class="full-width col-4">
           <mat-label>Allergy name</mat-label>
-          <input matInput required > 
+          <input formControlName="AllergyName" matInput required > 
         </mat-form-field>
 
 
@@ -54,7 +55,7 @@
 
         <mat-form-field appearance="legacy" class="full-width col-4">
           <mat-label>Allergy Description</mat-label>
-          <textarea matInput  required ></textarea>
+          <textarea formControlName="AllergyDescription" matInput  required ></textarea>
         </mat-form-field>
    
 
