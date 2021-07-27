@@ -21,6 +21,10 @@ export const environment = {
   baseurlMedicationMasterDataSave:'http://localhost:64913/api/MasterData/saveMedicationData',
   baseurlDiagnosisMasterDataSave:'http://localhost:64913/api/MasterData/saveDiagnosisData',
   baseurlAllergyMasterDataSave:'http://localhost:64913/api/MasterData/saveAllergyData',
+  baseurlForgetPassword : "http://localhost:21072/api/Forget",
+  baseurlPatientDetails: 'http://localhost:43945/api/getpatient/',
+  basrurlGetNurseById: "http://localhost:43945/api/Nurse/getnurse",
+
 };
 
 /*

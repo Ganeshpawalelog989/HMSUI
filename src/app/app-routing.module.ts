@@ -142,6 +142,7 @@ const routes: Routes = [
   {
     path : 'bookappoinemnt' , component : AppointmentDeleteComponent
  },
+ {path: 'forget',component: ForgotPasswordComponent},
 
 {path:'change-password',  component:ChangePasswordComponent},
 
@@ -152,13 +153,9 @@ const routes: Routes = [
 {
   path : 'adminpatientregister' , component : AdminpatientregistrationComponent
 },
-// {
-//   path : 'admin' , component : AdminComponent,
-//   children : [
-//     {path : 'patient' , component : PatientUserManagementComponent},
-//     {path : 'hospitalUser', component : HospitalUserComponent} 
-//   ] 
-// },
+{
+  path : 'forgot-password' , component : ForgotPasswordComponent
+},
 {
   path : 'patientvisit' , component : PatientVisitComponent
 }
