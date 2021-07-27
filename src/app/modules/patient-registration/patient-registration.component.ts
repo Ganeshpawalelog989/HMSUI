@@ -62,6 +62,7 @@ export class PatientRegistrationComponent implements OnInit {
 
       this.userServ.register(this.regiForm.value)
     .subscribe(data=>{
+      debugger;
       console.log(data);
       this.router.navigate(['/login']);
     },
@@ -76,6 +77,11 @@ export class PatientRegistrationComponent implements OnInit {
     this.submitted = false;
     this.regiForm.reset();
 }
+
+OnReset(){
+  this.router.navigate([''])
+}
+
 
   getAllData()
  {

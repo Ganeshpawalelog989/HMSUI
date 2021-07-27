@@ -20,14 +20,14 @@
     <tr *ngFor="let user of users">
 
       <td>
-        {{ user.PatientId }}
+        {{ user.patientId }}
       </td>
-      <td>{{ user.PatientName  }}</td>
-      <td>{{ user.Date }}</td>
-      <td>{{ user.status }}</td>
+      <td>{{ user.fname}}  {{ user.lname}}</td>
+      <td>{{ user.dob | date  }}</td>
+      
+     
       <td>
         
-          <button class=" btn" style="color: blue;" routerLink="patientvisit"> <mat-icon>forward</mat-icon> </button>
         <!-- <button  class="btn btn-primary" (click)="show(user.PatientId)" *ngIf="selectedPatient!==user.PatientId"  > Edit</button>
         -->
         <!-- <mat-radio-group aria-label="Select an option" *ngIf="selectedPatient===user.PatientId">
@@ -38,6 +38,9 @@
           
           </mat-radio-group> -->
       </td>
+      <!-- <button class=" btn" style="color: blue;" (click)="showDetailsForm(user.PatientId)"> <mat-icon>forward</mat-icon> </button> -->
+      <button class=" btn" style="color: blue;" routerLink="patientvisit"> <mat-icon>forward</mat-icon> </button>
+      <td></td>
     </tr>
     </tbody>
   </table>

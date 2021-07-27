@@ -11,6 +11,8 @@ import {EmailSend} from '../../Model/email-send';
   styleUrls: ['./forgot-password.component.scss']
 })
 export class ForgotPasswordComponent implements OnInit {
+  
+
 
   constructor(private fb: FormBuilder, 
     private router : Router,

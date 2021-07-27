@@ -8,9 +8,9 @@
     <mat-radio-group>
         <mat-label>Title</mat-label>&nbsp;&nbsp;&nbsp;
         <mat-radio-button value="1" color="primary">Mr.&nbsp;</mat-radio-button>  
-        <mat-radio-button value="1" color="primary">Ms.&nbsp;</mat-radio-button>  
-        <mat-radio-button value="2" color="accent">Mrs.&nbsp;</mat-radio-button>  
-        <mat-radio-button value="3" color="warn">Dr.&nbsp;</mat-radio-button>      
+        <mat-radio-button value="2" color="primary">Ms.&nbsp;</mat-radio-button>  
+        <mat-radio-button value="3" color="accent">Mrs.&nbsp;</mat-radio-button>  
+        <mat-radio-button value="4" color="warn">Dr.&nbsp;</mat-radio-button>      
     </mat-radio-group> 
     <br>
     <br>
@@ -58,7 +58,7 @@
          
           <!-- <input formControlName="email" matInput placeholder="Enter email address" required/>
            -->
-           <input  matInput formControlName="ContantNumber" type="contact" placeholder="email" required>
+           <input  matInput formControlName="ContantNumber" type="contact" placeholder="contact" required>
            <mat-error *ngIf="!regiForm.controls['ContantNumber'].valid">  Contact is required </mat-error> 
            <mat-icon matSuffix>contacts</mat-icon>
            
