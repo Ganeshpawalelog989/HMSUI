@@ -24,4 +24,4 @@ export class PatientDetails {
     public registrationDate : Date;
     public ssn  : string;
     public title  : string;
-  }
+  }  
